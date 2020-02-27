@@ -70,6 +70,7 @@ public class MovieActivity extends Activity {
             String title = null;
             String url = null;
             String summary = null;
+            String photo = null;
 
             // Checks whether the user set the preference to include summary text
             // SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -96,12 +97,13 @@ public class MovieActivity extends Activity {
             // Each entry is displayed in the UI as a link that optionally includes
             // a text summary.
 
+            /*
             for (Event entry : entries) {
                 Log.d("MovieActivity", "we got an entry");
                 // htmlString.append(entry.link);
                 // htmlString.append(" " + entry.title);
                 Log.d("MovieActivity", "title was " + entry.title);
-            }
+            } */
             return htmlString.toString();
         }
 
