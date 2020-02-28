@@ -52,6 +52,7 @@ public class MovieActivity extends Activity {
         @Override
         protected void onPostExecute(String result) {
             ArrayAdapter<Event> arrayAdapter = new ArrayAdapter<Event>(getApplicationContext(), R.layout.list_item, entries);
+            // CustomAdapter arrayAdapter = new CustomAdapter(getApplicationContext(), entries);
             listView.setAdapter(arrayAdapter);
             /*
             setContentView(R.layout.main);
