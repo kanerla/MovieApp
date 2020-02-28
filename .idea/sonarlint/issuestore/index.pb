@@ -9,3 +9,11 @@ f
 6app/src/main/java/com/example/xmlparser/XmlParser.java,9\9\991b4ac63741fe5147f2ba6ee3bc08aaadbca9cb
 j
 :app/src/main/java/com/example/xmlparser/MovieActivity.java,e\a\ea993d3eaf52a2bdd6dafd23896f19c7722056e0
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+[
++app/src/main/res/layout/activity_movies.xml,2\4\24f101ed9220fa130333885fac90c36bddf1f1a1
+j
+:app/src/main/java/com/example/xmlparser/CustomAdapter.java,9\b\9b7a0f5c0b76695c0bed6bbb21e41459dc4d0e22
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

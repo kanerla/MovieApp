@@ -63,8 +63,9 @@ public class XmlParser {
                 summary = readSummary(parser);
             } else if (name.equals("EventURL")) {
                 link = readLink(parser);
-            } else if (name.equals("EventSmallImagePortrait")) {
-                link = readURL(parser);
+            } else if (name.equals("Images")) {
+                photo = readURL(parser);
+                Log.d("XmlParser", "photo link was " + photo);
             } else {
                 skip(parser);
             }
@@ -96,12 +97,24 @@ public class XmlParser {
         return summary;
     }
 
-    // Processes summary tags in the feed.
+    // Processes URL tags in the feed.
     private String readURL(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "EventSmallImagePortrait");
-        String summary = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "EventSmallImagePortrait");
-        return summary;
+        parser.require(XmlPullParser.START_TAG, ns, "Images");
+        String photo = null;
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.getEventType() != XmlPullParser.START_TAG) {
+                continue;
+            }
+            String name = parser.getName();
+            if (name.equals("EventSmallImagePortrait")) {
+                parser.require(XmlPullParser.START_TAG, ns, "EventSmallImagePortrait");
+                photo = readText(parser);
+                parser.require(XmlPullParser.END_TAG, ns, "EventSmallImagePortrait");
+            } else {
+                skip(parser);
+            }
+        }
+        return photo;
     }
 
     // For the tags title and summary, extracts their text values.
