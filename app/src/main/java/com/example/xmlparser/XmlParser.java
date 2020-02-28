@@ -106,10 +106,10 @@ public class XmlParser {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals("EventSmallImageLandscape")) {
-                parser.require(XmlPullParser.START_TAG, ns, "EventSmallImageLandscape");
+            if (name.equals("EventSmallImagePortrait")) {
+                parser.require(XmlPullParser.START_TAG, ns, "EventSmallImagePortrait");
                 photo = readText(parser);
-                parser.require(XmlPullParser.END_TAG, ns, "EventSmallImageLandscape");
+                parser.require(XmlPullParser.END_TAG, ns, "EventSmallImagePortrait");
             } else {
                 skip(parser);
             }

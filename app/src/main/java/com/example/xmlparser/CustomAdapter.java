@@ -30,7 +30,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(CustomAdapter.ViewHolder viewHolder, int i) {
         viewHolder.title.setText(events.get(i).getTitle());
         Log.d("CustomAdapter", "Photo address: " + events.get(i).getPhoto());
-        Picasso.with(context).load("https://media.finnkino.fi/1012/Event_12808/landscape_small/AHiddenLife_444.jpg").fit().error(R.drawable.placeholder).into(viewHolder.picture);
+        Picasso.with(context).load(events.get(i).getPhoto()).fit().error(R.drawable.placeholder).into(viewHolder.picture);
         // Picasso.with(context).load(R.drawable.ahiddenlife).fit().error(R.drawable.placeholder).into(viewHolder.picture);
     }
 

@@ -6,8 +6,8 @@
     <ImageView
         android:id="@+id/picture"
         android:adjustViewBounds="true"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
         android:padding="5dp"/>
     <TextView
         android:id="@+id/listItem"

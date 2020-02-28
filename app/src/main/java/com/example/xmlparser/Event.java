@@ -10,7 +10,15 @@ public class Event {
         this.title = title;
         this.summary = summary;
         this.link = link;
-        this.photo = photo;
+        this.photo = changeToHttps(photo);
+    }
+
+    public String changeToHttps(String url) {
+        String master = url;
+        String target = "http";
+        String replacement = "https";
+        String processed = master.replace(target, replacement);
+        return processed;
     }
 
     public String getLink() {

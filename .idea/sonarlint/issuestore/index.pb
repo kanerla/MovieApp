@@ -17,3 +17,7 @@ j
 :app/src/main/java/com/example/xmlparser/CustomAdapter.java,9\b\9b7a0f5c0b76695c0bed6bbb21e41459dc4d0e22
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+U
+%app/src/main/res/layout/list_item.xml,0\e\0e2dbde10fa21a69e5da23f2681513bb29e1a4c4
