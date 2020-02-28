@@ -13,6 +13,22 @@ public class Event {
         this.photo = photo;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
     @Override
     public String toString() {
         return title + "\n" + summary;
