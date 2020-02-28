@@ -27,7 +27,7 @@ public class MovieActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
-        listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.recycler_view);
         loadPage();
     }
 

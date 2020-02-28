@@ -1,8 +1,10 @@
 
-isquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(ë‚µŠ8ç¬ò±ˆ.
-Osquid:S1481B",Remove this unused "summary" local variable.(Â°Á§úÿÿÿÿ8ªŽ¶±ˆ.
-Ksquid:S1481A"(Remove this unused "url" local variable.(Ìó—×øÿÿÿÿ8ªŽ¶±ˆ.
-isquid:CommentedOutCodeLine2"<This block of commented-out lines of code should be removed.(¶¬ûð8í¯À±ˆ.
-qsquid:S1192&"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8èý±ˆ.
-Msquid:S1481@"*Remove this unused "title" local variable.(Å—‚›ýÿÿÿÿ8ªŽ¶±ˆ.
-nsquid:CommentedOutCodeLine^"<This block of commented-out lines of code should be removed.(ÏÈáôýÿÿÿÿ8™±©²ˆ.
+nsquid:CommentedOutCodeLinee"<This block of commented-out lines of code should be removed.(Ðú™úÿÿÿÿ8Ÿ·÷½ˆ.
+qsquid:S1192+"NDefine a constant instead of duplicating this literal "MovieActivity" 5 times.(ßê®Ñúÿÿÿÿ8èý±ˆ.
+Hsquid:S1481I"*Remove this unused "photo" local variable.(íø¤º8‘Éõ½ˆ.
+|squid:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(öò‹´ûÿÿÿÿ8†«…¼ˆ.
+Ksquid:S1481G"(Remove this unused "url" local variable.(Ìó—×øÿÿÿÿ8ªŽ¶±ˆ.
+Msquid:S1481F"*Remove this unused "title" local variable.(Å—‚›ýÿÿÿÿ8ªŽ¶±ˆ.
+isquid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(ë‚µŠ8ç¬ò±ˆ.
+Osquid:S1481H",Remove this unused "summary" local variable.(Â°Á§úÿÿÿÿ8ªŽ¶±ˆ.
+isquid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(¶¬ûð8í¯À±ˆ.
