@@ -126,8 +126,10 @@ public class MovieActivity extends AppCompatActivity {
             conn.setConnectTimeout(15000 /* milliseconds */);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
+            Log.d("MovieActivity", "all good in the hood");
             // Starts the query
             conn.connect();
+            Log.d("MovieActivity", "conn.connect says: No adapter attached; skipping layout");
             return conn.getInputStream();
         }
     }
