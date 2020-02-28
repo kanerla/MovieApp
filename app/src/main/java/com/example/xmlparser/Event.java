@@ -1,10 +1,10 @@
 package com.example.xmlparser;
 
 public class Event {
-    public final String title;
-    public final String link;
-    public final String summary;
-    public final String photo;
+    private String title;
+    private String link;
+    private String summary;
+    private String photo;
 
     public Event(String title, String summary, String link, String photo) {
         this.title = title;

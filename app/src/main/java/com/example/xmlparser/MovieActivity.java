@@ -9,25 +9,33 @@ import android.util.Log;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class MovieActivity extends Activity {
+public class MovieActivity extends AppCompatActivity {
     private static final String URL = "https://www.finnkino.fi/xml/Events/";
-    private ListView listView;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter myAdapter;
+    private RecyclerView.LayoutManager layoutManager;
     List<Event> entries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
-        listView = (ListView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
         loadPage();
     }
 
@@ -51,9 +59,10 @@ public class MovieActivity extends Activity {
 
         @Override
         protected void onPostExecute(String result) {
-            ArrayAdapter<Event> arrayAdapter = new ArrayAdapter<Event>(getApplicationContext(), R.layout.list_item, entries);
-            // CustomAdapter arrayAdapter = new CustomAdapter(getApplicationContext(), entries);
-            listView.setAdapter(arrayAdapter);
+            // listassa on tavaraa
+            myAdapter = new CustomAdapter(getApplicationContext(), entries);
+            recyclerView.setAdapter(myAdapter);
+
             /*
             setContentView(R.layout.main);
             // Displays the HTML string in the UI via a WebView
@@ -92,10 +101,10 @@ public class MovieActivity extends Activity {
                 }
             }
 
-            // StackOverflowXmlParser returns a List (called "entries") of Entry objects.
-            // Each Entry object represents a single post in the XML feed.
-            // This section processes the entries list to combine each entry with HTML markup.
-            // Each entry is displayed in the UI as a link that optionally includes
+            // XmlParser returns a List (called "events") of Event objects.
+            // Each Event object represents a single movie in the XML feed.
+            // This section processes the events list to combine each event with HTML markup.
+            // Each event is displayed in the UI as a link that optionally includes
             // a text summary.
 
             /*
