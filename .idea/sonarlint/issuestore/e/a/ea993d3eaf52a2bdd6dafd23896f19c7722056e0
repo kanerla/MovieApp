@@ -1,14 +1,14 @@
 
+nsquid:CommentedOutCodeLineo"<This block of commented-out lines of code should be removed.(Ðú™úÿÿÿÿ8Ÿ·÷½ˆ.
+qsquid:S11923"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8èý±ˆ.
+isquid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(¶¬ûð8í¯À±ˆ.
+zsquid:S1450"\Remove the "layoutManager" field and declare it as a local variable in the relevant methods.(üÉÙ¼8÷Ë±×ˆ.
 isquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(ë‚µŠ8ç¬ò±ˆ.
-_squid:UselessImportCheck"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×8ÒÉ®×ˆ.
 Msquid:S1905!"/Remove this unnecessary cast to "RecyclerView".(¾àÔ¶8ÒË‡Øˆ.
-hsquid:UselessImportCheck
-"8Remove this unused import 'android.widget.ArrayAdapter'.( €ŠÑÿÿÿÿÿ8¥¿×ˆ.
 Msquid:S1481P"*Remove this unused "title" local variable.(Å—‚›ýÿÿÿÿ8ªŽ¶±ˆ.
 Hsquid:S1481S"*Remove this unused "photo" local variable.(íø¤º8‘Éõ½ˆ.
+_squid:UselessImportCheck"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×8ÒÉ®×ˆ.
 Osquid:S1481R",Remove this unused "summary" local variable.(Â°Á§úÿÿÿÿ8ªŽ¶±ˆ.
-isquid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(¶¬ûð8í¯À±ˆ.
-qsquid:S11923"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8èý±ˆ.
 Ksquid:S1481Q"(Remove this unused "url" local variable.(Ìó—×øÿÿÿÿ8ªŽ¶±ˆ.
-zsquid:S1450"\Remove the "layoutManager" field and declare it as a local variable in the relevant methods.(üÉÙ¼8÷Ë±×ˆ.
-nsquid:CommentedOutCodeLineo"<This block of commented-out lines of code should be removed.(Ðú™úÿÿÿÿ8Ÿ·÷½ˆ.
+hsquid:UselessImportCheck
+"8Remove this unused import 'android.widget.ArrayAdapter'.( €ŠÑÿÿÿÿÿ8¥¿×ˆ.

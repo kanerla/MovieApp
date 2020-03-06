@@ -1,8 +1,8 @@
 
+vsquid:S1192m"XDefine a constant instead of duplicating this literal "EventSmallImagePortrait" 3 times.(¾ûü8“í“Şˆ.
 lsquid:S1192@"IDefine a constant instead of duplicating this literal "EventURL" 3 times.(¥•§Âıÿÿÿÿ8Õ”Ÿ²ˆ.
-jsquid:S1301ˆ"KReplace this "switch" statement by "if" statements to increase readability.(öˆö8¥ıÿ½ˆ.
-qsquid:S1192>"NDefine a constant instead of duplicating this literal "ShortSynopsis" 3 times.(Œƒ–Éüÿÿÿÿ8õßŸ²ˆ.
-X"squid:SwitchLastCaseIsDefaultCheckˆ""Add a default case to this switch.(öˆö8¥ıÿ½ˆ.
-|squid:S1192m"YDefine a constant instead of duplicating this literal "EventSmallImageLandscape" 3 times.(×ˆšşÿÿÿÿ8–úæÚˆ.
 ~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ƒ×§øúÿÿÿÿ8Ôéé°ˆ.
+X"squid:SwitchLastCaseIsDefaultCheckˆ""Add a default case to this switch.(öˆö8¥ıÿ½ˆ.
+qsquid:S1192>"NDefine a constant instead of duplicating this literal "ShortSynopsis" 3 times.(Œƒ–Éüÿÿÿÿ8õßŸ²ˆ.
+jsquid:S1301ˆ"KReplace this "switch" statement by "if" statements to increase readability.(öˆö8¥ıÿ½ˆ.
 isquid:S1192<"FDefine a constant instead of duplicating this literal "Title" 3 times.(îÍ¥Ïıÿÿÿÿ8íŒ”²ˆ.
