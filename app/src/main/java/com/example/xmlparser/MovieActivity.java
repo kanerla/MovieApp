@@ -14,8 +14,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,16 +28,24 @@ public class MovieActivity extends AppCompatActivity {
     private RecyclerView.Adapter myAdapter;
     private RecyclerView.LayoutManager layoutManager;
     List<Event> entries;
+    FragmentManager manager;
+    FragmentTransaction transaction;
+    NowInTheatresFragment nit_fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
+        /*
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+         */
+
+        manager = getSupportFragmentManager();
+        transaction = manager.beginTransaction();
 
         loadPage();
     }
@@ -60,8 +71,21 @@ public class MovieActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             // listassa on tavaraa
+            /*
             myAdapter = new CustomAdapter(getApplicationContext(), entries);
             recyclerView.setAdapter(myAdapter);
+             */
+            ArrayList<Event> array = new ArrayList<Event>(entries);
+            Bundle bundle = new Bundle();
+            bundle.putParcelableArrayList("eventsArray", array);
+
+            nit_fragment = new NowInTheatresFragment();
+            nit_fragment.setArguments(bundle);
+
+            transaction.add(R.id.fragment_container, nit_fragment);
+            transaction.commit();
+
+            Log.d("transaction", "started");
 
             /*
             setContentView(R.layout.main);
