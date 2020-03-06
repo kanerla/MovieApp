@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.webkit.WebView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,14 +17,10 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MovieActivity extends AppCompatActivity {
     private static final String URL = "https://www.finnkino.fi/xml/Events/";
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter myAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     List<Event> entries;
     FragmentManager manager;
     FragmentTransaction transaction;
@@ -36,13 +30,6 @@ public class MovieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
-        /*
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-         */
 
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
@@ -71,10 +58,7 @@ public class MovieActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             // listassa on tavaraa
-            /*
-            myAdapter = new CustomAdapter(getApplicationContext(), entries);
-            recyclerView.setAdapter(myAdapter);
-             */
+
             ArrayList<Event> array = new ArrayList<Event>(entries);
             Bundle bundle = new Bundle();
             bundle.putParcelableArrayList("eventsArray", array);
@@ -130,14 +114,7 @@ public class MovieActivity extends AppCompatActivity {
             // This section processes the events list to combine each event with HTML markup.
             // Each event is displayed in the UI as a link that optionally includes
             // a text summary.
-
-            /*
-            for (Event entry : entries) {
-                Log.d("MovieActivity", "we got an entry");
-                // htmlString.append(entry.link);
-                // htmlString.append(" " + entry.title);
-                Log.d("MovieActivity", "title was " + entry.title);
-            } */
+            
             return htmlString.toString();
         }
 
