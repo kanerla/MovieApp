@@ -49,6 +49,8 @@ public class XmlParser {
     private Event readEntry(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "Event");
         String title = null;
+        String original = null;
+        String genres = null;
         String summary = null;
         String link = null;
         String photo = null;
@@ -59,6 +61,10 @@ public class XmlParser {
             String name = parser.getName();
             if (name.equals("Title")) {
                 title = readTitle(parser);
+            } else if (name.equals("OriginalTitle")) {
+                original = readOriginal(parser);
+            } else if (name.equals("Genres")) {
+                genres = readGenres(parser);
             } else if (name.equals("ShortSynopsis")) {
                 summary = readSummary(parser);
             } else if (name.equals("EventURL")) {
@@ -70,7 +76,7 @@ public class XmlParser {
                 skip(parser);
             }
         }
-        return new Event(title, summary, link, photo);
+        return new Event(title, original, genres, summary, link, photo);
     }
 
     // Processes title tags in the feed.
@@ -79,6 +85,22 @@ public class XmlParser {
         String title = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "Title");
         return title;
+    }
+
+    // Processes original title tags in the feed.
+    private String readOriginal(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "OriginalTitle");
+        String title = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "OriginalTitle");
+        return title;
+    }
+
+    // Processes original title tags in the feed.
+    private String readGenres(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "Genres");
+        String genres = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "Genres");
+        return genres;
     }
 
     // Processes link tags in the feed.
