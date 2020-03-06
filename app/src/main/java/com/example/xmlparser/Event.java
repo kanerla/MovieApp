@@ -5,12 +5,17 @@ import android.os.Parcelable;
 
 public class Event implements Parcelable {
     private String title;
+    private String original_title;
+    private int length;
+    private String genres;
     private String link;
     private String summary;
     private String photo;
 
-    public Event(String title, String summary, String link, String photo) {
+    public Event(String title, String original, String genres, String summary, String link, String photo) {
         this.title = title;
+        this.original_title = original;
+        this.genres = genres;
         this.summary = summary;
         this.link = link;
         this.photo = changeToHttps(photo);
@@ -18,6 +23,8 @@ public class Event implements Parcelable {
 
     public Event(Parcel in){
         this.title = in.readString();
+        this.original_title = in.readString();
+        this.genres = in.readString();
         this.link = in.readString();
         this.summary =  in.readString();
         this.photo = in.readString();
@@ -33,6 +40,14 @@ public class Event implements Parcelable {
 
     public String getLink() {
         return link;
+    }
+
+    public String getGenres() {
+        return genres;
+    }
+
+    public String getOriginal() {
+        return original_title;
     }
 
     public String getSummary() {
