@@ -1,6 +1,9 @@
 package com.example.xmlparser;
 
-public class Event {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Event implements Parcelable {
     private String title;
     private String link;
     private String summary;
@@ -11,6 +14,13 @@ public class Event {
         this.summary = summary;
         this.link = link;
         this.photo = changeToHttps(photo);
+    }
+
+    public Event(Parcel in){
+        this.title = in.readString();
+        this.link = in.readString();
+        this.summary =  in.readString();
+        this.photo = in.readString();
     }
 
     public String changeToHttps(String url) {
@@ -40,5 +50,26 @@ public class Event {
     @Override
     public String toString() {
         return title + "\n" + summary;
+    }
+
+    public static final Parcelable.Creator<Event> CREATOR
+            = new Parcelable.Creator<Event>() {
+        public Event createFromParcel(Parcel in) {
+            return new Event(in);
+        }
+
+        public Event[] newArray(int size) {
+            return new Event[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }
