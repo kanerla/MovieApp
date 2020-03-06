@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebView;
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
@@ -40,6 +41,20 @@ public class MovieActivity extends AppCompatActivity {
     // Uses AsyncTask to download the XML feed from the URL.
     public void loadPage() {
         new DownloadXmlTask().execute(URL);
+    }
+
+    public void showInfoDialog(int index) {
+        Bundle bundle = new Bundle();
+        bundle.putString("title", entries.get(index).getTitle());
+        bundle.putString("synopsis", entries.get(index).getSummary());
+        bundle.putString("original", entries.get(index).getOriginal());
+        bundle.putString("link", entries.get(index).getLink());
+        bundle.putString("genres", entries.get(index).getGenres());
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        MovieInfoDialogFragment movieinfo = new MovieInfoDialogFragment();
+        movieinfo.setArguments(bundle);
+        movieinfo.show(fragmentManager, "MovieInfo");
     }
 
     private class DownloadXmlTask extends AsyncTask<String, Void, String> {
@@ -114,7 +129,7 @@ public class MovieActivity extends AppCompatActivity {
             // This section processes the events list to combine each event with HTML markup.
             // Each event is displayed in the UI as a link that optionally includes
             // a text summary.
-            
+
             return htmlString.toString();
         }
 
