@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
 
     TextView title;
     TextView original_title;
+    TextView release;
     TextView length;
     TextView genres;
     TextView synopsis;
@@ -39,6 +41,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
         photo = view.findViewById(R.id.picture);
         title = view.findViewById(R.id.title);
         original_title = view.findViewById(R.id.original_title);
+        release = view.findViewById(R.id.release);
         length = view.findViewById(R.id.length);
         genres = view.findViewById(R.id.genres);
         synopsis = view.findViewById(R.id.synopsis);
@@ -54,12 +57,20 @@ public class MovieInfoDialogFragment extends DialogFragment {
         title.setText(mArgs.getString("title"));
         synopsis.setText(mArgs.getString("synopsis"));
         original_title.setText(mArgs.getString("original"));
+
+        String releaseTime = mArgs.getString("release");
+        String[] times = releaseTime.split("T", 2);
+        String releaseDate = times[0];
+        String[] dates = releaseDate.split("-", 5);
+
+        release.setText("Release Date: " + dates[2] + "/" + dates[1] + "/" + dates[0]);
+        Log.d("MovieInfoDialogFragment", "" + mArgs.getString("release"));
         length.setText("Length: " + mArgs.getString("length"));
         genres.setText(mArgs.getString("genres"));
         link.setClickable(true);
         link.setMovementMethod(LinkMovementMethod.getInstance());
-        String text = "<a href='" + mArgs.getString("link") + "'> See showtimes and buy tickets </a>";
-        link.setText(HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY));
+        String linkText = "<a href='" + mArgs.getString("link") + "'> See showtimes and buy tickets </a>";
+        link.setText(HtmlCompat.fromHtml(linkText, HtmlCompat.FROM_HTML_MODE_LEGACY));
     }
 
     @Override
