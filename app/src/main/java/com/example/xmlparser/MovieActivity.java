@@ -51,6 +51,7 @@ public class MovieActivity extends AppCompatActivity {
         bundle.putString("length", entries.get(index).getLength());
         bundle.putString("link", entries.get(index).getLink());
         bundle.putString("genres", entries.get(index).getGenres());
+        bundle.putString("photo", entries.get(index).getPhoto());
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         MovieInfoDialogFragment movieinfo = new MovieInfoDialogFragment();
@@ -74,8 +75,9 @@ public class MovieActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             // listassa on tavaraa
+            Log.d("Entries: ", "" + entries.size());
 
-            ArrayList<Event> array = new ArrayList<Event>(entries);
+            ArrayList<Event> array = new ArrayList<>(entries);
             Bundle bundle = new Bundle();
             bundle.putParcelableArrayList("eventsArray", array);
 
@@ -99,12 +101,8 @@ public class MovieActivity extends AppCompatActivity {
         private String loadXmlFromNetwork(String urlString) throws XmlPullParserException, IOException {
             InputStream stream = null;
             // Instantiate the parser
-            XmlParser stackOverflowXmlParser = new XmlParser();
+            XmlParser xmlParser = new XmlParser();
             entries = null;
-            String title = null;
-            String url = null;
-            String summary = null;
-            String photo = null;
 
             // Checks whether the user set the preference to include summary text
             // SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -114,7 +112,8 @@ public class MovieActivity extends AppCompatActivity {
 
             try {
                 stream = downloadUrl(urlString);
-                entries = stackOverflowXmlParser.parse(stream);
+                entries = xmlParser.parse(stream);
+                Log.d("Entries 1: ", "" + entries.size());
                 // Makes sure that the InputStream is closed after the app is
                 // finished using it.
                 Log.d("MovieActivity", "Streamed and parsed");

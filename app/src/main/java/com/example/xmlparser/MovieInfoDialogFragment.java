@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -23,6 +26,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
     TextView genres;
     TextView synopsis;
     TextView link;
+    ImageView photo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +38,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Get field from view
+        photo = view.findViewById(R.id.picture);
         title = view.findViewById(R.id.title);
         original_title = view.findViewById(R.id.original_title);
         length = view.findViewById(R.id.length);
@@ -42,6 +47,11 @@ public class MovieInfoDialogFragment extends DialogFragment {
         link = view.findViewById(R.id.link);
 
         Bundle mArgs = getArguments();
+
+        if (mArgs.getString("photo") != null) {
+            Picasso.with(getContext()).load(mArgs.getString("photo")).fit().error(R.drawable.placeholder).into(photo);
+        }
+
         title.setText(mArgs.getString("title"));
         synopsis.setText(mArgs.getString("synopsis"));
         original_title.setText(mArgs.getString("original"));
