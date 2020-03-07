@@ -9,10 +9,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;
