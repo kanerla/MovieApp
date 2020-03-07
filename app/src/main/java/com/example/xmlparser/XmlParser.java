@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class XmlParser {
     private static final String ns = null;
@@ -57,6 +56,7 @@ public class XmlParser {
         String summary = null;
         String link = null;
         String photo = null;
+        String localRelease = null;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -68,10 +68,12 @@ public class XmlParser {
                 original = readTag(parser, "OriginalTitle");
             } else if (name.equals("LengthInMinutes")) {
                 length = readTag(parser, "LengthInMinutes");
+            } else if (name.equals("dtLocalRelease")) {
+                localRelease = readTag(parser, "dtLocalRelease");
             } else if (name.equals("Genres")) {
                 genres = readTag(parser, "Genres");
-            } else if (name.equals("ShortSynopsis")) {
-                summary = readTag(parser, "ShortSynopsis");
+            } else if (name.equals("Synopsis")) {               // MAKE THESE ShortSynopsis
+                summary = readTag(parser, "Synopsis");
             } else if (name.equals("EventURL")) {
                 link = readTag(parser, "EventURL");
             } else if (name.equals("Images")) {
@@ -81,7 +83,7 @@ public class XmlParser {
                 skip(parser);
             }
         }
-        return new Event(title, original, length, genres, summary, link, photo);
+        return new Event(title, original, length, localRelease, genres, summary, link, photo);
     }
 
     // Processes most tags in the feed.
