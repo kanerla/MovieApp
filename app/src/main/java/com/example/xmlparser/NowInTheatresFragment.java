@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import androidx.fragment.app.Fragment;
@@ -30,14 +33,16 @@ public class NowInTheatresFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.nowintheatres_fragment, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
+        entries = new ArrayList<>();
         Log.d("we got", "this far");
-        entries = getArguments().getParcelableArrayList("eventsArray");
+        List<Event> allEntries = getArguments().getParcelableArrayList("eventsArray");
+        moviesNowInTheatres(allEntries);
 
         myAdapter = new CustomAdapter(getContext(), entries);
         recyclerView.setAdapter(myAdapter);
@@ -45,6 +50,26 @@ public class NowInTheatresFragment extends Fragment {
         setHasOptionsMenu(true);
 
         return view;
+    }
+
+    public void moviesNowInTheatres(List<Event> events) {
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+        for (Event e : events) {
+            Log.d("Amount", "1");
+            String release = e.getReleaseDate();
+            Date releaseDate = new Date();
+            try {
+                releaseDate = sdf.parse(release);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            if (releaseDate.getTime() - now.getTime() < 0) {
+                Log.d("Movies", e.getTitle());
+                entries.add(e);
+            }
+        }
     }
 
     @Override
