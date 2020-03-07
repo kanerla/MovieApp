@@ -45,6 +45,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
         title.setText(mArgs.getString("title"));
         synopsis.setText(mArgs.getString("synopsis"));
         original_title.setText(mArgs.getString("original"));
+        length.setText("Length: " + mArgs.getString("length"));
         genres.setText(mArgs.getString("genres"));
         link.setClickable(true);
         link.setMovementMethod(LinkMovementMethod.getInstance());

@@ -48,6 +48,7 @@ public class MovieActivity extends AppCompatActivity {
         bundle.putString("title", entries.get(index).getTitle());
         bundle.putString("synopsis", entries.get(index).getSummary());
         bundle.putString("original", entries.get(index).getOriginal());
+        bundle.putString("length", entries.get(index).getLength());
         bundle.putString("link", entries.get(index).getLink());
         bundle.putString("genres", entries.get(index).getGenres());
 
