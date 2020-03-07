@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class XmlParser {
     private static final String ns = null;
@@ -43,6 +44,7 @@ public class XmlParser {
                 skip(parser);
             }
         }
+        Log.d("entries size in parser: ", "" + entries.size());
         return entries;
     }
 
@@ -73,7 +75,7 @@ public class XmlParser {
             } else if (name.equals("EventURL")) {
                 link = readTag(parser, "EventURL");
             } else if (name.equals("Images")) {
-                photo = readURL(parser);
+                photo = readURL(parser, "EventSmallImagePortrait");
                 Log.d("XmlParser", "photo link was " + photo);
             } else {
                 skip(parser);
@@ -91,7 +93,7 @@ public class XmlParser {
     }
 
     // Processes URL tags in the feed.
-    private String readURL(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private String readURL(XmlPullParser parser, String image) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "Images");
         String photo = null;
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -99,10 +101,10 @@ public class XmlParser {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals("EventSmallImagePortrait")) {
-                parser.require(XmlPullParser.START_TAG, ns, "EventSmallImagePortrait");
+            if (name.equals(image)) {
+                parser.require(XmlPullParser.START_TAG, ns, image);
                 photo = readText(parser);
-                parser.require(XmlPullParser.END_TAG, ns, "EventSmallImagePortrait");
+                parser.require(XmlPullParser.END_TAG, ns, image);
             } else {
                 skip(parser);
             }
