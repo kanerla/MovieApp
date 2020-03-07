@@ -3,6 +3,7 @@ package com.example.xmlparser;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
         length = view.findViewById(R.id.length);
         genres = view.findViewById(R.id.genres);
         synopsis = view.findViewById(R.id.synopsis);
+        synopsis.setMovementMethod(new ScrollingMovementMethod());
         link = view.findViewById(R.id.link);
 
         Bundle mArgs = getArguments();
