@@ -5,19 +5,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> implements Filterable {
     Context context;
     List<Event> events;
+    List<Event> fullEvents;
 
     public CustomAdapter(Context context, List<Event> events) {
         this.context = context;
         this.events = events;
+        fullEvents = new ArrayList<>(events);
     }
 
     @Override
@@ -49,14 +55,48 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         return events.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return eventFilter;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView title;
         private ImageView picture;
         public ViewHolder(View view) {
             super(view);
 
-            title = (TextView)view.findViewById(R.id.listItem);
-            picture = (ImageView) view.findViewById(R.id.picture);
+            title = view.findViewById(R.id.listItem);
+            picture = view.findViewById(R.id.picture);
         }
     }
+
+    private Filter eventFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Event> filteredList = new ArrayList<>();
+
+            if(constraint == null || constraint.length() == 0) {
+                filteredList.addAll(fullEvents);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Event e : fullEvents) {
+                    if (e.getTitle().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(e);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            events.clear();
+            events.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
