@@ -1,5 +1,4 @@
 
-Gsquid:S1068	"*Remove this unused "length" private field.( Ÿ®x8µŒÀ‹.
-}squid:S00116"YRename this field "original_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢àÊ¤ıÿÿÿÿ8êß¦‹.
-~squid:S1488%"aImmediately return this expression instead of assigning it to the temporary variable "processed".(ûÑŞ)8•È‡Şˆ.
-¤squid:S1186W"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ú˜Í¤üÿÿÿÿ8š¿¯ıŠ.
+¤squid:S1186e"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ú˜Í¤üÿÿÿÿ8Æ·¹¤‹.
+}squid:S00116"YRename this field "original_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢àÊ¤ıÿÿÿÿ8Æ·¹¤‹.
+~squid:S1488'"aImmediately return this expression instead of assigning it to the temporary variable "processed".(ûÑŞ)8ïŠú¥‹.

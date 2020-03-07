@@ -29,3 +29,7 @@ Bapp/src/main/java/com/example/xmlparser/NowInTheatresFragment.java,f\a\facdca6
 .app/src/main/res/layout/movieinfo_fragment.xml,0\d\0d8c4a1f04faaf41403c761c988c8294bfe96cd4
 t
 Dapp/src/main/java/com/example/xmlparser/MovieInfoDialogFragment.java,2\a\2ac365806f297cc063197ac81241babcb3f921cc
+W
+'app/src/main/res/drawable/ic_search.xml,f\1\f147bc5a18c943e2202ab4271561325af3e75237
+U
+%app/src/main/res/menu/search_menu.xml,3\9\399f1b64335ccbe1c1ca82e09a7574204d36c489

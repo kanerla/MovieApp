@@ -11,11 +11,13 @@ public class Event implements Parcelable {
     private String link;
     private String summary;
     private String photo;
+    private String release;
 
-    public Event(String title, String original, String length, String genres, String summary, String link, String photo) {
+    public Event(String title, String original, String length, String releaseDate, String genres, String summary, String link, String photo) {
         this.title = title;
         this.original_title = original;
         this.length = convertLength(length);
+        this.release = releaseDate;
         this.genres = genres;
         this.summary = summary;
         this.link = link;
@@ -26,6 +28,7 @@ public class Event implements Parcelable {
         this.title = in.readString();
         this.original_title = in.readString();
         this.length = in.readString();
+        this.release = in.readString();
         this.genres = in.readString();
         this.link = in.readString();
         this.summary =  in.readString();
@@ -50,6 +53,10 @@ public class Event implements Parcelable {
 
     public String getLength() {
         return length;
+    }
+
+    public String getReleaseDate() {
+        return release;
     }
 
     public String getOriginal() {

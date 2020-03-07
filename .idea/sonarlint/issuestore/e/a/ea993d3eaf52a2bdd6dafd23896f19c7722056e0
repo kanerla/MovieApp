@@ -1,12 +1,5 @@
 
-vsquid:UselessImportCheck"FRemove this unused import 'androidx.recyclerview.widget.RecyclerView'.(Îèòçøÿÿÿÿ8§õºýŠ.
-Hsquid:S1481j"*Remove this unused "photo" local variable.(íø¤º8†™ä€‹.
-Ksquid:S1481h"(Remove this unused "url" local variable.(Ìó—×øÿÿÿÿ8ªŽ¶±ˆ.
-isquid:CommentedOutCodeLineZ"<This block of commented-out lines of code should be removed.(¶¬ûð8†™ä€‹.
-Osquid:S1481i",Remove this unused "summary" local variable.(Â°Á§úÿÿÿÿ8ªŽ¶±ˆ.
-{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8‘“šüŠ.
-qsquid:S1192@"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8†™ä€‹.
-\squid:UselessImportCheck"1Remove this unused import 'android.app.Activity'.(‡ÊÍÆ8Ý¤¼ýŠ.
-isquid:CommentedOutCodeLinem"<This block of commented-out lines of code should be removed.(ë‚µŠ8†™ä€‹.
-|squid:S2293M"YReplace the type specification in this constructor call with the diamond operator ("<>").(œŒöƒûÿÿÿÿ8†™ä€‹.
-Msquid:S1481g"*Remove this unused "title" local variable.(Å—‚›ýÿÿÿÿ8ªŽ¶±ˆ.
+{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8–˜Ç¤‹.
+qsquid:S1192@"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8–˜Ç¤‹.
+isquid:CommentedOutCodeLinej"<This block of commented-out lines of code should be removed.(ë‚µŠ8–˜Ç¤‹.
+isquid:CommentedOutCodeLine["<This block of commented-out lines of code should be removed.(¶¬ûð8–˜Ç¤‹.
