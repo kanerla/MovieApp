@@ -1,14 +1,12 @@
 
-nsquid:CommentedOutCodeLineo"<This block of commented-out lines of code should be removed.(Ðú™úÿÿÿÿ8Ÿ·÷½ˆ.
-qsquid:S11923"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8èý±ˆ.
-isquid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(¶¬ûð8í¯À±ˆ.
-zsquid:S1450"\Remove the "layoutManager" field and declare it as a local variable in the relevant methods.(üÉÙ¼8÷Ë±×ˆ.
-isquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(ë‚µŠ8ç¬ò±ˆ.
-Msquid:S1905!"/Remove this unnecessary cast to "RecyclerView".(¾àÔ¶8ÒË‡Øˆ.
-Msquid:S1481P"*Remove this unused "title" local variable.(Å—‚›ýÿÿÿÿ8ªŽ¶±ˆ.
-Hsquid:S1481S"*Remove this unused "photo" local variable.(íø¤º8‘Éõ½ˆ.
-_squid:UselessImportCheck"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×8ÒÉ®×ˆ.
-Osquid:S1481R",Remove this unused "summary" local variable.(Â°Á§úÿÿÿÿ8ªŽ¶±ˆ.
-Ksquid:S1481Q"(Remove this unused "url" local variable.(Ìó—×øÿÿÿÿ8ªŽ¶±ˆ.
-hsquid:UselessImportCheck
-"8Remove this unused import 'android.widget.ArrayAdapter'.( €ŠÑÿÿÿÿÿ8¥¿×ˆ.
+vsquid:UselessImportCheck"FRemove this unused import 'androidx.recyclerview.widget.RecyclerView'.(Îèòçøÿÿÿÿ8§õºýŠ.
+Hsquid:S1481j"*Remove this unused "photo" local variable.(íø¤º8†™ä€‹.
+Ksquid:S1481h"(Remove this unused "url" local variable.(Ìó—×øÿÿÿÿ8ªŽ¶±ˆ.
+isquid:CommentedOutCodeLineZ"<This block of commented-out lines of code should be removed.(¶¬ûð8†™ä€‹.
+Osquid:S1481i",Remove this unused "summary" local variable.(Â°Á§úÿÿÿÿ8ªŽ¶±ˆ.
+{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8‘“šüŠ.
+qsquid:S1192@"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8†™ä€‹.
+\squid:UselessImportCheck"1Remove this unused import 'android.app.Activity'.(‡ÊÍÆ8Ý¤¼ýŠ.
+isquid:CommentedOutCodeLinem"<This block of commented-out lines of code should be removed.(ë‚µŠ8†™ä€‹.
+|squid:S2293M"YReplace the type specification in this constructor call with the diamond operator ("<>").(œŒöƒûÿÿÿÿ8†™ä€‹.
+Msquid:S1481g"*Remove this unused "title" local variable.(Å—‚›ýÿÿÿÿ8ªŽ¶±ˆ.

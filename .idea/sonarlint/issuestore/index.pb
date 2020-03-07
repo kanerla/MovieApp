@@ -21,3 +21,11 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 U
 %app/src/main/res/layout/list_item.xml,0\e\0e2dbde10fa21a69e5da23f2681513bb29e1a4c4
+b
+2app/src/main/res/layout/nowintheatres_fragment.xml,f\e\fe4ded5c8486738f768b081c31ca32ea222b5fa2
+r
+Bapp/src/main/java/com/example/xmlparser/NowInTheatresFragment.java,f\a\facdca68da063468de5f39f364b62d17513aee35
+^
+.app/src/main/res/layout/movieinfo_fragment.xml,0\d\0d8c4a1f04faaf41403c761c988c8294bfe96cd4
+t
+Dapp/src/main/java/com/example/xmlparser/MovieInfoDialogFragment.java,2\a\2ac365806f297cc063197ac81241babcb3f921cc

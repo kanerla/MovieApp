@@ -6,15 +6,16 @@ import android.os.Parcelable;
 public class Event implements Parcelable {
     private String title;
     private String original_title;
-    private int length;
+    private String length;
     private String genres;
     private String link;
     private String summary;
     private String photo;
 
-    public Event(String title, String original, String genres, String summary, String link, String photo) {
+    public Event(String title, String original, String length, String genres, String summary, String link, String photo) {
         this.title = title;
         this.original_title = original;
+        this.length = convertLength(length);
         this.genres = genres;
         this.summary = summary;
         this.link = link;
@@ -24,6 +25,7 @@ public class Event implements Parcelable {
     public Event(Parcel in){
         this.title = in.readString();
         this.original_title = in.readString();
+        this.length = in.readString();
         this.genres = in.readString();
         this.link = in.readString();
         this.summary =  in.readString();
@@ -46,6 +48,10 @@ public class Event implements Parcelable {
         return genres;
     }
 
+    public String getLength() {
+        return length;
+    }
+
     public String getOriginal() {
         return original_title;
     }
@@ -60,6 +66,14 @@ public class Event implements Parcelable {
 
     public String getTitle() {
         return title;
+    }
+
+    public String convertLength(String minutes) {
+        int minInt = Integer.parseInt(minutes);
+        int hours = minInt / 60;
+        minInt = minInt % 60;
+
+        return hours + "h " + minInt + "min";
     }
 
     @Override
