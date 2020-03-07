@@ -41,15 +41,15 @@ public class MovieActivity extends AppCompatActivity {
         new DownloadXmlTask().execute(URL);
     }
 
-    public void showInfoDialog(int index) {
+    public void showInfoDialog(Event e) {
         Bundle bundle = new Bundle();
-        bundle.putString("title", entries.get(index).getTitle());
-        bundle.putString("synopsis", entries.get(index).getSummary());
-        bundle.putString("original", entries.get(index).getOriginal());
-        bundle.putString("length", entries.get(index).getLength());
-        bundle.putString("link", entries.get(index).getLink());
-        bundle.putString("genres", entries.get(index).getGenres());
-        bundle.putString("photo", entries.get(index).getPhoto());
+        bundle.putString("title", e.getTitle());
+        bundle.putString("synopsis", e.getSummary());
+        bundle.putString("original", e.getOriginal());
+        bundle.putString("length", e.getLength());
+        bundle.putString("link", e.getLink());
+        bundle.putString("genres", e.getGenres());
+        bundle.putString("photo", e.getPhoto());
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         MovieInfoDialogFragment movieinfo = new MovieInfoDialogFragment();

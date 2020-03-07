@@ -34,20 +34,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(final CustomAdapter.ViewHolder viewHolder, int i) {
-        final int index = i;
         viewHolder.title.setText(events.get(i).getTitle());
         Log.d("CustomAdapter", "Photo address: " + events.get(i).getPhoto());
         Picasso.with(context).load(events.get(i).getPhoto()).fit().error(R.drawable.placeholder).into(viewHolder.picture);
         // Picasso.with(context).load(R.drawable.ahiddenlife).fit().error(R.drawable.placeholder).into(viewHolder.picture);
-
-        viewHolder.title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // ((MovieActivity)context).replaceFragment(fragment); where fragment should probably be the name of this
-                Log.d("CustomAdapter", viewHolder.title.getText() + " was clicked");
-                ((MovieActivity)context).showInfoDialog(index);
-            }
-        });
     }
 
     @Override
@@ -68,6 +58,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
             title = view.findViewById(R.id.listItem);
             picture = view.findViewById(R.id.picture);
+
+            title.setOnClickListener((View v) -> {
+                // ((MovieActivity)context).replaceFragment(fragment); where fragment should probably be the name of this
+                Log.d("CustomAdapter", title.getText() + " was clicked");
+                ((MovieActivity)context).showInfoDialog(events.get(getAdapterPosition()));
+            });
         }
     }
 
