@@ -50,6 +50,7 @@ public class XmlParser {
         parser.require(XmlPullParser.START_TAG, ns, "Event");
         String title = null;
         String original = null;
+        String length = null;
         String genres = null;
         String summary = null;
         String link = null;
@@ -60,15 +61,17 @@ public class XmlParser {
             }
             String name = parser.getName();
             if (name.equals("Title")) {
-                title = readTitle(parser);
+                title = readTag(parser, "Title");
             } else if (name.equals("OriginalTitle")) {
-                original = readOriginal(parser);
+                original = readTag(parser, "OriginalTitle");
+            } else if (name.equals("LengthInMinutes")) {
+                length = readTag(parser, "LengthInMinutes");
             } else if (name.equals("Genres")) {
-                genres = readGenres(parser);
+                genres = readTag(parser, "Genres");
             } else if (name.equals("ShortSynopsis")) {
-                summary = readSummary(parser);
+                summary = readTag(parser, "ShortSynopsis");
             } else if (name.equals("EventURL")) {
-                link = readLink(parser);
+                link = readTag(parser, "EventURL");
             } else if (name.equals("Images")) {
                 photo = readURL(parser);
                 Log.d("XmlParser", "photo link was " + photo);
@@ -76,47 +79,15 @@ public class XmlParser {
                 skip(parser);
             }
         }
-        return new Event(title, original, genres, summary, link, photo);
+        return new Event(title, original, length, genres, summary, link, photo);
     }
 
-    // Processes title tags in the feed.
-    private String readTitle(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "Title");
-        String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "Title");
-        return title;
-    }
-
-    // Processes original title tags in the feed.
-    private String readOriginal(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "OriginalTitle");
-        String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "OriginalTitle");
-        return title;
-    }
-
-    // Processes original title tags in the feed.
-    private String readGenres(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "Genres");
-        String genres = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "Genres");
-        return genres;
-    }
-
-    // Processes link tags in the feed.
-    private String readLink(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "EventURL");
-        String link = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "EventURL");
-        return link;
-    }
-
-    // Processes summary tags in the feed.
-    private String readSummary(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "ShortSynopsis");
-        String summary = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "ShortSynopsis");
-        return summary;
+    // Processes most tags in the feed.
+    private String readTag(XmlPullParser parser, String name) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, name);
+        String content = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, name);
+        return content;
     }
 
     // Processes URL tags in the feed.
