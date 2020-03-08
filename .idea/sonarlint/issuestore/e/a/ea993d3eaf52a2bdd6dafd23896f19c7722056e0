@@ -1,5 +1,8 @@
 
-{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8–˜Ç¤‹.
-qsquid:S1192@"NDefine a constant instead of duplicating this literal "MovieActivity" 7 times.(ßê®Ñúÿÿÿÿ8–˜Ç¤‹.
-isquid:CommentedOutCodeLinej"<This block of commented-out lines of code should be removed.(ë‚µŠ8–˜Ç¤‹.
-isquid:CommentedOutCodeLine["<This block of commented-out lines of code should be removed.(¶¬ûð8–˜Ç¤‹.
+isquid:CommentedOutCodeLineo"<This block of commented-out lines of code should be removed.(ë‚µŠ8–˜Ç¤‹.
+lsquid:S11925"NDefine a constant instead of duplicating this literal "MovieActivity" 8 times.(Ë³©ÿ8–˜Ç¤‹.
+Vsquid:UselessImportCheck"+Remove this unused import 'java.util.Date'.(¸…¼ü8©Åýµ‹.
+isquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(¶¬ûð8–˜Ç¤‹.
+Zsquid:UselessImportCheck"/Remove this unused import 'java.util.Calendar'.(ÿÛö´8åÝžµ‹.
+bsquid:UselessImportCheck"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8©Åýµ‹.
+{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8–˜Ç¤‹.
