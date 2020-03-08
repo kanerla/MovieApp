@@ -28,7 +28,7 @@ public class ComingSoonFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.nowintheatres_fragment, container, false);
+        View view = inflater.inflate(R.layout.movie_list_fragment, container, false);
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
