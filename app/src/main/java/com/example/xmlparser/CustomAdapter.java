@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -83,6 +85,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     }
                 }
             }
+            // sort by release date
+            // sortList(filteredList);
             FilterResults results = new FilterResults();
             results.values = filteredList;
             return results;
@@ -93,6 +97,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             events.clear();
             events.addAll((List)results.values);
             notifyDataSetChanged();
+        }
+
+        // sort list by release date (default = a -> z)
+        protected void sortList(List<Event> filteredList) {
+            Collections.sort(filteredList, new Comparator() {
+                @Override
+                public int compare(Object one, Object two) {
+                    //use instanceof to verify the references are indeed of the type in question
+                    return ((Event)one).getReleaseDate()
+                            .compareTo(((Event)two).getReleaseDate());
+                }
+            });
         }
     };
 }
