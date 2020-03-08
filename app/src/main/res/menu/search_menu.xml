@@ -6,6 +6,11 @@
         android:title="Search"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="android.widget.SearchView">
-
     </item>
+
+    <item
+        android:id="@+id/mymovies"
+        android:icon="@drawable/ic_account_circle"
+        android:title="My Movies"
+        app:showAsAction="ifRoom"/>
 </menu>

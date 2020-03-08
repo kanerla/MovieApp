@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -13,10 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -29,13 +27,19 @@ public class MovieActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction transaction;
     NowInTheatresFragment nit_fragment;
-    ComingSoonFragment cs_fragment;
     Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
+
+        /*
+        // show item on the left side
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator( R.drawable.ic_home);
+        // remove/show title of the app
+        getSupportActionBar().setDisplayShowTitleEnabled(true); */
 
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
@@ -106,6 +110,28 @@ public class MovieActivity extends AppCompatActivity {
 
         super.onBackPressed();
     } */
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.search:
+                // User chose the "Search" item...
+                Log.d("MovieActivity", "search was clicked");
+                return true;
+
+            case R.id.mymovies:
+                // User chose the "Account" action...
+                Log.d("MovieActivity", "mymovies was clicked");
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
     private class DownloadXmlTask extends AsyncTask<String, Void, String> {
         @Override
