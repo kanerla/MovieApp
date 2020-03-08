@@ -1,5 +1,6 @@
 package com.example.xmlparser;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -123,6 +124,7 @@ public class MovieActivity extends AppCompatActivity {
             case R.id.mymovies:
                 // User chose the "Account" action...
                 Log.d("MovieActivity", "mymovies was clicked");
+                goToPersonalPage();
                 return true;
 
             default:
@@ -131,6 +133,11 @@ public class MovieActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    public void goToPersonalPage() {
+        Intent i = new Intent(this, PersonalActivity.class);
+        startActivity(i);
     }
 
     private class DownloadXmlTask extends AsyncTask<String, Void, String> {
