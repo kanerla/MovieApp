@@ -1,14 +1,10 @@
 package com.example.xmlparser;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -23,6 +19,10 @@ public class PersonalActivity extends AppCompatActivity {
 
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
+
+        Fragment fragment = new WatchlistFragment();
+        transaction.add(R.id.personal_fragment_container, fragment);
+        transaction.commit();
 
         /*
         Button back = findViewById(R.id.finnkino);
