@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebView;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -18,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -27,6 +29,8 @@ public class MovieActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction transaction;
     NowInTheatresFragment nit_fragment;
+    ComingSoonFragment cs_fragment;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,47 @@ public class MovieActivity extends AppCompatActivity {
         movieinfo.show(fragmentManager, "MovieInfo");
     }
 
+    public void switchFragments(View v) {
+        manager = getSupportFragmentManager();
+        Fragment fragment = manager.findFragmentById(R.id.fragment_container);
+        if (fragment instanceof NowInTheatresFragment) {
+            fragment = new ComingSoonFragment();
+        } else {
+            fragment = new NowInTheatresFragment();
+        }
+
+        fragment.setArguments(bundle);
+
+        /* CREATES ONE COPY OF FRAGMENT TO BACKSTACK --> back button opens previous fragment
+        String backStateName = fragment.getClass().getName();
+        boolean fragmentPopped = manager.popBackStackImmediate (backStateName, 0);
+
+        if (!fragmentPopped){ //fragment not in back stack, create it.
+            transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.addToBackStack(backStateName);
+            transaction.commit();
+        } */
+
+        transaction = manager.beginTransaction();
+
+        transaction.replace(R.id.fragment_container, fragment);
+        // transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    /*
+    @Override
+    public void onBackPressed() {
+        int fragments = getSupportFragmentManager().getBackStackEntryCount();
+        if (fragments == 1) {
+            finish();
+            return;
+        }
+
+        super.onBackPressed();
+    } */
+
     private class DownloadXmlTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -81,7 +126,7 @@ public class MovieActivity extends AppCompatActivity {
             Log.d("Entries: ", "" + entries.size());
 
             ArrayList<Event> array = new ArrayList<>(entries);
-            Bundle bundle = new Bundle();
+            bundle = new Bundle();
             bundle.putParcelableArrayList("eventsArray", array);
 
             nit_fragment = new NowInTheatresFragment();

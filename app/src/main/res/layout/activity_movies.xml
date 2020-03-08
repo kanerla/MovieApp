@@ -13,13 +13,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Now in theatres"></Button>
+            android:text="Now in theatres"
+            android:onClick="switchFragments"></Button>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Coming soon"></Button>
+            android:text="Coming soon"
+            android:onClick="switchFragments"></Button>
 
     </LinearLayout>
 
