@@ -57,7 +57,6 @@ public class NowInTheatresFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
         for (Event e : events) {
-            Log.d("Amount", "1");
             String release = e.getReleaseDate();
             Date releaseDate = new Date();
             try {

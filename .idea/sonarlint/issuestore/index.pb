@@ -21,8 +21,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 U
 %app/src/main/res/layout/list_item.xml,0\e\0e2dbde10fa21a69e5da23f2681513bb29e1a4c4
-b
-2app/src/main/res/layout/nowintheatres_fragment.xml,f\e\fe4ded5c8486738f768b081c31ca32ea222b5fa2
 r
 Bapp/src/main/java/com/example/xmlparser/NowInTheatresFragment.java,f\a\facdca68da063468de5f39f364b62d17513aee35
 ^
@@ -33,3 +31,7 @@ W
 'app/src/main/res/drawable/ic_search.xml,f\1\f147bc5a18c943e2202ab4271561325af3e75237
 U
 %app/src/main/res/menu/search_menu.xml,3\9\399f1b64335ccbe1c1ca82e09a7574204d36c489
+o
+?app/src/main/java/com/example/xmlparser/ComingSoonFragment.java,8\3\83285fbbef4116a00305b720f0ac7cf26a226cb8
+_
+/app/src/main/res/layout/movie_list_fragment.xml,2\2\22494c91c89ce05923b7617106d08519cc263f02
