@@ -10,10 +10,10 @@ public class Event implements Parcelable {
     private String genres;
     private String link;
     private String summary;
-    private String photo;
+    private String photo = "photo";
     private String release;
 
-    public Event(String title, String original, String length, String releaseDate, String genres, String summary, String link, String photo) {
+    public Event(String title, String original, String length, String releaseDate, String genres, String summary, String link) { // + string photo
         this.title = title;
         this.original_title = original;
         this.length = convertLength(length);
@@ -21,7 +21,7 @@ public class Event implements Parcelable {
         this.genres = genres;
         this.summary = summary;
         this.link = link;
-        this.photo = changeToHttps(photo);
+        // this.photo = changeToHttps(photo);
     }
 
     public Event(Parcel in){
@@ -32,7 +32,7 @@ public class Event implements Parcelable {
         this.genres = in.readString();
         this.link = in.readString();
         this.summary =  in.readString();
-        this.photo = in.readString();
+        // this.photo = in.readString();
     }
 
     public String changeToHttps(String url) {
