@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".PersonalActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:label="My Movies" >
         </activity>
     </application>
 

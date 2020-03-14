@@ -35,3 +35,17 @@ o
 ?app/src/main/java/com/example/xmlparser/ComingSoonFragment.java,8\3\83285fbbef4116a00305b720f0ac7cf26a226cb8
 _
 /app/src/main/res/layout/movie_list_fragment.xml,2\2\22494c91c89ce05923b7617106d08519cc263f02
+_
+/app/src/main/res/drawable/ic_account_circle.xml,8\2\82c2b4a74a8240386e2436e6e397dfa9c2da8ee3
+U
+%app/src/main/res/drawable/ic_home.xml,c\5\c5445f28ae0c24fabcaa711d9ddb8ab37d4e0e9a
+W
+'app/src/main/res/menu/personal_menu.xml,c\3\c3931ec0ddfa59e59a97bcdfffc9493e24c60c7a
+^
+.app/src/main/res/layout/watchlist_fragment.xml,6\d\6dd3d1fe5f07c3b5e4dc9ef377eb207652b546cf
+m
+=app/src/main/java/com/example/xmlparser/PersonalActivity.java,3\1\3195b8cf232a587a59b63db0d3efd1bc6df86517
+]
+-app/src/main/res/layout/activity_personal.xml,4\a\4a500c9a59f00b18d03a9996024908a95dee1100
+n
+>app/src/main/java/com/example/xmlparser/WatchlistFragment.java,5\4\5486edb4c42e8975444550dc27966c0edc302e46

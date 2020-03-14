@@ -1,3 +1,5 @@
 
-hsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(¶•8äØÄ«‹.
-5squid:S21765"Rename this class.(Â×žÖúÿÿÿÿ8äØÄ«‹.
+5squid:S21767"Rename this class.(Â×žÖúÿÿÿÿ8äØÄ«‹.
+hsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(¶•8äØÄ«‹.
+isquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(¥Œ8¿×ÅÍ‹.
+Fsquid:S1604h"(Make this anonymous inner class a lambda(°Ï¦Ž8þ¢›Í‹.

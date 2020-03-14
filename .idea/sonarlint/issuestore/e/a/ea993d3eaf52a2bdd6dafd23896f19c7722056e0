@@ -1,13 +1,10 @@
 
-Vsquid:UselessImportCheck"+Remove this unused import 'java.util.Date'.(¸…¼ü8©Åıµ‹.
-hsquid:HiddenFieldCheck4":Rename "bundle" which hides the field declared at line 33.(Èı¢ùÿÿÿÿ8úÒíÇ‹.
-{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8–˜Ç¤‹.
-nsquid:CommentedOutCodeLined"<This block of commented-out lines of code should be removed.(œƒƒ©ùÿÿÿÿ8ŒšÏÈ‹.
-jsquid:CommentedOutCodeLineœ"<This block of commented-out lines of code should be removed.(ë‚µŠ8ŒšÏÈ‹.
-lsquid:S11929"NDefine a constant instead of duplicating this literal "MovieActivity" 8 times.(Ë³©ÿ8–˜Ç¤‹.
-bsquid:UselessImportCheck"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8©Åıµ‹.
-jsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¶¬ûğ8ŒšÏÈ‹.
-usquid:S00116 "VRename this field "cs_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ÍÕß8Å–ÛÇ‹.
-isquid:CommentedOutCodeLine^"<This block of commented-out lines of code should be removed.(İù¾Ò8¬„É‹.
-Zsquid:UselessImportCheck"/Remove this unused import 'java.util.Calendar'.(ÿÛö´8åİµ‹.
-isquid:CommentedOutCodeLineQ"<This block of commented-out lines of code should be removed.(äıßÁ8İê‚É‹.
+nsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(ıóæâøÿÿÿÿ8è¬ØÎ‹.
+hsquid:HiddenFieldCheck9":Rename "bundle" which hides the field declared at line 31.(Èı¢ùÿÿÿÿ8ÍÄØÎ‹.
+nsquid:CommentedOutCodeLinei"<This block of commented-out lines of code should be removed.(œƒƒ©ùÿÿÿÿ8ŒšÏÈ‹.
+jsquid:CommentedOutCodeLine½"<This block of commented-out lines of code should be removed.(ë‚µŠ8ŒšÏÈ‹.
+msquid:S1192>"ODefine a constant instead of duplicating this literal "MovieActivity" 10 times.(Ë³©ÿ8–˜Ç¤‹.
+jsquid:CommentedOutCodeLine®"<This block of commented-out lines of code should be removed.(¶¬ûğ8ŒšÏÈ‹.
+isquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(äıßÁ8ÍÄØÎ‹.
+isquid:CommentedOutCodeLinec"<This block of commented-out lines of code should be removed.(İù¾Ò8¬„É‹.
+{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8–˜Ç¤‹.
