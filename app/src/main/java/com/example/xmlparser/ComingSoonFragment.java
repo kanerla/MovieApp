@@ -35,10 +35,13 @@ public class ComingSoonFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
+        entries = getArguments().getParcelableArrayList("comingArray");
+        /*
         entries = new ArrayList<>();
         Log.d("we got", "this far");
         List<Event> allEntries = getArguments().getParcelableArrayList("eventsArray");
         moviesComingSoon(allEntries);
+        */
 
         myAdapter = new CustomAdapter(getContext(), entries);
         recyclerView.setAdapter(myAdapter);

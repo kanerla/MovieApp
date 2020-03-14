@@ -39,10 +39,13 @@ public class NowInTheatresFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
+        entries = getArguments().getParcelableArrayList("eventsArray");
+        /*
         entries = new ArrayList<>();
         Log.d("we got", "this far");
         List<Event> allEntries = getArguments().getParcelableArrayList("eventsArray");
         moviesNowInTheatres(allEntries);
+        */
 
         myAdapter = new CustomAdapter(getContext(), entries);
         recyclerView.setAdapter(myAdapter);
