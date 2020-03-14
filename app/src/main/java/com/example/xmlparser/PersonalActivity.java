@@ -20,7 +20,7 @@ public class PersonalActivity extends AppCompatActivity {
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
 
-        Fragment fragment = new WatchlistFragment();
+        Fragment fragment = new SeenFragment();
         transaction.add(R.id.personal_fragment_container, fragment);
         transaction.commit();
 
@@ -32,5 +32,27 @@ public class PersonalActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    public void switchToSeen(View v) {
+        manager = getSupportFragmentManager();
+        Fragment fragment = new SeenFragment();
+        // fragment.setArguments(comingbundle);
+
+        transaction = manager.beginTransaction();
+
+        transaction.replace(R.id.personal_fragment_container, fragment);
+        transaction.commit();
+    }
+
+    public void switchToWatchList(View v) {
+        manager = getSupportFragmentManager();
+        Fragment fragment = new WatchlistFragment();
+        // fragment.setArguments(comingbundle);
+
+        transaction = manager.beginTransaction();
+
+        transaction.replace(R.id.personal_fragment_container, fragment);
+        transaction.commit();
     }
 }

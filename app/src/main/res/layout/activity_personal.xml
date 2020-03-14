@@ -13,13 +13,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Seen"></Button>
+            android:text="Seen"
+            android:onClick="switchToSeen"></Button>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Watchlist"></Button>
+            android:text="Watchlist"
+            android:onClick="switchToWatchList"></Button>
 
     </LinearLayout>
 
