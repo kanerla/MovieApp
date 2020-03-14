@@ -24,11 +24,13 @@ public class PersonalActivity extends AppCompatActivity {
         transaction.add(R.id.personal_fragment_container, fragment);
         transaction.commit();
 
-        /*
-        Button back = findViewById(R.id.finnkino);
-        back.setOnClickListener((View v) -> {
-            finish();
-        });
-        */
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
