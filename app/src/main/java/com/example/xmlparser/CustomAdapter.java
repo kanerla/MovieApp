@@ -105,8 +105,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 @Override
                 public int compare(Object one, Object two) {
                     //use instanceof to verify the references are indeed of the type in question
-                    return ((Event)one).getReleaseDate()
-                            .compareTo(((Event)two).getReleaseDate());
+                    return ((Event)one).getRelease()
+                            .compareTo(((Event)two).getRelease());
                 }
             });
         }

@@ -1,14 +1,11 @@
 package com.example.xmlparser;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
@@ -66,9 +63,9 @@ public class MovieActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("title", e.getTitle());
         bundle.putString("synopsis", e.getSummary());
-        bundle.putString("original", e.getOriginal());
-        bundle.putString("release", e.getReleaseDate());
-        Log.d("MovieActivity", "Release date: " + e.getReleaseDate());
+        bundle.putString("original", e.getOriginalTitle());
+        bundle.putString("release", e.getRelease());
+        Log.d("MovieActivity", "Release date: " + e.getRelease());
         bundle.putString("length", e.getLength());
         bundle.putString("link", e.getLink());
         bundle.putString("genres", e.getGenres());

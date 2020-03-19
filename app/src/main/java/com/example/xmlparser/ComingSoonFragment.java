@@ -12,7 +12,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,7 +55,7 @@ public class ComingSoonFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
         for (Event e : events) {
-            String release = e.getReleaseDate();
+            String release = e.getRelease();
             Date releaseDate = new Date();
             try {
                 releaseDate = sdf.parse(release);
