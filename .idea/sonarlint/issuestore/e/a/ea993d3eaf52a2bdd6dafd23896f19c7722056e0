@@ -1,10 +1,12 @@
 
-nsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(ýóæâøÿÿÿÿ8è¬ØÎ‹.
-hsquid:HiddenFieldCheck9":Rename "bundle" which hides the field declared at line 31.(Èý¢ùÿÿÿÿ8ÍÄØÎ‹.
-nsquid:CommentedOutCodeLinei"<This block of commented-out lines of code should be removed.(œƒƒ©ùÿÿÿÿ8ŒšÏÈ‹.
-jsquid:CommentedOutCodeLine½"<This block of commented-out lines of code should be removed.(ë‚µŠ8ŒšÏÈ‹.
-msquid:S1192>"ODefine a constant instead of duplicating this literal "MovieActivity" 10 times.(Ë³©ÿ8–˜Ç¤‹.
-jsquid:CommentedOutCodeLine®"<This block of commented-out lines of code should be removed.(¶¬ûð8ŒšÏÈ‹.
-isquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(äýßÁ8ÍÄØÎ‹.
-isquid:CommentedOutCodeLinec"<This block of commented-out lines of code should be removed.(Ýù¾Ò8¬„É‹.
-{squid:S00116"WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8–˜Ç¤‹.
+jsquid:CommentedOutCodeLine¼"<This block of commented-out lines of code should be removed.(¶¬ûð8›Ë§È.
+{squid:S00116 "WRename this field "nit_fragment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª…ÅÔúÿÿÿÿ8–˜Ç¤‹.
+jsquid:CommentedOutCodeLine–"<This block of commented-out lines of code should be removed.(ë‚µŠ8›Ë§È.
+nsquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(ýóæâøÿÿÿÿ8è¬ØÎ‹.
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‹“ö‹ýÿÿÿÿ8¶¨›Ç.
+hsquid:HiddenFieldCheckB":Rename "bundle" which hides the field declared at line 33.(Èý¢ùÿÿÿÿ8ÍÄØÎ‹.
+isquid:CommentedOutCodeLinef"<This block of commented-out lines of code should be removed.(Ýù¾Ò8¥×¦È.
+nsquid:CommentedOutCodeLinew"<This block of commented-out lines of code should be removed.(œƒƒ©ùÿÿÿÿ8›Ë§È.
+jsquid:CommentedOutCodeLineË"<This block of commented-out lines of code should be removed.(ë‚µŠ8›Ë§È.
+msquid:S1192G"ODefine a constant instead of duplicating this literal "MovieActivity" 14 times.(Ë³©ÿ8–˜Ç¤‹.
+isquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(äýßÁ8¥×¦È.

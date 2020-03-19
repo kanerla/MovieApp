@@ -2,37 +2,47 @@ package com.example.xmlparser;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class Event implements Parcelable {
+    @PrimaryKey
+    public int id;
+
     private String title;
-    private String original_title;
+    private String originalTitle;
     private String length;
     private String genres;
     private String link;
     private String summary;
-    private String photo = "photo";
+    private String photo;
     private String release;
 
-    public Event(String title, String original, String length, String releaseDate, String genres, String summary, String link) { // + string photo
+    public Event() {
+
+    }
+
+    public Event(String title, String original, String length, String releaseDate, String genres, String summary, String link, String photo) {
         this.title = title;
-        this.original_title = original;
+        this.originalTitle = original;
         this.length = convertLength(length);
         this.release = releaseDate;
         this.genres = genres;
         this.summary = summary;
         this.link = link;
-        // this.photo = changeToHttps(photo);
+        this.photo = changeToHttps(photo);
     }
 
     public Event(Parcel in){
         this.title = in.readString();
-        this.original_title = in.readString();
+        this.originalTitle = in.readString();
         this.length = in.readString();
         this.release = in.readString();
         this.genres = in.readString();
         this.link = in.readString();
         this.summary =  in.readString();
-        // this.photo = in.readString();
+        this.photo = in.readString();
     }
 
     public String changeToHttps(String url) {
@@ -55,12 +65,12 @@ public class Event implements Parcelable {
         return length;
     }
 
-    public String getReleaseDate() {
+    public String getRelease() {
         return release;
     }
 
-    public String getOriginal() {
-        return original_title;
+    public String getOriginalTitle() {
+        return originalTitle;
     }
 
     public String getSummary() {
@@ -73,6 +83,38 @@ public class Event implements Parcelable {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public void setRelease(String release) {
+        this.release = release;
+    }
+
+    public void setGenres(String genres) {
+        this.genres = genres;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String convertLength(String minutes) {

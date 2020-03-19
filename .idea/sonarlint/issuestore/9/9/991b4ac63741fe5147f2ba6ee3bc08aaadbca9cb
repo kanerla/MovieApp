@@ -1,4 +1,8 @@
 
 ~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ƒ×§øúÿÿÿÿ8ØÑå¤‹.
-jsquid:S1301…"KReplace this "switch" statement by "if" statements to increase readability.(öˆö8Çıœ¥‹.
-X"squid:SwitchLastCaseIsDefaultCheck…""Add a default case to this switch.(öˆö8Çıœ¥‹.
+jsquid:S1301‡"KReplace this "switch" statement by "if" statements to increase readability.(öˆö8Çıœ¥‹.
+Hsquid:S1481;"*Remove this unused "photo" local variable.(íø¤º8ä«îÇ.
+]squid:UnusedPrivateMethodd",Remove this unused private "readURL" method.(ÄˆÎ´øÿÿÿÿ8ç·ìÇ.
+isquid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(™ÒË…8ä«îÇ.
+X"squid:SwitchLastCaseIsDefaultCheck‡""Add a default case to this switch.(öˆö8Çıœ¥‹.
+isquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(‰å¢8ç·ìÇ.
