@@ -11,8 +11,6 @@ j
 :app/src/main/java/com/example/xmlparser/MovieActivity.java,e\a\ea993d3eaf52a2bdd6dafd23896f19c7722056e0
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-[
-+app/src/main/res/layout/activity_movies.xml,2\4\24f101ed9220fa130333885fac90c36bddf1f1a1
 j
 :app/src/main/java/com/example/xmlparser/CustomAdapter.java,9\b\9b7a0f5c0b76695c0bed6bbb21e41459dc4d0e22
 @
@@ -27,8 +25,6 @@ t
 Dapp/src/main/java/com/example/xmlparser/MovieInfoDialogFragment.java,2\a\2ac365806f297cc063197ac81241babcb3f921cc
 W
 'app/src/main/res/drawable/ic_search.xml,f\1\f147bc5a18c943e2202ab4271561325af3e75237
-U
-%app/src/main/res/menu/search_menu.xml,3\9\399f1b64335ccbe1c1ca82e09a7574204d36c489
 o
 ?app/src/main/java/com/example/xmlparser/ComingSoonFragment.java,8\3\83285fbbef4116a00305b720f0ac7cf26a226cb8
 _
