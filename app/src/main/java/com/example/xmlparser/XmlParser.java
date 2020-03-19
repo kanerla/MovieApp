@@ -77,15 +77,16 @@ public class XmlParser {
                 summary = readTag(parser, "Synopsis");
             } else if (name.equals("EventURL")) {
                 link = readTag(parser, "EventURL");
-            // } else if (name.equals("Images")) {
-            //    photo = readURL(parser, "EventSmallImagePortrait");
-            //    Log.d("XmlParser", "photo link was " + photo);
+            } else if (name.equals("Images")) {
+                photo = readURL(parser, "EventSmallImagePortrait");
+                Log.d("XmlParser", "photo link was " + photo);
             } else {
                 skip(parser);
             }
         }
-        // return new Event(title, original, length, localRelease, genres, summary, link, photo);
-        return new Event(title, original, length, localRelease, genres, summary, link);
+
+        return new Event(title, original, length, localRelease, genres, summary, link, photo);
+        // return new Event(title, original, length, localRelease, genres, summary, link);
     }
 
     // Processes most tags in the feed.
