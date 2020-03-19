@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/nit_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -17,6 +18,7 @@
             android:onClick="switchToNowInTheatres"></Button>
 
         <Button
+            android:id="@+id/cs_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

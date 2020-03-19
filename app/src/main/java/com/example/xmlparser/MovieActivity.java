@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
@@ -21,14 +22,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MovieActivity extends AppCompatActivity {
     private static final String URL = "https://www.finnkino.fi/xml/Events/";
-    private static final String ComingURL = "https://www.finnkino.fi/xml/Events/?listType=ComingSoon";
+    private static final String comingURL = "https://www.finnkino.fi/xml/Events/?listType=ComingSoon";
     List<Event> entries;
     List<Event> coming;
+    Button nitButton;
+    Button csButton;
     FragmentManager manager;
     FragmentTransaction transaction;
-    NowInTheatresFragment nit_fragment;
+    NowInTheatresFragment nitFragment;
     Bundle bundle;
-    Bundle comingbundle;
+    Bundle comingBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,10 @@ public class MovieActivity extends AppCompatActivity {
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
 
+        nitButton = findViewById(R.id.nit_button);
+        nitButton.setEnabled(false);
+        csButton = findViewById(R.id.cs_button);
+
         loadPage();
         loadComingPage();
     }
@@ -56,7 +63,7 @@ public class MovieActivity extends AppCompatActivity {
 
     // Uses AsyncTask to download the XML feed from the URL.
     public void loadComingPage() {
-        new DownloadComingXmlTask().execute(ComingURL);
+        new DownloadComingXmlTask().execute(comingURL);
     }
 
     public void showInfoDialog(Event e) {
@@ -72,9 +79,9 @@ public class MovieActivity extends AppCompatActivity {
         bundle.putString("photo", e.getPhoto());
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        MovieInfoDialogFragment movieinfo = new MovieInfoDialogFragment();
-        movieinfo.setArguments(bundle);
-        movieinfo.show(fragmentManager, "MovieInfo");
+        MovieInfoDialogFragment movieInfo = new MovieInfoDialogFragment();
+        movieInfo.setArguments(bundle);
+        movieInfo.show(fragmentManager, "MovieInfo");
     }
 
     public void switchToNowInTheatres(View v) {
@@ -98,17 +105,23 @@ public class MovieActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, fragment);
         // transaction.addToBackStack(null);
         transaction.commit();
+
+        v.setEnabled(false);
+        csButton.setEnabled(true);
     }
 
     public void switchToComingSoon(View v) {
         manager = getSupportFragmentManager();
         Fragment fragment = new ComingSoonFragment();
-        fragment.setArguments(comingbundle);
+        fragment.setArguments(comingBundle);
 
         transaction = manager.beginTransaction();
 
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
+
+        v.setEnabled(false);
+        nitButton.setEnabled(true);
     }
 
     /*
@@ -173,10 +186,10 @@ public class MovieActivity extends AppCompatActivity {
             bundle = new Bundle();
             bundle.putParcelableArrayList("eventsArray", array);
 
-            nit_fragment = new NowInTheatresFragment();
-            nit_fragment.setArguments(bundle);
+            nitFragment = new NowInTheatresFragment();
+            nitFragment.setArguments(bundle);
 
-            transaction.add(R.id.fragment_container, nit_fragment);
+            transaction.add(R.id.fragment_container, nitFragment);
             transaction.commit();
 
             Log.d("transaction", "started");
@@ -260,8 +273,8 @@ public class MovieActivity extends AppCompatActivity {
             Log.d("Coming Soon: ", "" + coming.size());
 
             ArrayList<Event> array = new ArrayList<>(coming);
-            comingbundle = new Bundle();
-            comingbundle.putParcelableArrayList("comingArray", array);
+            comingBundle = new Bundle();
+            comingBundle.putParcelableArrayList("comingArray", array);
         }
 
         // Uploads XML from the URL and parses it. Returns string.

@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/seen_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -17,6 +18,7 @@
             android:onClick="switchToSeen"></Button>
 
         <Button
+            android:id="@+id/watchlist_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
