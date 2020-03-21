@@ -28,8 +28,6 @@ W
 o
 ?app/src/main/java/com/example/xmlparser/ComingSoonFragment.java,8\3\83285fbbef4116a00305b720f0ac7cf26a226cb8
 _
-/app/src/main/res/layout/movie_list_fragment.xml,2\2\22494c91c89ce05923b7617106d08519cc263f02
-_
 /app/src/main/res/drawable/ic_account_circle.xml,8\2\82c2b4a74a8240386e2436e6e397dfa9c2da8ee3
 U
 %app/src/main/res/drawable/ic_home.xml,c\5\c5445f28ae0c24fabcaa711d9ddb8ab37d4e0e9a
@@ -41,8 +39,6 @@ n
 >app/src/main/java/com/example/xmlparser/WatchlistFragment.java,5\4\5486edb4c42e8975444550dc27966c0edc302e46
 i
 9app/src/main/java/com/example/xmlparser/SeenFragment.java,6\d\6d3a4cc8d4fdf794de7d4ce60653ef5686a4b6d2
-Y
-)app/src/main/res/layout/seen_fragment.xml,b\e\be5c3450944206a560ef766a9427705b3d53e0c9
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 e
