@@ -43,3 +43,15 @@ i
 9app/src/main/java/com/example/xmlparser/SeenFragment.java,6\d\6d3a4cc8d4fdf794de7d4ce60653ef5686a4b6d2
 Y
 )app/src/main/res/layout/seen_fragment.xml,b\e\be5c3450944206a560ef766a9427705b3d53e0c9
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+e
+5app/src/main/java/com/example/xmlparser/EventDao.java,d\8\d8fb8bd51986eb33d8b2a1595cb5c2dcaaf7aab9
+j
+:app/src/main/java/com/example/xmlparser/MovieDatabase.java,3\c\3c84dffddea7b68d4ff3e911e2a7f75fcd387149
+`
+0app/src/main/res/mipmap-anydpi-v26/ic_moviet.xml,7\c\7cd6b4adda0a635e6a3864b0994efc6091935d79
+f
+6app/src/main/res/mipmap-anydpi-v26/ic_moviet_round.xml,9\2\92d6231b222fbcf6379cfa4d7a0dbebd562aaa98
+b
+2app/src/main/res/drawable/ic_moviet_background.xml,5\1\51d9fd762fdfd59aced349bbc34705a63b7db3ec

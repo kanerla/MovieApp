@@ -1,5 +1,7 @@
 
-5squid:S21767"Rename this class.(Â×Öúÿÿÿÿ8äØÄ«‹.
-hsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(¶•8äØÄ«‹.
-Fsquid:S1604h"(Make this anonymous inner class a lambda(°Ï¦8ş¢›Í‹.
-isquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(¥Œ8¿×ÅÍ‹.
+X	java:S125Y"<This block of commented-out lines of code should be removed.(¥Œ8¢Ã™.
+E
+java:S1604h"(Make this anonymous inner class a lambda(°Ï¦8¢Ã™.
+s
+java:S1905C"VRemove this unnecessary cast to "org.sonar.java.resolve.Symbols$UnknownType@510536b7".(Á”Á8¢Ã™.
+W	java:S125*"<This block of commented-out lines of code should be removed.(¶•8¢Ã™.
