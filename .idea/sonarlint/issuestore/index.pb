@@ -17,8 +17,6 @@ j
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
-U
-%app/src/main/res/layout/list_item.xml,0\e\0e2dbde10fa21a69e5da23f2681513bb29e1a4c4
 r
 Bapp/src/main/java/com/example/xmlparser/NowInTheatresFragment.java,f\a\facdca68da063468de5f39f364b62d17513aee35
 t

@@ -2,15 +2,20 @@ package com.example.xmlparser;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "movie_table")
 public class Event implements Parcelable {
-    @PrimaryKey
-    public int id;
 
+    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "title")
     private String title;
+
     private String originalTitle;
     private String length;
     private String genres;
