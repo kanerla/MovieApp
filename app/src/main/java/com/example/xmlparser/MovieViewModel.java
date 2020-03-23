@@ -18,10 +18,20 @@ public class MovieViewModel extends AndroidViewModel {
         allEvents = repository.getAllEvents();
     }
 
+    /**
+     * Returns list of events in the repository.
+     *
+     * @return list of events in the repository.
+     */
     LiveData<List<Event>> getAllEvents() {
         return allEvents;
     }
 
+    /**
+     * Inserts new event to the repository.
+     *
+     * @param event event to be added to the repository.
+     */
     public void insert(Event event) {
         repository.insert(event);
     }

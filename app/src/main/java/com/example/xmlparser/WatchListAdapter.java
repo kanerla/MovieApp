@@ -44,13 +44,18 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         }
     }
 
+    /**
+     * Set events to the recyclerview and notify it about the changes.
+     *
+     * @param movies    list of events.
+     */
     void setEvents(List<Event> movies){
         events = movies;
         notifyDataSetChanged();
     }
 
     // getItemCount() is called many times, and when it is first called,
-    // mWords has not been updated (means initially, it's null, and we can't return null).
+    // events has not been updated (means initially, it's null, and we can't return null).
     @Override
     public int getItemCount() {
         if (events != null)

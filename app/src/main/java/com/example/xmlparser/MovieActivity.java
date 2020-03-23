@@ -151,6 +151,9 @@ public class MovieActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Start new PersonalActivity.
+     */
     public void goToPersonalPage() {
         Intent i = new Intent(this, PersonalActivity.class);
         startActivity(i);

@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * Start new MovieActivity.
+     *
+     * @param v view that triggers this action.
+     */
     public void loadPage(View v) {
         Intent i = new Intent(this, MovieActivity.class);
         startActivity(i);

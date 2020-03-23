@@ -41,6 +41,12 @@ public class PersonalActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Replace previous fragment in the fragment container with another.
+     * Disable view that triggered the action and enable other view(s).
+     *
+     * @param v view that triggers this action.
+     */
     public void switchToSeen(View v) {
         manager = getSupportFragmentManager();
         Fragment fragment = new SeenFragment();
@@ -55,6 +61,12 @@ public class PersonalActivity extends AppCompatActivity {
         watchlistButton.setEnabled(true);
     }
 
+    /**
+     * Replace previous fragment in the fragment container with another.
+     * Disable view that triggered the action and enable other view(s).
+     *
+     * @param v view that triggers this action.
+     */
     public void switchToWatchList(View v) {
         manager = getSupportFragmentManager();
         Fragment fragment = new WatchlistFragment();

@@ -58,6 +58,11 @@ public class Event implements Parcelable {
         return processed;
     }
 
+    /**
+     * Returns a link to event's associated web page.
+     *
+     * @return link to event's web page.
+     */
     public String getLink() {
         return link;
     }
@@ -66,6 +71,11 @@ public class Event implements Parcelable {
         return genres;
     }
 
+    /**
+     * Returns the length of the event.
+     *
+     * @return length of the event in string form.
+     */
     public String getLength() {
         return length;
     }
@@ -74,6 +84,11 @@ public class Event implements Parcelable {
         return release;
     }
 
+    /**
+     * Returns the original title of the event.
+     *
+     * @return original title of the event.
+     */
     public String getOriginalTitle() {
         return originalTitle;
     }
@@ -86,14 +101,29 @@ public class Event implements Parcelable {
         return photo;
     }
 
+    /**
+     * Returns title of the event.
+     *
+     * @return title of the event.
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Assigns title to the event.
+     *
+     * @param title title of the event.
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * Assigns original title to the event.
+     *
+     * @param originalTitle original title of the event.
+     */
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
     }
