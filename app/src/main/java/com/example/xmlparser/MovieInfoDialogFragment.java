@@ -102,8 +102,4 @@ public class MovieInfoDialogFragment extends DialogFragment {
         // Call super onResume after sizing
         super.onResume();
     }
-
-    public void addToWatchlist(View v) {
-        Log.d("Watch", "button clicked");
-    }
 }

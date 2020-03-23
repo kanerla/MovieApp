@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class WatchlistFragment extends Fragment {
     private RecyclerView recyclerView;
     private WatchListAdapter adapter;
-    private MovieViewModel mWordViewModel;
+    private MovieViewModel movieViewModel;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.watchlist_fragment, container, false);
 
-        mWordViewModel = ViewModelProviders.of(requireActivity()).get(MovieViewModel.class);
+        movieViewModel = ViewModelProviders.of(requireActivity()).get(MovieViewModel.class);
 
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -27,9 +27,9 @@ public class WatchlistFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mWordViewModel.getAllEvents().observe(this, words -> {
-            // Update the cached copy of the words in the adapter.
-            adapter.setEvents(words);
+        movieViewModel.getAllEvents().observe(this, movies -> {
+            // Update the cached copy of the events in the adapter.
+            adapter.setEvents(movies);
         });
 
         return view;

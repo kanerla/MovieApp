@@ -40,10 +40,8 @@ public abstract class MovieDatabase extends RoomDatabase {
 
             // If you want to keep data through app restarts,
             // comment out the following block
-
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
-                // If you want to start with more words, just add them.
                 EventDao dao = INSTANCE.eventDao();
                 dao.deleteAll();
 
