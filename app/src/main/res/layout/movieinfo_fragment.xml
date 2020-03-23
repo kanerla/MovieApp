@@ -84,6 +84,7 @@
 
             </Button>
             <Button
+                android:id="@+id/watchButton"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:text="Watchlist"
