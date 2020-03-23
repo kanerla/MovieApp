@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.MovieViewHolder> {
     class MovieViewHolder extends RecyclerView.ViewHolder {
-        private final TextView movieItemView;
+        private final TextView movieTitle;
+        private final TextView originalTitle;
 
         private MovieViewHolder(View itemView) {
             super(itemView);
-            movieItemView = itemView.findViewById(R.id.listItem);
+            movieTitle = itemView.findViewById(R.id.watchlist_title);
+            originalTitle = itemView.findViewById(R.id.watchlist_original);
         }
     }
 
@@ -29,7 +31,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.list_item, parent, false);
+        View itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
         return new MovieViewHolder(itemView);
     }
 
@@ -37,10 +39,11 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         if (events != null) {
             Event current = events.get(position);
-            holder.movieItemView.setText(current.getTitle());
+            holder.movieTitle.setText(current.getTitle());
+            holder.originalTitle.setText(current.getOriginalTitle());
         } else {
             // Covers the case of data not being ready yet.
-            holder.movieItemView.setText("No title found");
+            holder.movieTitle.setText("No title found");
         }
     }
 
