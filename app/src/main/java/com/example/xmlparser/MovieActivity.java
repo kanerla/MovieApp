@@ -68,15 +68,7 @@ public class MovieActivity extends AppCompatActivity {
 
     public void showInfoDialog(Event e) {
         Bundle bundle = new Bundle();
-        bundle.putString("title", e.getTitle());
-        bundle.putString("synopsis", e.getSummary());
-        bundle.putString("original", e.getOriginalTitle());
-        bundle.putString("release", e.getRelease());
-        Log.d("MovieActivity", "Release date: " + e.getRelease());
-        bundle.putString("length", e.getLength());
-        bundle.putString("link", e.getLink());
-        bundle.putString("genres", e.getGenres());
-        bundle.putString("photo", e.getPhoto());
+        bundle.putParcelable("movie", e);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         MovieInfoDialogFragment movieInfo = new MovieInfoDialogFragment();
