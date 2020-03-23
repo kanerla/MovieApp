@@ -15,6 +15,9 @@ public interface EventDao {
     @Query("SELECT * FROM movie_table")
     LiveData<List<Event>> getAll();
 
+    @Query("DELETE FROM movie_table")
+    void deleteAll();
+
     @Insert
     void insertAll(Event... events);
 
