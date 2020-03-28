@@ -12,8 +12,11 @@ import androidx.room.Query;
 @Dao
 public interface EventDao {
 
-    @Query("SELECT * FROM movie_table")
+    @Query("SELECT * FROM movie_table WHERE seen=0")
     LiveData<List<Event>> getAll();
+
+    @Query("SELECT * FROM movie_table WHERE seen=1")
+    LiveData<List<Event>> getAllSeen();
 
     @Query("DELETE FROM movie_table")
     void deleteAll();

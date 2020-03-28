@@ -87,6 +87,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
             public void onClick(View view) {
                 Log.d("Watch", "button was clicked");
                 movieViewModel.insert(thisEvent);
+                // thisEvent.setSeen(true);
             }
         });
     }

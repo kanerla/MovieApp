@@ -11,11 +11,13 @@ import androidx.lifecycle.LiveData;
 public class MovieViewModel extends AndroidViewModel {
     private MovieRepository repository;
     private LiveData<List<Event>> allEvents;
+    private LiveData<List<Event>> allSeen;
 
     public MovieViewModel(@NonNull Application application) {
         super(application);
         repository = new MovieRepository(application);
         allEvents = repository.getAllEvents();
+        allSeen = repository.getAllSeenEvents();
     }
 
     /**
@@ -27,6 +29,10 @@ public class MovieViewModel extends AndroidViewModel {
         return allEvents;
     }
 
+    LiveData<List<Event>> getAllSeenEvents() {
+        return allSeen;
+    }
+
     /**
      * Inserts new event to the repository.
      *
@@ -34,5 +40,9 @@ public class MovieViewModel extends AndroidViewModel {
      */
     public void insert(Event event) {
         repository.insert(event);
+    }
+
+    public void remove(Event event) {
+        repository.remove(event);
     }
 }
