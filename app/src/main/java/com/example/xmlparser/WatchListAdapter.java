@@ -47,7 +47,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         View itemView;
         if (fragment.equals("seenFragment")) {
             Log.d("Fragment", "was seen");
-            itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
+            itemView = inflater.inflate(R.layout.seen_item, parent, false);
         } else {
             itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
         }
@@ -82,6 +82,19 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
                 @Override
                 public void onClick(View v) {
                     movieViewModel.remove(current);
+                    expandedPosition = isExpanded ? -1:position;
+                }
+            });
+            holder.moveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (fragment.equals("seenFragment")) {
+                        current.setSeen(false);
+                    } else {
+                        current.setSeen(true);
+                    }
+                    Log.d("Seen?", "" + current.isSeen());
+                    movieViewModel.update(events);
                     expandedPosition = isExpanded ? -1:position;
                 }
             });

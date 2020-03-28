@@ -41,4 +41,10 @@ public class MovieRepository {
             eventDao.delete(event);
         });
     }
+
+    void update(List<Event> events) {
+        MovieDatabase.databaseWriteExecutor.execute(() -> {
+            eventDao.update(events);
+        });
+    }
 }

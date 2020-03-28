@@ -45,4 +45,8 @@ public class MovieViewModel extends AndroidViewModel {
     public void remove(Event event) {
         repository.remove(event);
     }
+
+    public void update(List<Event> events) {
+        repository.update(events);
+    }
 }

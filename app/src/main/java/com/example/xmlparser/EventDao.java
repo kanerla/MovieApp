@@ -8,6 +8,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface EventDao {
@@ -29,4 +30,7 @@ public interface EventDao {
 
     @Delete
     void delete(Event event);
+
+    @Update
+    public void update(List<Event> events);
 }
