@@ -19,6 +19,9 @@ public class Event implements Parcelable {
     @ColumnInfo(name = "seen")
     private boolean seen = false;
 
+    @ColumnInfo(name = "with")
+    private String with = "";
+
     private String originalTitle;
     private String length;
     private String genres;
@@ -111,6 +114,14 @@ public class Event implements Parcelable {
      */
     public String getTitle() {
         return title;
+    }
+
+    public String getWith() {
+        return with;
+    }
+
+    public void setWith(String with) {
+        this.with = with;
     }
 
     public boolean isSeen() {
