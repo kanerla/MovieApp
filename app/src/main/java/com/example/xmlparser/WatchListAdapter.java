@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.MovieViewHolder> {
@@ -31,9 +32,11 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     private List<Event> events; // Cached copy of events
     private int expandedPosition = -1;
     private int previouslyExpanded = -1;
+    private MovieViewModel movieViewModel;
 
     WatchListAdapter(Context context) {
         inflater = LayoutInflater.from(context);
+        movieViewModel = ViewModelProviders.of((PersonalActivity) context).get(MovieViewModel.class);
     }
 
     @Override
@@ -66,6 +69,13 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             Event current = events.get(position);
             holder.movieTitle.setText(current.getTitle());
             holder.originalTitle.setText(current.getOriginalTitle());
+            holder.removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    movieViewModel.remove(current);
+                    expandedPosition = isExpanded ? -1:position;
+                }
+            });
         } else {
             // Covers the case of data not being ready yet.
             holder.movieTitle.setText("No title found");
