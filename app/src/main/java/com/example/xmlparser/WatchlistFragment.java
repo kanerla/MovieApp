@@ -23,11 +23,10 @@ public class WatchlistFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerview);
         // recyclerView.setHasFixedSize(true);
-        adapter = new WatchListAdapter(getContext());
+        adapter = new WatchListAdapter(getContext(), "watchlistFragment");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // getAllSeenEvents()
         movieViewModel.getAllEvents().observe(this, movies -> {
             // Update the cached copy of the events in the adapter.
             adapter.setEvents(movies);

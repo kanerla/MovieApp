@@ -1,6 +1,7 @@
 package com.example.xmlparser;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,15 +34,23 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     private int expandedPosition = -1;
     private int previouslyExpanded = -1;
     private MovieViewModel movieViewModel;
+    private String fragment;
 
-    WatchListAdapter(Context context) {
+    WatchListAdapter(Context context, String fragment) {
         inflater = LayoutInflater.from(context);
+        this.fragment = fragment;
         movieViewModel = ViewModelProviders.of((PersonalActivity) context).get(MovieViewModel.class);
     }
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
+        View itemView;
+        if (fragment.equals("seenFragment")) {
+            Log.d("Fragment", "was seen");
+            itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
+        } else {
+            itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
+        }
         return new MovieViewHolder(itemView);
     }
 
