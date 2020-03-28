@@ -21,8 +21,9 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         private final TextView originalTitle;
         private Button moveButton;
         private Button removeButton;
-        private LinearLayout with;
+        private LinearLayout extra;
         private EditText withInput;
+        private EditText whereInput;
         private Button saveButton;
 
         private MovieViewHolder(View itemView) {
@@ -31,8 +32,9 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             originalTitle = itemView.findViewById(R.id.watchlist_original);
             moveButton = itemView.findViewById(R.id.move_button);
             removeButton = itemView.findViewById(R.id.remove_button);
-            with = itemView.findViewById(R.id.with);
+            extra = itemView.findViewById(R.id.extra);
             withInput = itemView.findViewById(R.id.with_input);
+            whereInput = itemView.findViewById(R.id.where_input);
             saveButton = itemView.findViewById(R.id.save_seen);
         }
     }
@@ -69,7 +71,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         holder.removeButton.setVisibility(isExpanded?View.VISIBLE:View.GONE);
         holder.moveButton.setVisibility(isExpanded?View.VISIBLE:View.GONE);
         if (fragment.equals("seenFragment")) {
-            holder.with.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+            holder.extra.setVisibility(isExpanded?View.VISIBLE:View.GONE);
         }
         holder.itemView.setActivated(isExpanded);
 
@@ -91,10 +93,12 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             holder.originalTitle.setText(current.getOriginalTitle());
             if(fragment.equals("seenFragment")) {
                 holder.withInput.setText(current.getWith());
+                holder.whereInput.setText(current.getWhere());
                 holder.saveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         current.setWith(holder.withInput.getText().toString());
+                        current.setWhere(holder.whereInput.getText().toString());
                         movieViewModel.update(events);
                     }
                 });

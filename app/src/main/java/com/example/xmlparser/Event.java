@@ -19,6 +19,9 @@ public class Event implements Parcelable {
     @ColumnInfo(name = "seen")
     private boolean seen = false;
 
+    @ColumnInfo(name = "where")
+    private String where = "";
+
     @ColumnInfo(name = "with")
     private String with = "";
 
@@ -122,6 +125,14 @@ public class Event implements Parcelable {
 
     public void setWith(String with) {
         this.with = with;
+    }
+
+    public String getWhere() {
+        return where;
+    }
+
+    public void setWhere(String where) {
+        this.where = where;
     }
 
     public boolean isSeen() {
