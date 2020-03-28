@@ -22,7 +22,7 @@ public class WatchlistFragment extends Fragment {
         movieViewModel = ViewModelProviders.of(requireActivity()).get(MovieViewModel.class);
 
         recyclerView = view.findViewById(R.id.recyclerview);
-        recyclerView.setHasFixedSize(true);
+        // recyclerView.setHasFixedSize(true);
         adapter = new WatchListAdapter(getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
