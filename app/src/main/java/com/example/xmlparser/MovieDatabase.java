@@ -40,6 +40,7 @@ public abstract class MovieDatabase extends RoomDatabase {
 
             // If you want to keep data through app restarts,
             // comment out the following block
+            /*
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
                 EventDao dao = INSTANCE.eventDao();
@@ -50,8 +51,9 @@ public abstract class MovieDatabase extends RoomDatabase {
                 dao.insert(movie);
                 movie = new Event("Toinen mahdollisuus", "Second Chance", "180", "2020-02-20T00:00:00", "Komedia, jännitys", "There's always a second chance in life. But not in programming", "http://www.dropbox.com/", "http://media.finnkino.fi/1012/Event_12888/portrait_small/Elvis-ThatsTheWayItIs_1080.jpg");
                 dao.insert(movie);
-                 */
+
             });
+            */
         }
     };
 }
