@@ -6,9 +6,11 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to your personal seen list">
+        android:text="Welcome to your personal seen list"
+        android:visibility="gone">
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
