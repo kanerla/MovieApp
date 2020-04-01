@@ -25,6 +25,9 @@ public class Event implements Parcelable {
     @ColumnInfo(name = "with")
     private String with = "";
 
+    @ColumnInfo(name = "date")
+    private String date = "";
+
     private String originalTitle;
     private String length;
     private String genres;
@@ -32,7 +35,6 @@ public class Event implements Parcelable {
     private String summary;
     private String photo;
     private String release;
-    private String when = "";
 
     public Event() {
 
@@ -128,12 +130,12 @@ public class Event implements Parcelable {
         this.with = with;
     }
 
-    public String getWhen() {
-        return when;
+    public String getDate() {
+        return date;
     }
 
-    public void setWhen(String when) {
-        this.when = when;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getWhere() {

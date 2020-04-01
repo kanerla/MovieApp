@@ -175,7 +175,7 @@ public class MovieActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             // listassa on tavaraa
-            Log.d("Entries: ", "" + entries.size());
+            // Log.d("Entries: ", "" + entries.size());
 
             ArrayList<Event> array = new ArrayList<>(entries);
             bundle = new Bundle();
