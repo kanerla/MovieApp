@@ -67,7 +67,7 @@ public class MovieActivity extends AppCompatActivity {
     }
 
     public void showInfoDialog(Event e) {
-        Bundle bundle = new Bundle();
+        bundle = new Bundle();
         bundle.putParcelable("movie", e);
 
         FragmentManager fragmentManager = getSupportFragmentManager();

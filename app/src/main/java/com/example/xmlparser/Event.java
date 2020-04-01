@@ -62,12 +62,10 @@ public class Event implements Parcelable {
         this.photo = in.readString();
     }
 
-    public String changeToHttps(String url) {
-        String master = url;
+    private String changeToHttps(String url) {
         String target = "http";
         String replacement = "https";
-        String processed = master.replace(target, replacement);
-        return processed;
+        return url.replace(target, replacement);
     }
 
     /**
