@@ -14,16 +14,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Now in theatres"
-            android:onClick="switchToNowInTheatres"></Button>
+            android:text="@string/now"
+            android:onClick="switchToNowInTheatres" />
 
         <Button
             android:id="@+id/cs_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Coming soon"
-            android:onClick="switchToComingSoon"></Button>
+            android:text="@string/soon"
+            android:onClick="switchToComingSoon" />
 
     </LinearLayout>
 

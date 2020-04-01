@@ -14,16 +14,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Seen"
-            android:onClick="switchToSeen"></Button>
+            android:text="@string/seen"
+            android:onClick="switchToSeen" />
 
         <Button
             android:id="@+id/watchlist_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Watchlist"
-            android:onClick="switchToWatchList"></Button>
+            android:text="@string/watch"
+            android:onClick="switchToWatchList" />
 
     </LinearLayout>
 

@@ -17,14 +17,15 @@
             android:adjustViewBounds="true"
             android:layout_width="100dp"
             android:layout_height="150dp"
-            android:padding="5dp" />
+            android:padding="5dp"
+            android:contentDescription="@string/description" />
 
         <TextView
             android:id="@+id/title"
             android:layout_centerHorizontal="true"
             android:layout_toEndOf="@+id/picture"
             android:textStyle="bold"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -34,7 +35,7 @@
             android:layout_below="@+id/title"
             android:layout_toEndOf="@+id/picture"
             android:layout_centerHorizontal="true"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:paddingLeft="10dp"
             android:paddingBottom="15dp"
             android:layout_width="wrap_content"
@@ -79,16 +80,16 @@
                 android:id="@+id/seenButton"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
-                android:text="Seen"
-                android:textSize="9dp">
+                android:text="@string/seen"
+                android:textSize="9sp">
 
             </Button>
             <Button
                 android:id="@+id/watchButton"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
-                android:text="Watchlist"
-                android:textSize="9dp">
+                android:text="@string/watch"
+                android:textSize="9sp">
 
             </Button>
 
