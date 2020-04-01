@@ -33,10 +33,13 @@ public class SeenFragment extends Fragment {
 
         movieViewModel.getAllSeenEvents().observe(this, movies -> {
             // Update the cached copy of the events in the adapter.
-            adapter.setEvents(movies);
             if(movies.isEmpty()) {
                 welcome.setVisibility(View.VISIBLE);
+            } else {
+                //clumsy
+                welcome.setVisibility(View.GONE);
             }
+            adapter.setEvents(movies);
         });
 
         return view;
