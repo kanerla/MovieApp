@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -25,6 +26,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         private final TextView originalTitle;
         private Button moveButton;
         private Button removeButton;
+        private Button clearButton;
         private LinearLayout extra;
         private EditText withInput;
         private EditText whereInput;
@@ -37,6 +39,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             originalTitle = itemView.findViewById(R.id.watchlist_original);
             moveButton = itemView.findViewById(R.id.move_button);
             removeButton = itemView.findViewById(R.id.remove_button);
+            clearButton = itemView.findViewById(R.id.clear_date_button);
             extra = itemView.findViewById(R.id.extra);
             withInput = itemView.findViewById(R.id.with_input);
             whereInput = itemView.findViewById(R.id.where_input);
@@ -114,18 +117,27 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             if(fragment.equals("seenFragment")) {
                 holder.withInput.setText(current.getWith());
                 holder.whereInput.setText(current.getWhere());
+                holder.whenInput.setText(current.getDate());
                 holder.whenInput.setOnClickListener((View v) -> {
                     new DatePickerDialog(context, dateListener, currentTime
                             .get(Calendar.YEAR), currentTime.get(Calendar.MONTH),
                             currentTime.get(Calendar.DAY_OF_MONTH)).show();
                 });
-                updateDate(holder);
+                // updateDate(holder);
+                holder.clearButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        holder.whenInput.setText("");
+                        currentTime = Calendar.getInstance();
+                    }
+                });
+
                 holder.saveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         current.setWith(holder.withInput.getText().toString());
                         current.setWhere(holder.whereInput.getText().toString());
-                        // current.setWhen(holder.whenInput.getText().toString());
+                        current.setDate(holder.whenInput.getText().toString());
                         Log.d("Date is ", "" + holder.whenInput.getText().toString());
                         movieViewModel.update(events);
                     }
@@ -159,9 +171,10 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
 
     public void updateDate(MovieViewHolder holder) {
         String myFormat = "dd/MM/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat);
+        DateFormat sdf = new SimpleDateFormat(myFormat);
+        String seenDate = sdf.format(currentTime.getTime());
 
-        holder.whenInput.setText(sdf.format(currentTime.getTime()));
+        holder.whenInput.setText(seenDate);
     }
 
     /**
