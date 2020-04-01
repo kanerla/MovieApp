@@ -32,6 +32,7 @@ public class Event implements Parcelable {
     private String summary;
     private String photo;
     private String release;
+    private String when = "";
 
     public Event() {
 
@@ -125,6 +126,14 @@ public class Event implements Parcelable {
 
     public void setWith(String with) {
         this.with = with;
+    }
+
+    public String getWhen() {
+        return when;
+    }
+
+    public void setWhen(String when) {
+        this.when = when;
     }
 
     public String getWhere() {

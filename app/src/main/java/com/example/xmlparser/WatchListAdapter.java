@@ -1,15 +1,19 @@
 package com.example.xmlparser;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -24,6 +28,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         private LinearLayout extra;
         private EditText withInput;
         private EditText whereInput;
+        private EditText whenInput;
         private Button saveButton;
 
         private MovieViewHolder(View itemView) {
@@ -35,6 +40,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             extra = itemView.findViewById(R.id.extra);
             withInput = itemView.findViewById(R.id.with_input);
             whereInput = itemView.findViewById(R.id.where_input);
+            whenInput = itemView.findViewById(R.id.when_input);
             saveButton = itemView.findViewById(R.id.save_seen);
         }
     }
@@ -45,10 +51,13 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     private int previouslyExpanded = -1;
     private MovieViewModel movieViewModel;
     private String fragment;
+    private Calendar currentTime = Calendar.getInstance();
+    private Context context;
 
     WatchListAdapter(Context context, String fragment) {
         inflater = LayoutInflater.from(context);
         this.fragment = fragment;
+        this.context = context;
         movieViewModel = ViewModelProviders.of((PersonalActivity) context).get(MovieViewModel.class);
     }
 
@@ -66,6 +75,17 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
+        DatePickerDialog.OnDateSetListener dateListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                currentTime.set(Calendar.YEAR, year);
+                currentTime.set(Calendar.MONTH, monthOfYear);
+                currentTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateDate(holder);
+            }
+        };
+
         final boolean isExpanded = position==expandedPosition;
         // what I wanna show
         holder.removeButton.setVisibility(isExpanded?View.VISIBLE:View.GONE);
@@ -94,11 +114,19 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             if(fragment.equals("seenFragment")) {
                 holder.withInput.setText(current.getWith());
                 holder.whereInput.setText(current.getWhere());
+                holder.whenInput.setOnClickListener((View v) -> {
+                    new DatePickerDialog(context, dateListener, currentTime
+                            .get(Calendar.YEAR), currentTime.get(Calendar.MONTH),
+                            currentTime.get(Calendar.DAY_OF_MONTH)).show();
+                });
+                updateDate(holder);
                 holder.saveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         current.setWith(holder.withInput.getText().toString());
                         current.setWhere(holder.whereInput.getText().toString());
+                        // current.setWhen(holder.whenInput.getText().toString());
+                        Log.d("Date is ", "" + holder.whenInput.getText().toString());
                         movieViewModel.update(events);
                     }
                 });
@@ -127,6 +155,13 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             // Covers the case of data not being ready yet.
             holder.movieTitle.setText("No title found");
         }
+    }
+
+    public void updateDate(MovieViewHolder holder) {
+        String myFormat = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat);
+
+        holder.whenInput.setText(sdf.format(currentTime.getTime()));
     }
 
     /**
