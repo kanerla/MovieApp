@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">MovieT</string>
-    <string name="connection">Please make sure you are connected to the internet\nbefore continuing.</string>
+    <string name="connection">Tarkista laitteesi verkkoyhteys\nennen kuin jatkat pidemmälle.</string>
     <string name="go">Just keep swimming!</string>
-    <string name="now">Now in theatres</string>
-    <string name="soon">Coming soon</string>
-    <string name="seen">Seen</string>
-    <string name="watch">Watchlist</string>
-    <string name="description">Movie poster</string>
+    <string name="now">Ohjelmistossa nyt</string>
+    <string name="soon">Tulossa</string>
+    <string name="seen">Nähty</string>
+    <string name="watch">Katsottava</string>
+    <string name="description">Elokuvajuliste</string>
 </resources>

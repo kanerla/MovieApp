@@ -12,6 +12,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     boolean connected = false;
     ConnectivityManager connectivityManager;
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        Locale primaryLocale = getApplicationContext().getResources().getConfiguration().getLocales().get(0);
+        String locale = primaryLocale.getDisplayName();
+        Log.d("MainActivity", locale);
     }
 
     /**
