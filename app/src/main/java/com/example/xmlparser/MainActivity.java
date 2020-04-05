@@ -2,16 +2,27 @@ package com.example.xmlparser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    boolean connected = false;
+    ConnectivityManager connectivityManager;
+    NetworkInfo activeNetwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     /**
@@ -20,7 +31,24 @@ public class MainActivity extends AppCompatActivity {
      * @param v view that triggers this action.
      */
     public void loadPage(View v) {
-        Intent i = new Intent(this, MovieActivity.class);
-        startActivity(i);
+        activeNetwork = connectivityManager.getActiveNetworkInfo();
+        if (activeNetwork != null) {
+            connected = true;
+        } else {
+            connected = false;
+        }
+
+        if (connected) {
+            Intent i = new Intent(this, MovieActivity.class);
+            startActivity(i);
+        } else {
+            Log.d("MainActivity", "Not connected to the internet");
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Please connect to the internet and try again",
+                    Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+
     }
 }
