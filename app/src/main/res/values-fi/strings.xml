@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MovieT</string>
+    <string name="connection">Please make sure you are connected to the internet\nbefore continuing.</string>
+    <string name="go">Just keep swimming!</string>
+    <string name="now">Now in theatres</string>
+    <string name="soon">Coming soon</string>
+    <string name="seen">Seen</string>
+    <string name="watch">Watchlist</string>
+    <string name="description">Movie poster</string>
+</resources>
