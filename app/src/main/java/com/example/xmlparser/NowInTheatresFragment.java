@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -54,6 +53,7 @@ public class NowInTheatresFragment extends Fragment {
         return view;
     }
 
+    /*
     public void moviesNowInTheatres(List<Event> events) {
         Date now = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -72,6 +72,8 @@ public class NowInTheatresFragment extends Fragment {
             }
         }
     }
+
+     */
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater mInflater) {

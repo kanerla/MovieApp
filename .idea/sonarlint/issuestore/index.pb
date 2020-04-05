@@ -29,8 +29,6 @@ _
 /app/src/main/res/drawable/ic_account_circle.xml,8\2\82c2b4a74a8240386e2436e6e397dfa9c2da8ee3
 U
 %app/src/main/res/drawable/ic_home.xml,c\5\c5445f28ae0c24fabcaa711d9ddb8ab37d4e0e9a
-W
-'app/src/main/res/menu/personal_menu.xml,c\3\c3931ec0ddfa59e59a97bcdfffc9493e24c60c7a
 m
 =app/src/main/java/com/example/xmlparser/PersonalActivity.java,3\1\3195b8cf232a587a59b63db0d3efd1bc6df86517
 n
@@ -49,10 +47,6 @@ f
 6app/src/main/res/mipmap-anydpi-v26/ic_moviet_round.xml,9\2\92d6231b222fbcf6379cfa4d7a0dbebd562aaa98
 b
 2app/src/main/res/drawable/ic_moviet_background.xml,5\1\51d9fd762fdfd59aced349bbc34705a63b7db3ec
-R
-"app/src/main/res/values/styles.xml,f\7\f79cc2688e29fcbc286fda14ae07b27c9e83690f
-R
-"app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 l
 <app/src/main/java/com/example/xmlparser/MovieRepository.java,5\9\59a779159afe4e774d94575b24805da5f3568d56
 k

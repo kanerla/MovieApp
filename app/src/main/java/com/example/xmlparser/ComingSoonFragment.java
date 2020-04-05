@@ -10,11 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,6 +48,7 @@ public class ComingSoonFragment extends Fragment {
         return view;
     }
 
+    /*
     public void moviesComingSoon(List<Event> events) {
         Date now = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -68,6 +67,8 @@ public class ComingSoonFragment extends Fragment {
             }
         }
     }
+
+     */
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater mInflater) {
