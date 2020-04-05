@@ -28,6 +28,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         fullEvents = new ArrayList<>(events);
     }
 
+    /**
+     * Returns a new ViewHolder and adds a specified View to it.
+     * Represents an item in the RecyclerView.
+     *
+     * @param viewGroup The ViewGroup into which the new View will be added
+     * @param i         Type of the new View
+     * @return          A new ViewHolder that holds a View
+     */
     @Override
     public CustomAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
@@ -42,11 +50,22 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // Picasso.with(context).load(R.drawable.ahiddenlife).fit().error(R.drawable.placeholder).into(viewHolder.picture);
     }
 
+    /**
+     * Returns the size of a list in an integer value.
+     *
+     * @return the size of specified list
+     */
     @Override
     public int getItemCount() {
         return events.size();
     }
 
+    /**
+     * Returns a Filter object that filters list values
+     * based on the given CharSequence.
+     *
+     * @return the specified Filter object
+     */
     @Override
     public Filter getFilter() {
         return eventFilter;
