@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">MovieT</string>
-    <string name="release_date">Release Date: </string>
-    <string name="length">Length: </string>
     <string name="connection">Please make sure you are connected to the internet\nbefore continuing.</string>
     <string name="go">Just keep swimming!</string>
     <string name="now">Now in theatres</string>

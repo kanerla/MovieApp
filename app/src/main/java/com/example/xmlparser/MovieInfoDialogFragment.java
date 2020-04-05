@@ -73,9 +73,9 @@ public class MovieInfoDialogFragment extends DialogFragment {
         String releaseDate = times[0];
         String[] dates = releaseDate.split("-", 5);
 
-        release.setText(R.string.release_date + dates[2] + "/" + dates[1] + "/" + dates[0]);
+        release.setText("Release Date: " + dates[2] + "/" + dates[1] + "/" + dates[0]);
 
-        length.setText(R.string.length + thisEvent.getLength());
+        length.setText("Length: " + thisEvent.getLength());
         genres.setText(thisEvent.getGenres());
         link.setClickable(true);
         link.setMovementMethod(LinkMovementMethod.getInstance());
