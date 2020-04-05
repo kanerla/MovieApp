@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/finnkino"
-        android:icon="@drawable/ic_home"
-        android:title="Finnkino Movies"
+        android:id="@+id/stats"
+        android:icon="@drawable/ic_insert_chart"
+        android:title="My Stats"
         app:showAsAction="ifRoom"/>
 
 </menu>
