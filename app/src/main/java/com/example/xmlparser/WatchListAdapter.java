@@ -3,6 +3,7 @@ package com.example.xmlparser;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -101,7 +103,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         if (isExpanded)
             previouslyExpanded = position;
 
-        holder.movieTitle.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 expandedPosition = isExpanded ? -1:position;
@@ -140,6 +142,12 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
                         current.setDate(holder.whenInput.getText().toString());
                         Log.d("Date is ", "" + holder.whenInput.getText().toString());
                         movieViewModel.update(events);
+                        // TOAST
+                        Toast toast = Toast.makeText(context,
+                                "Saved successfully",
+                                Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
                     }
                 });
             }
