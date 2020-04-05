@@ -110,6 +110,13 @@
 
         </LinearLayout>
 
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_gravity="center_horizontal"
+            android:stepSize="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/save_seen"
             android:layout_width="wrap_content"

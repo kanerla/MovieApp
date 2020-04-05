@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         private EditText whereInput;
         private EditText whenInput;
         private Button saveButton;
+        private RatingBar ratingBar;
 
         private MovieViewHolder(View itemView) {
             super(itemView);
@@ -47,6 +49,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             whereInput = itemView.findViewById(R.id.where_input);
             whenInput = itemView.findViewById(R.id.when_input);
             saveButton = itemView.findViewById(R.id.save_seen);
+            ratingBar = itemView.findViewById(R.id.rating_bar);
         }
     }
 
@@ -103,7 +106,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         if (isExpanded)
             previouslyExpanded = position;
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.movieTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 expandedPosition = isExpanded ? -1:position;
@@ -119,6 +122,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             if(fragment.equals("seenFragment")) {
                 holder.withInput.setText(current.getWith());
                 holder.whereInput.setText(current.getWhere());
+                holder.ratingBar.setRating(current.getRating());
                 holder.whenInput.setText(current.getDate());
                 holder.whenInput.setOnClickListener((View v) -> {
                     new DatePickerDialog(context, dateListener, currentTime
@@ -140,6 +144,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
                         current.setWith(holder.withInput.getText().toString());
                         current.setWhere(holder.whereInput.getText().toString());
                         current.setDate(holder.whenInput.getText().toString());
+                        current.setRating(holder.ratingBar.getRating());
                         Log.d("Date is ", "" + holder.whenInput.getText().toString());
                         movieViewModel.update(events);
                         // TOAST

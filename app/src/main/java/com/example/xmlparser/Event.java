@@ -28,6 +28,9 @@ public class Event implements Parcelable {
     @ColumnInfo(name = "date")
     private String date = "";
 
+    @ColumnInfo(name = "rating")
+    private float rating = 0;
+
     private String originalTitle;
     private String length;
     private String genres;
@@ -142,6 +145,14 @@ public class Event implements Parcelable {
 
     public void setWhere(String where) {
         this.where = where;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 
     public boolean isSeen() {
