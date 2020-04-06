@@ -81,7 +81,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             picture = view.findViewById(R.id.picture);
 
             title.setOnClickListener((View v) -> {
-                // ((MovieActivity)context).replaceFragment(fragment); where fragment should probably be the name of this
                 Log.d("CustomAdapter", title.getText() + " was clicked");
                 ((MovieActivity)context).showInfoDialog(events.get(getAdapterPosition()));
             });

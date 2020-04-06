@@ -31,6 +31,7 @@ public class MovieActivity extends AppCompatActivity {
     FragmentTransaction transaction;
     NowInTheatresFragment nitFragment;
     Bundle bundle;
+    Bundle nowBundle;
     Bundle comingBundle;
 
     @Override
@@ -75,18 +76,7 @@ public class MovieActivity extends AppCompatActivity {
     public void switchToNowInTheatres(View v) {
         manager = getSupportFragmentManager();
         Fragment fragment = new NowInTheatresFragment();
-        fragment.setArguments(bundle);
-
-        /* CREATES ONE COPY OF FRAGMENT TO BACKSTACK --> back button opens previous fragment
-        String backStateName = fragment.getClass().getName();
-        boolean fragmentPopped = manager.popBackStackImmediate (backStateName, 0);
-
-        if (!fragmentPopped){ //fragment not in back stack, create it.
-            transaction = manager.beginTransaction();
-            transaction.replace(R.id.fragment_container, fragment);
-            transaction.addToBackStack(backStateName);
-            transaction.commit();
-        } */
+        fragment.setArguments(nowBundle);
 
         transaction = manager.beginTransaction();
 
@@ -172,13 +162,18 @@ public class MovieActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             // listassa on tavaraa
             // Log.d("Entries: ", "" + entries.size());
+            ArrayList<Event> array = new ArrayList<>(entries);
+            nowBundle = new Bundle();
+            nowBundle.putParcelableArrayList("eventsArray", array);
 
+            /*
             ArrayList<Event> array = new ArrayList<>(entries);
             bundle = new Bundle();
             bundle.putParcelableArrayList("eventsArray", array);
+             */
 
             nitFragment = new NowInTheatresFragment();
-            nitFragment.setArguments(bundle);
+            nitFragment.setArguments(nowBundle);
 
             transaction.add(R.id.fragment_container, nitFragment);
             transaction.commit();
