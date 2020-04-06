@@ -7,4 +7,14 @@
     <string name="seen">Seen</string>
     <string name="watch">Watchlist</string>
     <string name="description">Movie poster</string>
+    <string name="welcome_seen">Welcome to your personal seen list</string>
+    <string name="when">When </string>
+    <string name="clear">Clear</string>
+    <string name="where">Where </string>
+    <string name="save">Save</string>
+    <string name="move_to_watch">Move to Watchlist</string>
+    <string name="remove_seen">Remove from Seen</string>
+    <string name="welcome_watch">Welcome to your personal watchlist</string>
+    <string name="move_to_seen">Move to Seen</string>
+    <string name="remove_watch">Remove from Watchlist</string>
 </resources>

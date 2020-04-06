@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/watchlist_title"
         android:textStyle="bold"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingBottom="5dp"
@@ -44,7 +44,7 @@
             <TextView
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
-                android:text="When "
+                android:text="@string/when"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -62,9 +62,7 @@
                 android:id="@+id/clear_date_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clear">
-
-            </Button>
+                android:text="@string/clear" />
 
         </LinearLayout>
 
@@ -76,7 +74,7 @@
             <TextView
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
-                android:text="Where "
+                android:text="@string/where"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -121,7 +119,7 @@
             android:id="@+id/save_seen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save">
+            android:text="@string/save">
         </Button>
 
     </LinearLayout>
@@ -137,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:visibility="gone"
-            android:text="Move to Watchlist">
+            android:text="@string/move_to_watch">
         </Button>
 
         <Button
@@ -146,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:visibility="gone"
-            android:text="Remove from Seen">
+            android:text="@string/remove_seen">
         </Button>
 
     </LinearLayout>

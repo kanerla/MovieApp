@@ -1,10 +1,20 @@
 <resources>
     <string name="app_name">MovieT</string>
     <string name="connection">Tarkista laitteesi verkkoyhteys\nennen kuin jatkat pidemmälle.</string>
-    <string name="go">Just keep swimming!</string>
+    <string name="go">Jatka matkaa!</string>
     <string name="now">Ohjelmistossa nyt</string>
     <string name="soon">Tulossa</string>
     <string name="seen">Nähty</string>
     <string name="watch">Katsottava</string>
     <string name="description">Elokuvajuliste</string>
+    <string name="welcome_seen">Tämä on henkilökohtainen Nähty-listasi</string>
+    <string name="when">Milloin </string>
+    <string name="clear">Poista</string>
+    <string name="where">Missä </string>
+    <string name="save">Tallenna</string>
+    <string name="move_to_watch">Siirrä katsottavien listalle</string>
+    <string name="remove_seen">Poista nähdyistä</string>
+    <string name="welcome_watch">Tämä on henkilökohtainen katsottavien listasi</string>
+    <string name="move_to_seen">Siirrä nähtyihin</string>
+    <string name="remove_watch">Poista katsottavista</string>
 </resources>
