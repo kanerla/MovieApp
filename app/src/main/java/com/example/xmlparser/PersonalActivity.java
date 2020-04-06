@@ -40,6 +40,13 @@ public class PersonalActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Executes the onBackPressed() method.
+     * Called when user chooses to navigate up within application's activity hierarchy
+     * from the action bar.
+     *
+     * @return  true if up navigation is completed successfully, false otherwise
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -86,18 +93,31 @@ public class PersonalActivity extends AppCompatActivity {
         seenButton.setEnabled(true);
     }
 
+    /**
+     * Specifies the options menu for the activity.
+     * Inflates the menu resource into the menu provided in the callback.
+     * Basically, adds items to the action bar if it is present.
+     *
+     * @param menu  menu to be inflated
+     * @return      true when completed successfully
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.personal_menu, menu);
         return true;
     }
-    //and this to handle actions
+
+    /**
+     * Called whenever an item in options menu is selected.
+     * Handles action bar item clicks.
+     * Handles Home/Up button clicks automatically if parent activity is specifies in AndroidManifest.xml.
+     * MenuItem parameter value must never be null.
+     *
+     * @param item  the selected menu item
+     * @return      false to allow normal menu processing to proceed, true to consume it here
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.stats) {
             Log.d("PersonalActivity", "stats was clicked");

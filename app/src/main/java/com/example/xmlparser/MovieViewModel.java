@@ -36,16 +36,26 @@ public class MovieViewModel extends AndroidViewModel {
     /**
      * Inserts new event to the repository.
      *
-     * @param event event to be added to the repository.
+     * @param event event to be added to the repository
      */
     public void insert(Event event) {
         repository.insert(event);
     }
 
+    /**
+     * Removes the specified event from the repository.
+     *
+     * @param event event to be removed from the repository
+     */
     public void remove(Event event) {
         repository.remove(event);
     }
 
+    /**
+     * Updates the events in the repository.
+     *
+     * @param events    list of events to be updated
+     */
     public void update(List<Event> events) {
         repository.update(events);
     }

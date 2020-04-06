@@ -38,13 +38,6 @@ public class MovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
 
-        /*
-        // show item on the left side
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator( R.drawable.ic_home);
-        // remove/show title of the app
-        getSupportActionBar().setDisplayShowTitleEnabled(true); */
-
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
 
@@ -56,7 +49,10 @@ public class MovieActivity extends AppCompatActivity {
         loadComingPage();
     }
 
-    // Uses AsyncTask to download the XML feed from the URL.
+    /**
+     * Downloads the XML feed from the URL using AsyncTask.
+     *
+     */
     public void loadPage() {
         new DownloadXmlTask().execute(URL);
     }

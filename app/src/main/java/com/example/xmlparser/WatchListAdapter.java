@@ -182,6 +182,11 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         }
     }
 
+    /**
+     * Formats time and sets it to a ViewHolder item.
+     *
+     * @param holder    the ViewHolder which contains the item changed
+     */
     public void updateDate(MovieViewHolder holder) {
         String myFormat = "dd/MM/yyyy";
         DateFormat sdf = new SimpleDateFormat(myFormat);

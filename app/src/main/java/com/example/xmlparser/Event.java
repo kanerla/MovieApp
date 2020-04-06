@@ -65,6 +65,12 @@ public class Event implements Parcelable {
         this.photo = in.readString();
     }
 
+    /**
+     * Replaces the "http" in url with "https".
+     *
+     * @param url   url to be replaced
+     * @return      new, replaced url
+     */
     private String changeToHttps(String url) {
         String target = "http";
         String replacement = "https";
@@ -80,6 +86,11 @@ public class Event implements Parcelable {
         return link;
     }
 
+    /**
+     * Returns the genres associated with the event.
+     *
+     * @return event's genres
+     */
     public String getGenres() {
         return genres;
     }
@@ -87,12 +98,17 @@ public class Event implements Parcelable {
     /**
      * Returns the length of the event.
      *
-     * @return length of the event in string form.
+     * @return length of the event in string form
      */
     public String getLength() {
         return length;
     }
 
+    /**
+     * Returns the release date of the event.
+     *
+     * @return  release date of the event in string form
+     */
     public String getRelease() {
         return release;
     }
@@ -106,6 +122,11 @@ public class Event implements Parcelable {
         return originalTitle;
     }
 
+    /**
+     * Return the summary of the event.
+     *
+     * @return  summary of the event in string form
+     */
     public String getSummary() {
         return summary;
     }
@@ -181,18 +202,38 @@ public class Event implements Parcelable {
         this.originalTitle = originalTitle;
     }
 
+    /**
+     * Assigns length to the event.
+     *
+     * @param length    length of the event
+     */
     public void setLength(String length) {
         this.length = length;
     }
 
+    /**
+     * Assigns release date to the event.
+     *
+     * @param release   release date of the event in string form
+     */
     public void setRelease(String release) {
         this.release = release;
     }
 
+    /**
+     * Assigns genres to the event.
+     *
+     * @param genres    specified genres of the event
+     */
     public void setGenres(String genres) {
         this.genres = genres;
     }
 
+    /**
+     * Assigns link to the event.
+     *
+     * @param link  link to event's associated website
+     */
     public void setLink(String link) {
         this.link = link;
     }
@@ -205,6 +246,13 @@ public class Event implements Parcelable {
         this.photo = photo;
     }
 
+    /**
+     * Converts minutes into hours and minutes
+     * and returns it in a string form.
+     *
+     * @param minutes   amount of minutes in string form
+     * @return          length of the event in hours and minutes
+     */
     public String convertLength(String minutes) {
         int minInt = Integer.parseInt(minutes);
         int hours = minInt / 60;
@@ -229,6 +277,12 @@ public class Event implements Parcelable {
         }
     };
 
+    /**
+     * Describes the kinds of special objects contained in this Parcelable instance's representation.
+     * Returns either 0 or CONTENTS_FILE_DESCRIPTOR.
+     *
+     * @return  a bitmask indicating the set of special object types parsed
+     */
     @Override
     public int describeContents() {
         return 0;
