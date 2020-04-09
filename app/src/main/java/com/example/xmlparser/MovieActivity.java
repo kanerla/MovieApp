@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.tabs.TabLayout;
+
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,8 +27,7 @@ public class MovieActivity extends AppCompatActivity {
     private static final String comingURL = "https://www.finnkino.fi/xml/Events/?listType=ComingSoon";
     List<Event> entries;
     List<Event> coming;
-    Button nitButton;
-    Button csButton;
+    TabLayout tabLayout;
     FragmentManager manager;
     FragmentTransaction transaction;
     NowInTheatresFragment nitFragment;
@@ -42,9 +43,30 @@ public class MovieActivity extends AppCompatActivity {
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
 
-        nitButton = findViewById(R.id.nit_button);
-        nitButton.setEnabled(false);
-        csButton = findViewById(R.id.cs_button);
+        tabLayout = findViewById(R.id.tabs);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tabLayout.getSelectedTabPosition() == 0) {
+                    // Now in theatres
+                    switchToNowInTheatres();
+                } else if (tabLayout.getSelectedTabPosition() == 1) {
+                    // Coming soon
+                    switchToComingSoon();
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         loadPage();
         loadComingPage();
@@ -73,7 +95,7 @@ public class MovieActivity extends AppCompatActivity {
         movieInfo.show(fragmentManager, "MovieInfo");
     }
 
-    public void switchToNowInTheatres(View v) {
+    public void switchToNowInTheatres() {
         manager = getSupportFragmentManager();
         Fragment fragment = new NowInTheatresFragment();
         fragment.setArguments(nowBundle);
@@ -81,14 +103,10 @@ public class MovieActivity extends AppCompatActivity {
         transaction = manager.beginTransaction();
 
         transaction.replace(R.id.fragment_container, fragment);
-        // transaction.addToBackStack(null);
         transaction.commit();
-
-        v.setEnabled(false);
-        csButton.setEnabled(true);
     }
 
-    public void switchToComingSoon(View v) {
+    public void switchToComingSoon() {
         manager = getSupportFragmentManager();
         Fragment fragment = new ComingSoonFragment();
         fragment.setArguments(comingBundle);
@@ -97,9 +115,6 @@ public class MovieActivity extends AppCompatActivity {
 
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
-
-        v.setEnabled(false);
-        nitButton.setEnabled(true);
     }
 
     /*

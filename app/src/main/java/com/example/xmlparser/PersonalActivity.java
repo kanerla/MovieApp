@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.tabs.TabLayout;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -16,8 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 public class PersonalActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction transaction;
-    Button seenButton;
-    Button watchlistButton;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +32,30 @@ public class PersonalActivity extends AppCompatActivity {
         transaction.add(R.id.personal_fragment_container, fragment);
         transaction.commit();
 
-        seenButton = findViewById(R.id.seen_button);
-        seenButton.setEnabled(false);
-        watchlistButton = findViewById(R.id.watchlist_button);
+        tabLayout = findViewById(R.id.tabs);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tabLayout.getSelectedTabPosition() == 0) {
+                    // Seen
+                    switchToSeen();
+                } else if (tabLayout.getSelectedTabPosition() == 1) {
+                    // Watchlist
+                    switchToWatchList();
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -57,40 +79,30 @@ public class PersonalActivity extends AppCompatActivity {
      * Replace previous fragment in the fragment container with another.
      * Disable view that triggered the action and enable other view(s).
      *
-     * @param v view that triggers this action.
      */
-    public void switchToSeen(View v) {
+    public void switchToSeen() {
         manager = getSupportFragmentManager();
         Fragment fragment = new SeenFragment();
-        // fragment.setArguments(comingbundle);
 
         transaction = manager.beginTransaction();
 
         transaction.replace(R.id.personal_fragment_container, fragment);
         transaction.commit();
-
-        v.setEnabled(false);
-        watchlistButton.setEnabled(true);
     }
 
     /**
      * Replace previous fragment in the fragment container with another.
      * Disable view that triggered the action and enable other view(s).
      *
-     * @param v view that triggers this action.
      */
-    public void switchToWatchList(View v) {
+    public void switchToWatchList() {
         manager = getSupportFragmentManager();
         Fragment fragment = new WatchlistFragment();
-        // fragment.setArguments(comingbundle);
 
         transaction = manager.beginTransaction();
 
         transaction.replace(R.id.personal_fragment_container, fragment);
         transaction.commit();
-
-        v.setEnabled(false);
-        seenButton.setEnabled(true);
     }
 
     /**
