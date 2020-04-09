@@ -117,18 +117,6 @@ public class MovieActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    /*
-    @Override
-    public void onBackPressed() {
-        int fragments = getSupportFragmentManager().getBackStackEntryCount();
-        if (fragments == 1) {
-            finish();
-            return;
-        }
-
-        super.onBackPressed();
-    } */
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
