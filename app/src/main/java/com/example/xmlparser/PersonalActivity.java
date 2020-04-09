@@ -1,5 +1,6 @@
 package com.example.xmlparser;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -133,6 +134,8 @@ public class PersonalActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.stats) {
             Log.d("PersonalActivity", "stats was clicked");
+            Intent i = new Intent(this, StatisticsActivity.class);
+            startActivity(i);
             return true;
         }
         return super.onOptionsItemSelected(item);
