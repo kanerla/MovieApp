@@ -36,6 +36,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
         private EditText whenInput;
         private Button saveButton;
         private RatingBar ratingBar;
+        private Button clearRatingButton;
 
         private MovieViewHolder(View itemView) {
             super(itemView);
@@ -50,6 +51,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             whenInput = itemView.findViewById(R.id.when_input);
             saveButton = itemView.findViewById(R.id.save_seen);
             ratingBar = itemView.findViewById(R.id.rating_bar);
+            clearRatingButton = itemView.findViewById(R.id.clear_rating_button);
         }
     }
 
@@ -135,6 +137,13 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
                     public void onClick(View v) {
                         holder.whenInput.setText("");
                         currentTime = Calendar.getInstance();
+                    }
+                });
+
+                holder.clearRatingButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        holder.ratingBar.setRating(0);
                     }
                 });
 
