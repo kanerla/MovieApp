@@ -2,5 +2,5 @@
 }
 java:S2637*"["title" is marked "androidx.annotation.NonNull" but is not initialized in this constructor.(úöŠ®üÿÿÿÿ8ØÙÔ”.
 ¤
-java:S1186î"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ú˜Í¤üÿÿÿÿ8ØÙÔ”.
+java:S1186¤"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ú˜Í¤üÿÿÿÿ8ØÙÔ”.
 \	java:S107."AConstructor has 8 parameters, which is greater than 7 authorized.(ÏŒ¦y8ØÙÔ”.

@@ -1,7 +1,7 @@
 
+W	java:S1252"<This block of commented-out lines of code should be removed.(¶•8Ò«ŠÚ”.
 E
-java:S1604h"(Make this anonymous inner class a lambda(°Ï¦8¢Ã™.
-X	java:S125Y"<This block of commented-out lines of code should be removed.(¥Œ8¢Ã™.
+java:S1604z"(Make this anonymous inner class a lambda(°Ï¦8Ò«ŠÚ”.
+X	java:S125k"<This block of commented-out lines of code should be removed.(¥Œ8Ò«ŠÚ”.
 s
-java:S1905C"VRemove this unnecessary cast to "org.sonar.java.resolve.Symbols$UnknownType@5dfcc70b".(Á”Á8¢Ã™.
-W	java:S125*"<This block of commented-out lines of code should be removed.(¶•8¢Ã™.
+java:S1905U"VRemove this unnecessary cast to "org.sonar.java.resolve.Symbols$UnknownType@60ffdc70".(Á”Á8Ò«ŠÚ”.
