@@ -3,4 +3,33 @@
     <color name="colorPrimary">#FFF047</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#4F64B4</color>
+
+    <color name="IndianRed">#CD5C5C</color>
+    <color name="BrickWallRed">#B22222</color>
+    <color name="LipstickRed">#FF3030</color>
+    <color name="VampireRed">#400C0C</color>
+    <color name="RaspberryRed">#E62C2C</color>
+    <color name="Red">#BF2424</color>
+
+    <color name="Orange">#FFA500</color>
+    <color name="DarkOrange">#FF8C00</color>
+    <color name="ChocolateOrange">#D2691E</color>
+    <color name="Chocolate">#402009</color>
+    <color name="Peru">#E67220</color>
+    <color name="Autumn">#804012</color>
+    <color name="Pumpkin">#FF7F24</color>
+
+    <color name="MediumSeaGreen">#3CB371</color>
+    <color name="LimeGreen">#32CD32</color>
+    <color name="ShamrockGreen">#1F801F</color>
+    <color name="AlienGreen">#85CC85</color>
+    <color name="StarbucksGreen">#0F400F</color>
+    <color name="MikeWazowskiGreen">#37E637</color>
+
+    <color name="OceanBlue">#3DA7BF</color>
+    <color name="CookieMonsterBlue">#297080</color>
+    <color name="BabyBlue">#8BD7E8</color>
+    <color name="BlueberryBlue">#143840</color>
+    <color name="SquirtleBlue">#49C9E6</color>
+    <color name="FindingDoryBlue">#62A4B3</color>
 </resources>
