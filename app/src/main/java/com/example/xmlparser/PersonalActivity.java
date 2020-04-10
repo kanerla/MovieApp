@@ -10,16 +10,20 @@ import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 
 public class PersonalActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction transaction;
     TabLayout tabLayout;
+    private MovieViewModel movieViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class PersonalActivity extends AppCompatActivity {
 
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
+
+        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
 
         Fragment fragment = new SeenFragment();
         transaction.add(R.id.personal_fragment_container, fragment);
@@ -131,10 +137,21 @@ public class PersonalActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        ArrayList<Integer> ratings = new ArrayList<>();
+        movieViewModel.getAllSeenEvents().observe(this, movies -> {
+            for (Event m : movies) {
+                int rating = (int) m.getRating();
+                ratings.add(rating);
+            }
+        });
+        Bundle ratingBundle = new Bundle();
+        ratingBundle.putIntegerArrayList("ratings", ratings);
+
         int id = item.getItemId();
         if (id == R.id.stats) {
             Log.d("PersonalActivity", "stats was clicked");
             Intent i = new Intent(this, StatisticsActivity.class);
+            i.putExtras(ratingBundle);
             startActivity(i);
             return true;
         }
