@@ -17,4 +17,5 @@
     <string name="welcome_watch">Welcome to your personal watchlist</string>
     <string name="move_to_seen">Move to Seen</string>
     <string name="remove_watch">Remove from Watchlist</string>
+    <string name="rating">Your rating statistics</string>
 </resources>
