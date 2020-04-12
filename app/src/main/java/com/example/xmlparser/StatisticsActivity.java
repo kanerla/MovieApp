@@ -70,6 +70,8 @@ public class StatisticsActivity extends AppCompatActivity {
         });
         // pieData.setValueFormatter(new PercentFormatter());
         pieChart.setData(pieData);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.getLegend().setEnabled(false);
         pieDataSet.setColors(greencolors, getApplicationContext());
         pieDataSet.setSliceSpace(2f);
         pieDataSet.setValueTextColor(Color.WHITE);
