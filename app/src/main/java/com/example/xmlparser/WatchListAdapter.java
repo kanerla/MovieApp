@@ -64,7 +64,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     private Calendar currentTime = Calendar.getInstance();
     private Context context;
 
-    WatchListAdapter(Context context, String fragment) {
+    public WatchListAdapter(Context context, String fragment) {
         inflater = LayoutInflater.from(context);
         this.fragment = fragment;
         this.context = context;
