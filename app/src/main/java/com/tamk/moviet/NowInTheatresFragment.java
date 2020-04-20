@@ -1,7 +1,6 @@
-package com.example.xmlparser;
+package com.tamk.moviet;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,18 +9,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import java.util.ArrayList;
 import java.util.List;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ComingSoonFragment extends Fragment {
+public class NowInTheatresFragment extends Fragment {
     private RecyclerView recyclerView;
     private CustomAdapter myAdapter;
     private RecyclerView.LayoutManager layoutManager;
     List<Event> entries;
+
+    public NowInTheatresFragment() {
+        entries = new ArrayList<Event>();
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -32,12 +36,13 @@ public class ComingSoonFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        entries = getArguments().getParcelableArrayList("comingArray");
+        assert getArguments() != null;
+        entries = getArguments().getParcelableArrayList("eventsArray");
         /*
         entries = new ArrayList<>();
         Log.d("we got", "this far");
         List<Event> allEntries = getArguments().getParcelableArrayList("eventsArray");
-        moviesComingSoon(allEntries);
+        moviesNowInTheatres(allEntries);
         */
 
         myAdapter = new CustomAdapter(getContext(), entries);
@@ -49,7 +54,7 @@ public class ComingSoonFragment extends Fragment {
     }
 
     /*
-    public void moviesComingSoon(List<Event> events) {
+    public void moviesNowInTheatres(List<Event> events) {
         Date now = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
@@ -61,7 +66,7 @@ public class ComingSoonFragment extends Fragment {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            if (releaseDate.getTime() - now.getTime() > 0) {
+            if (releaseDate.getTime() - now.getTime() < 0) {
                 Log.d("Movies", e.getTitle());
                 entries.add(e);
             }

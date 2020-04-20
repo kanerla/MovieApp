@@ -1,7 +1,6 @@
-package com.example.xmlparser;
+package com.tamk.moviet;
 
 import android.os.Bundle;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;

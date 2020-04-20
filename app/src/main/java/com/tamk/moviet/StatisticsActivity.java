@@ -1,7 +1,6 @@
-package com.example.xmlparser;
+package com.tamk.moviet;
 
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -14,8 +13,6 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.ViewModelProviders;
 
 public class StatisticsActivity extends AppCompatActivity {
     PieChart pieChart;

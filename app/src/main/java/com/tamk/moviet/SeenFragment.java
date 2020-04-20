@@ -1,4 +1,4 @@
-package com.example.xmlparser;
+package com.tamk.moviet;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class WatchlistFragment extends Fragment {
+public class SeenFragment extends Fragment {
     private RecyclerView recyclerView;
     private WatchListAdapter adapter;
     private MovieViewModel movieViewModel;
@@ -19,7 +19,7 @@ public class WatchlistFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.watchlist_fragment, container, false);
+        View view = inflater.inflate(R.layout.seen_fragment, container, false);
 
         movieViewModel = ViewModelProviders.of(requireActivity()).get(MovieViewModel.class);
 
@@ -27,19 +27,21 @@ public class WatchlistFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerview);
         // recyclerView.setHasFixedSize(true);
-        adapter = new WatchListAdapter(getContext(), "watchlistFragment");
+        adapter = new WatchListAdapter(getContext(), "seenFragment");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        movieViewModel.getAllEvents().observe(this, movies -> {
+        movieViewModel.getAllSeenEvents().observe(this, movies -> {
             // Update the cached copy of the events in the adapter.
-            adapter.setEvents(movies);
             if(movies.isEmpty()) {
                 welcome.setVisibility(View.VISIBLE);
+            } else {
+                //clumsy
+                welcome.setVisibility(View.GONE);
             }
+            adapter.setEvents(movies);
         });
 
         return view;
     }
-
 }

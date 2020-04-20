@@ -1,4 +1,4 @@
-package com.example.xmlparser;
+package com.tamk.moviet;
 
 import androidx.appcompat.app.AppCompatActivity;
 

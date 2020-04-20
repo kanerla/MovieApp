@@ -1,4 +1,4 @@
-package com.example.xmlparser;
+package com.tamk.moviet;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -72,6 +72,9 @@ public class Event implements Parcelable {
      * @return      new, replaced url
      */
     private String changeToHttps(String url) {
+        if (url == null) {
+            return "https://ventures.wartsila.com/wp-content/uploads/2017/11/placeholder-1024x1024.png";
+        }
         String target = "http";
         String replacement = "https";
         return url.replace(target, replacement);

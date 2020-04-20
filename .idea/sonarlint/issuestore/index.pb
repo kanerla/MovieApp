@@ -25,8 +25,6 @@ W
 'app/src/main/res/drawable/ic_search.xml,f\1\f147bc5a18c943e2202ab4271561325af3e75237
 o
 ?app/src/main/java/com/example/xmlparser/ComingSoonFragment.java,8\3\83285fbbef4116a00305b720f0ac7cf26a226cb8
-_
-/app/src/main/res/drawable/ic_account_circle.xml,8\2\82c2b4a74a8240386e2436e6e397dfa9c2da8ee3
 U
 %app/src/main/res/drawable/ic_home.xml,c\5\c5445f28ae0c24fabcaa711d9ddb8ab37d4e0e9a
 m
@@ -45,11 +43,11 @@ j
 0app/src/main/res/mipmap-anydpi-v26/ic_moviet.xml,7\c\7cd6b4adda0a635e6a3864b0994efc6091935d79
 f
 6app/src/main/res/mipmap-anydpi-v26/ic_moviet_round.xml,9\2\92d6231b222fbcf6379cfa4d7a0dbebd562aaa98
-b
-2app/src/main/res/drawable/ic_moviet_background.xml,5\1\51d9fd762fdfd59aced349bbc34705a63b7db3ec
 l
 <app/src/main/java/com/example/xmlparser/MovieRepository.java,5\9\59a779159afe4e774d94575b24805da5f3568d56
 k
 ;app/src/main/java/com/example/xmlparser/MovieViewModel.java,6\2\6256f4d3184c538ca490c176cd43a5dd8e6b512a
 m
 =app/src/main/java/com/example/xmlparser/WatchListAdapter.java,0\1\01a55f74e9e57403e0ba94f2749ed79e2252bce4
+o
+?app/src/main/java/com/example/xmlparser/StatisticsActivity.java,1\3\13ac82ef45d025259ec8901329b7756015dde8a1
