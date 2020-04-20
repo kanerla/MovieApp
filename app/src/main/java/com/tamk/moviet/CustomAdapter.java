@@ -13,11 +13,25 @@ import java.util.ArrayList;
 import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * CustomAdapter class extends the RecyclerView.Adapter and
+ * provides a binding from data set to a view displayed within a RecyclerView.
+ * Adapter is used in MovieActivity and it's related fragments.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> implements Filterable {
     private Context context;
     private List<Event> events;
     private List<Event> fullEvents;
 
+    /**
+     * Class constructor.
+     *
+     * @param context   application context
+     * @param events    list of all events
+     */
     public CustomAdapter(Context context, List<Event> events) {
         this.context = context;
         this.events = events;
@@ -38,6 +52,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
+    /**
+     * Displays data at the given position and updates
+     * the contens of the itemview.
+     *
+     * @param viewHolder    the holder that represents the contents of an item
+     * @param i             the position of an item within adapter's data set
+     */
     @Override
     public void onBindViewHolder(final CustomAdapter.ViewHolder viewHolder, int i) {
         viewHolder.title.setText(events.get(i).getTitle());
@@ -69,6 +90,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         return eventFilter;
     }
 
+    /**
+     * ViewHolder class extends the RecyclerView.ViewHolder and
+     * describes an item view and metadata about its place within the RecyclerView.
+     */
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView title;
         private ImageView picture;
@@ -80,6 +105,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         }
     }
 
+    /**
+     * A filter that constraints data with a filtering pattern.
+     * Operations are performed asynchronously.
+     * Filters events based on a search term given to performFiltering().
+     */
     private Filter eventFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {

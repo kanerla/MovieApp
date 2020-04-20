@@ -14,12 +14,30 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * ComingSoonFragment extends Fragment class, and shows
+ * all events coming soon to Finnkino theatres.
+ * ComingSoonFragment is shown in MovieActivity.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 public class ComingSoonFragment extends Fragment {
     private RecyclerView recyclerView;
     private CustomAdapter myAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private List<Event> entries;
 
+    /**
+     * Called to have the fragment intantiate its user interface view.
+     * Initiates most attributes.
+     * Returns the view to inflate.
+     *
+     * @param inflater              the layoutinflater used to inflate views in the fragment
+     * @param container             the parent view that the fragment is attached to
+     * @param savedInstanceState    if non-null, the previous state fragment is being re-constructed from
+     * @return                      the view to inflate
+     */
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.movie_list_fragment, container, false);
@@ -39,6 +57,14 @@ public class ComingSoonFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Specifies the options menu.
+     * Inflates the menu resource into the menu provided in the callback.
+     * Initializes the SearchView and its preferred action.
+     *
+     * @param menu          menu to be inflated
+     * @param mInflater     MenuInflater to use
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater mInflater) {
         mInflater.inflate(R.menu.search_menu, menu);

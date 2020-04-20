@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * XmlParser is the class for parsing xml feed.
+ * XmlParser returns a List of Event objects.
+ * Each Event object represents a single movie in the XML feed.
  *
  * @author  Laura Kanerva
  * @version %I%, %G%

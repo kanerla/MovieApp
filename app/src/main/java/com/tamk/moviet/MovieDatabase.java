@@ -9,6 +9,13 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+/**
+ * MovieDatabase is an abstract class that extends the RoomDatabase.
+ * Class uses the DAO to issue queries to its database.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 @Database(entities = {Event.class}, version = 1)
 public abstract class MovieDatabase extends RoomDatabase {
     public abstract EventDao eventDao();
@@ -17,6 +24,15 @@ public abstract class MovieDatabase extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
+    /**
+     * Creates the database the first time it's accessed
+     * using Room's database builder, and names it.
+     * Returns a singleton to prevent having multiple instances of the same
+     * database opened at the same time.
+     *
+     * @param context   the application context
+     * @return          singleton that prevents having multiple instances of the database opened at the same time
+     */
     static MovieDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (MovieDatabase.class) {
@@ -31,6 +47,9 @@ public abstract class MovieDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
+    /**
+     * Possibility to delete all content and repopulate the database whenever the app is started.
+     */
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {

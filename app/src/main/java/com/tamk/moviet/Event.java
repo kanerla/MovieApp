@@ -7,6 +7,14 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * Event class represents a single Event object,
+ * created from data parsed from XML feed.
+ * Event objects are Parcelable, and entities in Room database.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 @Entity(tableName = "movie_table")
 public class Event implements Parcelable {
 
@@ -38,10 +46,25 @@ public class Event implements Parcelable {
     private String photo;
     private String release;
 
+    /**
+     * Class constructor.
+     */
     public Event() {
 
     }
 
+    /**
+     * Class constructor.
+     *
+     * @param title         title of the event
+     * @param original      original title of the event
+     * @param length        length of the event in minutes
+     * @param releaseDate   the release date of the event
+     * @param genres        specified genres of the event
+     * @param summary       summary of the event
+     * @param link          link to event's associated Finnkino website
+     * @param photo         link to event's associated picture
+     */
     public Event(String title, String original, String length, String releaseDate, String genres, String summary, String link, String photo) {
         this.title = title;
         this.originalTitle = original;
@@ -53,6 +76,11 @@ public class Event implements Parcelable {
         this.photo = changeToHttps(photo);
     }
 
+    /**
+     * Parcelable constructor.
+     *
+     * @param in    the container used for Parcelable interface
+     */
     public Event(Parcel in){
         this.title = in.readString();
         this.originalTitle = in.readString();
@@ -66,6 +94,7 @@ public class Event implements Parcelable {
 
     /**
      * Replaces the "http" in url with "https".
+     * if param is null, returns a placeholder.
      *
      * @param url   url to be replaced
      * @return      new, replaced url
@@ -133,6 +162,11 @@ public class Event implements Parcelable {
         return summary;
     }
 
+    /**
+     * Returns the URL where event's associated photo can be viewed.
+     *
+     * @return  string representation of the photo URL
+     */
     public String getPhoto() {
         return photo;
     }
@@ -146,42 +180,94 @@ public class Event implements Parcelable {
         return title;
     }
 
+    /**
+     * Returns the specified company of the event.
+     *
+     * @return  who user attended the event with
+     */
     public String getWith() {
         return with;
     }
 
+    /**
+     * Assigns company to the event.
+     *
+     * @param with  the company event was attended to with
+     */
     public void setWith(String with) {
         this.with = with;
     }
 
+    /**
+     * Returns the date the event took place.
+     *
+     * @return  a date in string form
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     * Assigns a date to the event.
+     *
+     * @param date  string representation of the date event took place
+     */
     public void setDate(String date) {
         this.date = date;
     }
 
+    /**
+     * Returns the location user has specified for event.
+     *
+     * @return  place where event was seen
+     */
     public String getWhere() {
         return where;
     }
 
+    /**
+     * Assigns a location to the event.
+     *
+     * @param where place where event has been seen
+     */
     public void setWhere(String where) {
         this.where = where;
     }
 
+    /**
+     * Returns the event rating.
+     * If no rating has been assigned, returns 0 by default.
+     *
+     * @return a number between 0 and 5
+     */
     public float getRating() {
         return rating;
     }
 
+    /**
+     * Assigns rating to the event.
+     *
+     * @param rating    a number between 0 and 5
+     */
     public void setRating(float rating) {
         this.rating = rating;
     }
 
+    /**
+     * Returns information about whether movie has been
+     * marked as seen or not.
+     *
+     * @return true if event has been marked as seen, false by default
+     */
     public boolean isSeen() {
         return seen;
     }
 
+    /**
+     * Marks the event either as seen or not seen.
+     *
+     * @param seen  true if event is marked as seen, false by default
+     */
     public void setSeen(boolean seen) {
         this.seen = seen;
     }
@@ -240,10 +326,20 @@ public class Event implements Parcelable {
         this.link = link;
     }
 
+    /**
+     * Assigns a summary to the event.
+     *
+     * @param summary   the event summary
+     */
     public void setSummary(String summary) {
         this.summary = summary;
     }
 
+    /**
+     * Assigns a link to the event photo.
+     *
+     * @param photo     string representation of photo URL
+     */
     public void setPhoto(String photo) {
         this.photo = photo;
     }
@@ -263,11 +359,21 @@ public class Event implements Parcelable {
         return hours + "h " + minInt + "min";
     }
 
+    /**
+     * Returns a string representation of the object
+     * created in this class.
+     *
+     * @return  string representation of the object
+     */
     @Override
     public String toString() {
         return title + "\n" + summary;
     }
 
+    /**
+     * Mandatory interface that generates
+     * instances of Parcelable class.
+     */
     public static final Parcelable.Creator<Event> CREATOR
             = new Parcelable.Creator<Event>() {
         public Event createFromParcel(Parcel in) {
@@ -292,6 +398,6 @@ public class Event implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        // Do nothing because method not needed.
     }
 }

@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * PersonalAdapter class extends the RecyclerView.Adapter and
  * provides a binding from data set to a view displayed within a RecyclerView.
+ * Adapter is used in PersonalActivity and it's related fragments.
  *
  * @author      Laura Kanerva
  * @version     %I%, %G%

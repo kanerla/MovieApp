@@ -18,12 +18,21 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+/**
+ * MovieActivity is the activity where user can switch between
+ * NowInTheatres- and ComingSoonFragments.
+ * Activity shows events that are listed on Finnkino's website and allows user
+ * to view information of said events and add them to their personal watchlist or mark them as "seen".
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 public class MovieActivity extends AppCompatActivity {
     private static final String URL = "https://www.finnkino.fi/xml/Events/";
     private static final String comingURL = "https://www.finnkino.fi/xml/Events/?listType=ComingSoon";
     List<Event> entries;
     List<Event> coming;
-    TabLayout tabLayout;
+    private TabLayout tabLayout;
     FragmentManager manager;
     FragmentTransaction transaction;
     NowInTheatresFragment nitFragment;
@@ -32,6 +41,14 @@ public class MovieActivity extends AppCompatActivity {
     Bundle comingBundle;
     private static final String TAG = "MovieActivity";
 
+    /**
+     * Called when activity starts.
+     * Initializes the tablayout.
+     * Calls loadPage() and loadComingPage() to access needed XML feed.
+     * Calls setContentView to inflate activity's UI.
+     *
+     * @param savedInstanceState    null or the data that activity most recently supplied in onSaveInstanceState()
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +73,12 @@ public class MovieActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                // Do nothing because method not needed.
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                // Do nothing because method not needed.
             }
         });
 
@@ -77,11 +94,19 @@ public class MovieActivity extends AppCompatActivity {
         new DownloadXmlTask().execute(URL);
     }
 
-    // Uses AsyncTask to download the XML feed from the URL.
+    /**
+     * Uses AsyncTask and downloads the XML feed from the URL.
+     * Used specifically for movies that are "coming soon".
+     */
     public void loadComingPage() {
         new DownloadComingXmlTask().execute(comingURL);
     }
 
+    /**
+     * Creates a DialogFragment and shows information about the chosen event.
+     *
+     * @param e     the chosen event
+     */
     public void showInfoDialog(Event e) {
         bundle = new Bundle();
         bundle.putParcelable("movie", e);
@@ -92,6 +117,9 @@ public class MovieActivity extends AppCompatActivity {
         movieInfo.show(fragmentManager, "MovieInfo");
     }
 
+    /**
+     * Switch the fragment shown in Activity to NowInTheatresFragment.
+     */
     public void switchToNowInTheatres() {
         manager = getSupportFragmentManager();
         Fragment fragment = new NowInTheatresFragment();
@@ -103,6 +131,9 @@ public class MovieActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    /**
+     * Switch the fragment shown in Activity to ComingSoonFragment.
+     */
     public void switchToComingSoon() {
         manager = getSupportFragmentManager();
         Fragment fragment = new ComingSoonFragment();
@@ -114,17 +145,23 @@ public class MovieActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    /**
+     * Called whenever an item in options menu is selected.
+     * Handles action bar item clicks.
+     * MenuItem parameter value must never be null.
+     *
+     * @param item      the selected menu item
+     * @return          false to allow normal menu processing to proceed, true to consume it here
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
             case R.id.search:
-                // User chose the "Search" item...
                 Log.d(TAG, "search was clicked");
                 return true;
 
             case R.id.mymovies:
-                // User chose the "Account" action...
                 Log.d(TAG, "mymovies was clicked");
                 goToPersonalPage();
                 return true;
@@ -145,7 +182,18 @@ public class MovieActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    /**
+     * DownloadXmlTask class extends AsyncTask,
+     * and loads XML from specified URL to use in the application.
+     */
     private class DownloadXmlTask extends AsyncTask<String, Void, String> {
+        /**
+         * Performs a computation on a background thread.
+         * Loads XML from given URL.
+         *
+         * @param urls  string representation of the url(s) to load
+         * @return      the parsed string
+         */
         @Override
         protected String doInBackground(String... urls) {
             try {
@@ -158,6 +206,13 @@ public class MovieActivity extends AppCompatActivity {
             }
         }
 
+        /**
+         * Creates an event array and
+         * assigns a bundle to it after executing the AsyncTask.
+         * Sets up the original fragment.
+         *
+         * @param result    execution result
+         */
         @Override
         protected void onPostExecute(String result) {
             ArrayList<Event> array = new ArrayList<>(entries);
@@ -173,7 +228,15 @@ public class MovieActivity extends AppCompatActivity {
             Log.d(TAG, result);
         }
 
-        // Uploads XML from the URL and parses it. Returns string.
+        /**
+         * Uploads XML from the given URL and parses it.
+         * Returns string.
+         *
+         * @param urlString                 the url to connect to
+         * @return                          xml data in string form
+         * @throws XmlPullParserException   if parser exception occurred
+         * @throws IOException              if an input or output exception occurred
+         */
         private String loadXmlFromNetwork(String urlString) throws XmlPullParserException, IOException {
             InputStream stream = null;
             // Instantiate the parser
@@ -187,9 +250,9 @@ public class MovieActivity extends AppCompatActivity {
                 stream = downloadUrl(urlString);
                 entries = xmlParser.parse(stream);
                 Log.d(TAG, "Entries: " + entries.size());
-                // Makes sure that the InputStream is closed after the app is
-                // finished using it.
                 Log.d(TAG, "Streamed and parsed");
+            // Makes sure that the InputStream is closed after the app is
+            // finished using it.
             } finally {
                 if (stream != null) {
                     stream.close();
@@ -197,17 +260,17 @@ public class MovieActivity extends AppCompatActivity {
                 }
             }
 
-            // XmlParser returns a List (called "events") of Event objects.
-            // Each Event object represents a single movie in the XML feed.
-            // This section processes the events list to combine each event with HTML markup.
-            // Each event is displayed in the UI as a link that optionally includes
-            // a text summary.
-
             return htmlString.toString();
         }
 
-        // Given a string representation of a URL, sets up a connection and gets
-        // an input stream.
+        /**
+         * Method gets a string presentation of a URL,
+         * sets up a connection and gets an input stream.
+         *
+         * @param urlString     the url to connect to
+         * @return              access to the content after connection is made
+         * @throws IOException  if an input or output exception occurred
+         */
         private InputStream downloadUrl(String urlString) throws IOException {
             java.net.URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -222,7 +285,18 @@ public class MovieActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * DownloadComingXmlTask class extends AsyncTask,
+     * and loads XML from specified URL to use in the application.
+     */
     private class DownloadComingXmlTask extends AsyncTask<String, Void, String> {
+        /**
+         * Performs a computation on a background thread.
+         * Loads XML from given URL.
+         *
+         * @param urls  string representation of the url(s) to load
+         * @return      the parsed string
+         */
         @Override
         protected String doInBackground(String... urls) {
             try {
@@ -234,6 +308,12 @@ public class MovieActivity extends AppCompatActivity {
             }
         }
 
+        /**
+         * Creates an event array and
+         * assigns a bundle to it after executing the AsyncTask.
+         *
+         * @param result    execution result
+         */
         @Override
         protected void onPostExecute(String result) {
             Log.d(TAG, "Coming soon: " + coming.size());
@@ -243,7 +323,15 @@ public class MovieActivity extends AppCompatActivity {
             comingBundle.putParcelableArrayList("comingArray", array);
         }
 
-        // Uploads XML from the URL and parses it. Returns string.
+        /**
+         * Uploads XML from the given URL and parses it.
+         * Returns string.
+         *
+         * @param urlString                 the url to connect to
+         * @return                          xml data in string form
+         * @throws XmlPullParserException   if parser exception occurred
+         * @throws IOException              if an input or output exception occurred
+         */
         private String loadXmlFromNetwork(String urlString) throws XmlPullParserException, IOException {
             InputStream stream = null;
             // Instantiate the parser
@@ -255,9 +343,9 @@ public class MovieActivity extends AppCompatActivity {
             try {
                 stream = downloadUrl(urlString);
                 coming = xmlParser.parse(stream);
-                // Makes sure that the InputStream is closed after the app is
-                // finished using it.
                 Log.d(TAG, "Streamed and parsed");
+            // Makes sure that the InputStream is closed after the app is
+            // finished using it.
             } finally {
                 if (stream != null) {
                     stream.close();
@@ -265,17 +353,17 @@ public class MovieActivity extends AppCompatActivity {
                 }
             }
 
-            // XmlParser returns a List (called "events") of Event objects.
-            // Each Event object represents a single movie in the XML feed.
-            // This section processes the events list to combine each event with HTML markup.
-            // Each event is displayed in the UI as a link that optionally includes
-            // a text summary.
-
             return htmlString.toString();
         }
 
-        // Given a string representation of a URL, sets up a connection and gets
-        // an input stream.
+        /**
+         * Method gets a string presentation of a URL,
+         * sets up a connection and gets an input stream.
+         *
+         * @param urlString     the url to connect to
+         * @return              access to the content after connection is made
+         * @throws IOException  if an input or output exception occurred
+         */
         private InputStream downloadUrl(String urlString) throws IOException {
             java.net.URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

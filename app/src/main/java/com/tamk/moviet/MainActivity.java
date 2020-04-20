@@ -12,12 +12,28 @@ import android.view.View;
 import android.widget.Toast;
 import java.util.Locale;
 
+/**
+ * MainActivity is the activity that starts the application.
+ * In MainActivity, user is asked to secure internet connection
+ * and urged to continue to view the application content.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ *
+ */
 public class MainActivity extends AppCompatActivity {
-    boolean connected = false;
-    ConnectivityManager connectivityManager;
-    NetworkInfo activeNetwork;
+    private boolean connected = false;
+    private ConnectivityManager connectivityManager;
+    private NetworkInfo activeNetwork;
     private static final String TAG = "MainActivity";
 
+    /**
+     * Called when activity starts.
+     * Initializes the used Locale and ConnectivityManager.
+     * Calls setContentView to inflate activity's UI.
+     *
+     * @param savedInstanceState    null or the data that activity most recently supplied in onSaveInstanceState()
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Start new MovieActivity.
+     * Makes sure user is connected to the internet
+     * before continuing.
      *
      * @param v view that triggers this action.
      */
