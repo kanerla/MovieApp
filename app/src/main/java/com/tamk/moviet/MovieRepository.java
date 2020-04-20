@@ -1,9 +1,7 @@
 package com.tamk.moviet;
 
 import android.app.Application;
-
 import java.util.List;
-
 import androidx.lifecycle.LiveData;
 
 public class MovieRepository {

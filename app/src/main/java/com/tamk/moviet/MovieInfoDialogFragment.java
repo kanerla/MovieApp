@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-
 import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.DialogFragment;
@@ -61,7 +60,6 @@ public class MovieInfoDialogFragment extends DialogFragment {
         Bundle mArgs = getArguments();
         thisEvent = mArgs.getParcelable("movie");
 
-        //if (thisEvent.getPhoto() != null)
         Picasso.with(getContext()).load(thisEvent.getPhoto()).fit().error(R.drawable.placeholder).into(photo);
         title.setText(thisEvent.getTitle());
         synopsis.setText(thisEvent.getSummary());

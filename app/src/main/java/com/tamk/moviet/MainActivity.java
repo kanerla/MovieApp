@@ -1,7 +1,6 @@
 package com.tamk.moviet;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -11,7 +10,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,11 +36,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void loadPage(View v) {
         activeNetwork = connectivityManager.getActiveNetworkInfo();
-        if (activeNetwork != null) {
-            connected = true;
-        } else {
-            connected = false;
-        }
+        connected = activeNetwork != null;
 
         if (connected) {
             Intent i = new Intent(this, MovieActivity.class);

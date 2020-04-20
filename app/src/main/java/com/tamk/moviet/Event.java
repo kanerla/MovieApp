@@ -2,7 +2,6 @@ package com.tamk.moviet;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -14,7 +13,7 @@ public class Event implements Parcelable {
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "title")
-    private String title;
+    private String title = "";
 
     @ColumnInfo(name = "seen")
     private boolean seen = false;
@@ -256,7 +255,7 @@ public class Event implements Parcelable {
      * @param minutes   amount of minutes in string form
      * @return          length of the event in hours and minutes
      */
-    public String convertLength(String minutes) {
+    private String convertLength(String minutes) {
         int minInt = Integer.parseInt(minutes);
         int hours = minInt / 60;
         minInt = minInt % 60;

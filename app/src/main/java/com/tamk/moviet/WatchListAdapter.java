@@ -14,12 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,6 +61,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     private String fragment;
     private Calendar currentTime = Calendar.getInstance();
     private Context context;
+    private String seenFragment = "seenFragment";
 
     public WatchListAdapter(Context context, String fragment) {
         inflater = LayoutInflater.from(context);
@@ -74,7 +73,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView;
-        if (fragment.equals("seenFragment")) {
+        if (fragment.equals(seenFragment)) {
             Log.d("Fragment", "was seen");
             itemView = inflater.inflate(R.layout.seen_item, parent, false);
         } else {
@@ -85,22 +84,18 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
-        DatePickerDialog.OnDateSetListener dateListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                currentTime.set(Calendar.YEAR, year);
-                currentTime.set(Calendar.MONTH, monthOfYear);
-                currentTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateDate(holder);
-            }
+        DatePickerDialog.OnDateSetListener dateListener = (view, year, monthOfYear, dayOfMonth) -> {
+            currentTime.set(Calendar.YEAR, year);
+            currentTime.set(Calendar.MONTH, monthOfYear);
+            currentTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateDate(holder);
         };
 
         final boolean isExpanded = position==expandedPosition;
         // what I wanna show
         holder.removeButton.setVisibility(isExpanded?View.VISIBLE:View.GONE);
         holder.moveButton.setVisibility(isExpanded?View.VISIBLE:View.GONE);
-        if (fragment.equals("seenFragment")) {
+        if (fragment.equals(seenFragment)) {
             holder.extra.setVisibility(isExpanded?View.VISIBLE:View.GONE);
         }
         holder.itemView.setActivated(isExpanded);
@@ -121,7 +116,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             Event current = events.get(position);
             holder.movieTitle.setText(current.getTitle());
             holder.originalTitle.setText(current.getOriginalTitle());
-            if(fragment.equals("seenFragment")) {
+            if(fragment.equals(seenFragment)) {
                 holder.withInput.setText(current.getWith());
                 holder.whereInput.setText(current.getWhere());
                 holder.ratingBar.setRating(current.getRating());
@@ -131,7 +126,6 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
                             .get(Calendar.YEAR), currentTime.get(Calendar.MONTH),
                             currentTime.get(Calendar.DAY_OF_MONTH)).show();
                 });
-                // updateDate(holder);
                 holder.clearButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -175,7 +169,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
             holder.moveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (fragment.equals("seenFragment")) {
+                    if (fragment.equals(seenFragment)) {
                         current.setSeen(false);
                     } else {
                         current.setSeen(true);
@@ -196,7 +190,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
      *
      * @param holder    the ViewHolder which contains the item changed
      */
-    public void updateDate(MovieViewHolder holder) {
+    private void updateDate(MovieViewHolder holder) {
         String myFormat = "dd/MM/yyyy";
         DateFormat sdf = new SimpleDateFormat(myFormat);
         String seenDate = sdf.format(currentTime.getTime());

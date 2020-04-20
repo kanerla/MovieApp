@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,10 +19,10 @@ public class NowInTheatresFragment extends Fragment {
     private RecyclerView recyclerView;
     private CustomAdapter myAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    List<Event> entries;
+    private List<Event> entries;
 
     public NowInTheatresFragment() {
-        entries = new ArrayList<Event>();
+        entries = new ArrayList<>();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,12 +36,6 @@ public class NowInTheatresFragment extends Fragment {
 
         assert getArguments() != null;
         entries = getArguments().getParcelableArrayList("eventsArray");
-        /*
-        entries = new ArrayList<>();
-        Log.d("we got", "this far");
-        List<Event> allEntries = getArguments().getParcelableArrayList("eventsArray");
-        moviesNowInTheatres(allEntries);
-        */
 
         myAdapter = new CustomAdapter(getContext(), entries);
         recyclerView.setAdapter(myAdapter);
@@ -53,32 +45,9 @@ public class NowInTheatresFragment extends Fragment {
         return view;
     }
 
-    /*
-    public void moviesNowInTheatres(List<Event> events) {
-        Date now = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-
-        for (Event e : events) {
-            String release = e.getRelease();
-            Date releaseDate = new Date();
-            try {
-                releaseDate = sdf.parse(release);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            if (releaseDate.getTime() - now.getTime() < 0) {
-                Log.d("Movies", e.getTitle());
-                entries.add(e);
-            }
-        }
-    }
-
-     */
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater mInflater) {
-        MenuInflater inflater = mInflater;
-        inflater.inflate(R.menu.search_menu, menu);
+        mInflater.inflate(R.menu.search_menu, menu);
 
         MenuItem searchItem = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) searchItem.getActionView();

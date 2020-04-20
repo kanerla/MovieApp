@@ -1,26 +1,23 @@
 package com.tamk.moviet;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +26,6 @@ public class StatisticsActivity extends AppCompatActivity {
     PieData pieData;
     PieDataSet pieDataSet;
     ArrayList pieEntries;
-    ArrayList PieEntryLabels;
     int[] bluecolors;
     int[] greencolors;
     ArrayList ratings;
@@ -54,7 +50,7 @@ public class StatisticsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        bluecolors = new int[] {R.color.BabyBlue, R.color.BlueberryBlue, R.color.CookieMonsterBlue, R.color.FindingDoryBlue, R.color.OceanBlue, R.color.SquirtleBlue};
+        bluecolors = new int[] {R.color.BabyBlue, R.color.OceanBlue, R.color.CookieMonsterBlue, R.color.FindingDoryBlue, R.color.BlueberryBlue, R.color.SquirtleBlue};
         greencolors = new int[] {R.color.AlienGreen, R.color.ShamrockGreen, R.color.LimeGreen, R.color.MikeWazowskiGreen, R.color.MediumSeaGreen, R.color.StarbucksGreen};
 
         sortRatings();
@@ -78,11 +74,10 @@ public class StatisticsActivity extends AppCompatActivity {
                 return value + "%";
             }
         });
-        // pieData.setValueFormatter(new PercentFormatter());
         pieChart.setData(pieData);
         pieChart.getDescription().setEnabled(false);
         pieChart.getLegend().setEnabled(false);
-        pieDataSet.setColors(greencolors, getApplicationContext());
+        pieDataSet.setColors(bluecolors, getApplicationContext());
         pieDataSet.setSliceSpace(2f);
         pieDataSet.setValueTextColor(Color.WHITE);
         pieDataSet.setValueTextSize(10f);
@@ -142,6 +137,8 @@ public class StatisticsActivity extends AppCompatActivity {
                     break;
                 case 5:
                     ratedFive ++;
+                    break;
+                default:
                     break;
             }
         }
@@ -208,7 +205,7 @@ public class StatisticsActivity extends AppCompatActivity {
         try{
             AssetManager am = getApplicationContext().getAssets();
             InputStream is = am.open("license.txt");
-            InputStreamReader inputStreamReader = new InputStreamReader(is, "UTF-8");
+            InputStreamReader inputStreamReader = new InputStreamReader(is, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String receiveString = "";
             StringBuilder stringBuilder = new StringBuilder();

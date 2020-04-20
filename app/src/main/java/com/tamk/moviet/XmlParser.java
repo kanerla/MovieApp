@@ -2,10 +2,8 @@ package com.tamk.moviet;
 
 import android.util.Log;
 import android.util.Xml;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -63,30 +61,39 @@ public class XmlParser {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals("Title")) {
-                title = readTag(parser, "Title");
-            } else if (name.equals("OriginalTitle")) {
-                original = readTag(parser, "OriginalTitle");
-            } else if (name.equals("LengthInMinutes")) {
-                length = readTag(parser, "LengthInMinutes");
-            } else if (name.equals("dtLocalRelease")) {
-                localRelease = readTag(parser, "dtLocalRelease");
-            } else if (name.equals("Genres")) {
-                genres = readTag(parser, "Genres");
-            } else if (name.equals("Synopsis")) {               // MAKE THESE ShortSynopsis
-                summary = readTag(parser, "Synopsis");
-            } else if (name.equals("EventURL")) {
-                link = readTag(parser, "EventURL");
-            } else if (name.equals("Images")) {
-                photo = readURL(parser, "EventSmallImagePortrait");
-                Log.d("XmlParser", "photo link was " + photo);
-            } else {
-                skip(parser);
+            switch (name) {
+                case "Title":
+                    title = readTag(parser, "Title");
+                    break;
+                case "OriginalTitle":
+                    original = readTag(parser, "OriginalTitle");
+                    break;
+                case "LengthInMinutes":
+                    length = readTag(parser, "LengthInMinutes");
+                    break;
+                case "dtLocalRelease":
+                    localRelease = readTag(parser, "dtLocalRelease");
+                    break;
+                case "Genres":
+                    genres = readTag(parser, "Genres");
+                    break;
+                case "Synopsis":
+                    summary = readTag(parser, "Synopsis");
+                    break;
+                case "EventURL":
+                    link = readTag(parser, "EventURL");
+                    break;
+                case "Images":
+                    photo = readURL(parser, "EventSmallImagePortrait");
+                    Log.d("XmlParser", "photo link was " + photo);
+                    break;
+                default:
+                    skip(parser);
+                    break;
             }
         }
 
         return new Event(title, original, length, localRelease, genres, summary, link, photo);
-        // return new Event(title, original, length, localRelease, genres, summary, link);
     }
 
     // Processes most tags in the feed.
@@ -139,6 +146,8 @@ public class XmlParser {
                     break;
                 case XmlPullParser.START_TAG:
                     depth++;
+                    break;
+                default:
                     break;
             }
         }

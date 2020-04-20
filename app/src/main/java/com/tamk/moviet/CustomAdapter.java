@@ -10,17 +10,14 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> implements Filterable {
-    Context context;
-    List<Event> events;
-    List<Event> fullEvents;
+    private Context context;
+    private List<Event> events;
+    private List<Event> fullEvents;
 
     public CustomAdapter(Context context, List<Event> events) {
         this.context = context;
@@ -47,7 +44,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         viewHolder.title.setText(events.get(i).getTitle());
         Log.d("CustomAdapter", "Photo address: " + events.get(i).getPhoto());
         Picasso.with(context).load(events.get(i).getPhoto()).fit().error(R.drawable.placeholder).into(viewHolder.picture);
-        // Picasso.with(context).load(R.drawable.ahiddenlife).fit().error(R.drawable.placeholder).into(viewHolder.picture);
 
         viewHolder.itemView.setOnClickListener((View v) -> {
             ((MovieActivity)context).showInfoDialog(events.get(i));
@@ -83,13 +79,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
             title = view.findViewById(R.id.listItem);
             picture = view.findViewById(R.id.picture);
-
-            /*
-            title.setOnClickListener((View v) -> {
-                Log.d("CustomAdapter", title.getText() + " was clicked");
-                ((MovieActivity)context).showInfoDialog(events.get(getAdapterPosition()));
-            });
-             */
         }
     }
 
@@ -109,8 +98,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     }
                 }
             }
-            // sort by release date
-            // sortList(filteredList);
             FilterResults results = new FilterResults();
             results.values = filteredList;
             return results;
@@ -121,18 +108,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             events.clear();
             events.addAll((List)results.values);
             notifyDataSetChanged();
-        }
-
-        // sort list by release date (default = a -> z)
-        protected void sortList(List<Event> filteredList) {
-            Collections.sort(filteredList, new Comparator() {
-                @Override
-                public int compare(Object one, Object two) {
-                    //use instanceof to verify the references are indeed of the type in question
-                    return ((Event)one).getRelease()
-                            .compareTo(((Event)two).getRelease());
-                }
-            });
         }
     };
 }

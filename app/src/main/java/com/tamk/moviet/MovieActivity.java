@@ -5,9 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-
 import com.google.android.material.tabs.TabLayout;
-
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -161,17 +159,9 @@ public class MovieActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            // listassa on tavaraa
-            // Log.d("Entries: ", "" + entries.size());
             ArrayList<Event> array = new ArrayList<>(entries);
             nowBundle = new Bundle();
             nowBundle.putParcelableArrayList("eventsArray", array);
-
-            /*
-            ArrayList<Event> array = new ArrayList<>(entries);
-            bundle = new Bundle();
-            bundle.putParcelableArrayList("eventsArray", array);
-             */
 
             nitFragment = new NowInTheatresFragment();
             nitFragment.setArguments(nowBundle);
@@ -179,13 +169,6 @@ public class MovieActivity extends AppCompatActivity {
             transaction.add(R.id.fragment_container, nitFragment);
             transaction.commit();
 
-            Log.d("transaction", "started");
-
-            /*
-            setContentView(R.layout.main);
-            // Displays the HTML string in the UI via a WebView
-            WebView myWebView = (WebView) findViewById(R.id.webview);
-            myWebView.loadData(result, "text/html", null); */
             Log.d("MovieActivity", result);
         }
 
@@ -195,9 +178,6 @@ public class MovieActivity extends AppCompatActivity {
             // Instantiate the parser
             XmlParser xmlParser = new XmlParser();
             entries = null;
-
-            // Checks whether the user set the preference to include summary text
-            // SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
             StringBuilder htmlString = new StringBuilder();
             Log.d("MovieActivity", "we got a stringbuilder here");
@@ -256,7 +236,6 @@ public class MovieActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            // listassa on tavaraa
             Log.d("Coming Soon: ", "" + coming.size());
 
             ArrayList<Event> array = new ArrayList<>(coming);
@@ -270,9 +249,6 @@ public class MovieActivity extends AppCompatActivity {
             // Instantiate the parser
             XmlParser xmlParser = new XmlParser();
             coming = null;
-
-            // Checks whether the user set the preference to include summary text
-            // SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
             StringBuilder htmlString = new StringBuilder();
 
