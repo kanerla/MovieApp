@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -21,7 +20,7 @@ import java.util.List;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.MovieViewHolder> {
+public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieViewHolder> {
     class MovieViewHolder extends RecyclerView.ViewHolder {
         private final TextView movieTitle;
         private final TextView originalTitle;
@@ -62,8 +61,9 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     private Calendar currentTime = Calendar.getInstance();
     private Context context;
     private String seenFragment = "seenFragment";
+    private static final String TAG = "PersonalAdapter";
 
-    public WatchListAdapter(Context context, String fragment) {
+    public PersonalAdapter(Context context, String fragment) {
         inflater = LayoutInflater.from(context);
         this.fragment = fragment;
         this.context = context;
@@ -74,7 +74,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView;
         if (fragment.equals(seenFragment)) {
-            Log.d("Fragment", "was seen");
+            Log.d(TAG, " Fragment was seen");
             itemView = inflater.inflate(R.layout.seen_item, parent, false);
         } else {
             itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
@@ -148,7 +148,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
                         current.setWhere(holder.whereInput.getText().toString());
                         current.setDate(holder.whenInput.getText().toString());
                         current.setRating(holder.ratingBar.getRating());
-                        Log.d("Date is ", "" + holder.whenInput.getText().toString());
+                        Log.d(TAG, "Date is " + holder.whenInput.getText().toString());
                         movieViewModel.update(events);
                         // TOAST
                         Toast toast = Toast.makeText(context,
@@ -174,7 +174,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.Movi
                     } else {
                         current.setSeen(true);
                     }
-                    Log.d("Seen?", "" + current.isSeen());
+                    Log.d(TAG, "Seen? " + current.isSeen());
                     movieViewModel.update(events);
                     expandedPosition = isExpanded ? -1:position;
                 }

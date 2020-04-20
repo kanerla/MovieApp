@@ -11,6 +11,7 @@ import java.util.List;
 
 public class XmlParser {
     private static final String ns = null;
+    private static final String TAG = "XmlParser";
 
     public List parse(InputStream in) throws XmlPullParserException, IOException {
         try {
@@ -18,7 +19,7 @@ public class XmlParser {
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
             parser.nextTag();
-            Log.d("MovieActivity", "done parsing");
+            Log.d(TAG, "done parsing");
             return readFeed(parser);
         } finally {
             in.close();
@@ -37,12 +38,12 @@ public class XmlParser {
             // Starts by looking for the entry tag
             if (name.equals("Event")) {
                 entries.add(readEntry(parser));
-                Log.d("Event found", "Event found");
+                Log.d(TAG, "Event found");
             } else {
                 skip(parser);
             }
         }
-        Log.d("entries size in parser: ", "" + entries.size());
+        Log.d(TAG, "entries size in parser: " + entries.size());
         return entries;
     }
 
@@ -85,7 +86,6 @@ public class XmlParser {
                     break;
                 case "Images":
                     photo = readURL(parser, "EventSmallImagePortrait");
-                    Log.d("XmlParser", "photo link was " + photo);
                     break;
                 default:
                     skip(parser);

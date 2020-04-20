@@ -42,7 +42,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(final CustomAdapter.ViewHolder viewHolder, int i) {
         viewHolder.title.setText(events.get(i).getTitle());
-        Log.d("CustomAdapter", "Photo address: " + events.get(i).getPhoto());
         Picasso.with(context).load(events.get(i).getPhoto()).fit().error(R.drawable.placeholder).into(viewHolder.picture);
 
         viewHolder.itemView.setOnClickListener((View v) -> {

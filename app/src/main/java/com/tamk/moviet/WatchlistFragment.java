@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class WatchlistFragment extends Fragment {
     private RecyclerView recyclerView;
-    private WatchListAdapter adapter;
+    private PersonalAdapter adapter;
     private MovieViewModel movieViewModel;
     private TextView welcome;
 
@@ -26,7 +26,7 @@ public class WatchlistFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerview);
         // recyclerView.setHasFixedSize(true);
-        adapter = new WatchListAdapter(getContext(), "watchlistFragment");
+        adapter = new PersonalAdapter(getContext(), "watchlistFragment");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

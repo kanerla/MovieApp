@@ -30,6 +30,7 @@ public class MovieActivity extends AppCompatActivity {
     Bundle bundle;
     Bundle nowBundle;
     Bundle comingBundle;
+    private static final String TAG = "MovieActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,12 +120,12 @@ public class MovieActivity extends AppCompatActivity {
 
             case R.id.search:
                 // User chose the "Search" item...
-                Log.d("MovieActivity", "search was clicked");
+                Log.d(TAG, "search was clicked");
                 return true;
 
             case R.id.mymovies:
                 // User chose the "Account" action...
-                Log.d("MovieActivity", "mymovies was clicked");
+                Log.d(TAG, "mymovies was clicked");
                 goToPersonalPage();
                 return true;
 
@@ -148,7 +149,7 @@ public class MovieActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... urls) {
             try {
-                Log.d("MovieActivity", "we trying to load");
+                Log.d(TAG, "trying to load");
                 return loadXmlFromNetwork(urls[0]);
             } catch (IOException e) {
                 return "Connection error";
@@ -169,7 +170,7 @@ public class MovieActivity extends AppCompatActivity {
             transaction.add(R.id.fragment_container, nitFragment);
             transaction.commit();
 
-            Log.d("MovieActivity", result);
+            Log.d(TAG, result);
         }
 
         // Uploads XML from the URL and parses it. Returns string.
@@ -180,19 +181,19 @@ public class MovieActivity extends AppCompatActivity {
             entries = null;
 
             StringBuilder htmlString = new StringBuilder();
-            Log.d("MovieActivity", "we got a stringbuilder here");
+            Log.d(TAG, "we got a stringbuilder here");
 
             try {
                 stream = downloadUrl(urlString);
                 entries = xmlParser.parse(stream);
-                Log.d("Entries 1: ", "" + entries.size());
+                Log.d(TAG, "Entries: " + entries.size());
                 // Makes sure that the InputStream is closed after the app is
                 // finished using it.
-                Log.d("MovieActivity", "Streamed and parsed");
+                Log.d(TAG, "Streamed and parsed");
             } finally {
                 if (stream != null) {
                     stream.close();
-                    Log.d("MovieActivity", "Closed the stream");
+                    Log.d(TAG, "Closed the stream");
                 }
             }
 
@@ -214,10 +215,9 @@ public class MovieActivity extends AppCompatActivity {
             conn.setConnectTimeout(15000 /* milliseconds */);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
-            Log.d("MovieActivity", "all good in the hood");
             // Starts the query
             conn.connect();
-            Log.d("MovieActivity", "conn.connect says: No adapter attached; skipping layout");
+            Log.d(TAG, "conn.connect says: No adapter attached; skipping layout");
             return conn.getInputStream();
         }
     }
@@ -236,7 +236,7 @@ public class MovieActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Log.d("Coming Soon: ", "" + coming.size());
+            Log.d(TAG, "Coming soon: " + coming.size());
 
             ArrayList<Event> array = new ArrayList<>(coming);
             comingBundle = new Bundle();
@@ -257,11 +257,11 @@ public class MovieActivity extends AppCompatActivity {
                 coming = xmlParser.parse(stream);
                 // Makes sure that the InputStream is closed after the app is
                 // finished using it.
-                Log.d("MovieActivity", "Streamed and parsed");
+                Log.d(TAG, "Streamed and parsed");
             } finally {
                 if (stream != null) {
                     stream.close();
-                    Log.d("MovieActivity", "Closed the stream");
+                    Log.d(TAG, "Closed the stream");
                 }
             }
 
@@ -283,10 +283,9 @@ public class MovieActivity extends AppCompatActivity {
             conn.setConnectTimeout(15000 /* milliseconds */);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
-            Log.d("MovieActivity", "all good in the hood");
             // Starts the query
             conn.connect();
-            Log.d("MovieActivity", "conn.connect says: No adapter attached; skipping layout");
+            Log.d(TAG, "conn.connect says: No adapter attached; skipping layout");
             return conn.getInputStream();
         }
     }

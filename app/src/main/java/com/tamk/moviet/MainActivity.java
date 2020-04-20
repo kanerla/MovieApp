@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     boolean connected = false;
     ConnectivityManager connectivityManager;
     NetworkInfo activeNetwork;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         Locale primaryLocale = getApplicationContext().getResources().getConfiguration().getLocales().get(0);
         String locale = primaryLocale.getDisplayName();
-        Log.d("MainActivity", locale);
+        Log.d(TAG, locale);
     }
 
     /**
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, MovieActivity.class);
             startActivity(i);
         } else {
-            Log.d("MainActivity", "Not connected to the internet");
+            Log.d(TAG, "Not connected to the internet");
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Please connect to the internet and try again",
                     Toast.LENGTH_SHORT);

@@ -31,6 +31,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
     private ImageView photo;
     private Event thisEvent;
     private MovieViewModel movieViewModel;
+    private static final String TAG = "MovieInfoDialogFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,7 +83,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
         watchList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Watch", "button was clicked");
+                Log.d(TAG, "Watch button was clicked");
                 movieViewModel.insert(thisEvent);
             }
         });
@@ -90,7 +91,7 @@ public class MovieInfoDialogFragment extends DialogFragment {
         seenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Seen", "button was clicked");
+                Log.d(TAG, "Seen button was clicked");
                 movieViewModel.insert(thisEvent);
                 thisEvent.setSeen(true);
             }

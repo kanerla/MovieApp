@@ -36,6 +36,7 @@ public class StatisticsActivity extends AppCompatActivity {
     private float ratedThree;
     private float ratedFour;
     private float ratedFive;
+    private static final String TAG = "StatisticsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class StatisticsActivity extends AppCompatActivity {
         ratings = getIntent().getExtras().getIntegerArrayList("ratings");
         totalInSeen = ratings.size();
 
-        Log.d("Bundle", "" + ratings.size());
+        Log.d(TAG, "Bundle: " + ratings.size());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -118,7 +119,7 @@ public class StatisticsActivity extends AppCompatActivity {
     private void sortRatings() {
         for (Object rating : ratings) {
             int intRating = (int) rating;
-            Log.d("Movies", "" + rating); // 0 - 5
+            Log.d(TAG, "Rating: " + rating); // 0 - 5
             switch (intRating) {
                 case 0:
                     noRating ++;
@@ -175,7 +176,7 @@ public class StatisticsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.info) {
-            Log.d("StatisticsActivity", "info was clicked");
+            Log.d(TAG, "info was clicked");
 
             new AlertDialog.Builder(this)
                     //set icon
