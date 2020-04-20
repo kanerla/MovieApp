@@ -25,4 +25,5 @@
     <string name="link">Näytösajat ja liput</string>
     <string name="connect">Yhdistä verkkoon ja yritä uudelleen</string>
     <string name="welcome_moviet">Tervetuloa!</string>
+    <string name="rating_instructions">Merkitse elokuvia nähdyiksi ja arvostele ne\nnähdäksesi täällä lisää</string>
 </resources>

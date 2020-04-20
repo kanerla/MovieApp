@@ -25,4 +25,5 @@
     <string name="link">See showtimes and buy tickets</string>
     <string name="connect">Please connect to the internet and try again</string>
     <string name="welcome_moviet">Welcome to MovieT!</string>
+    <string name="rating_instructions">Mark movies as seen and rate them\nto show data here</string>
 </resources>

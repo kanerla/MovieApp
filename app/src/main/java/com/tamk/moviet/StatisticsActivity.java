@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -44,6 +47,7 @@ public class StatisticsActivity extends AppCompatActivity {
     private float ratedThree;
     private float ratedFour;
     private float ratedFive;
+    private TextView instructions;
     private static final String TAG = "StatisticsActivity";
 
     /**
@@ -59,6 +63,11 @@ public class StatisticsActivity extends AppCompatActivity {
 
         ratings = getIntent().getExtras().getIntegerArrayList("ratings");
         totalInSeen = ratings.size();
+
+        instructions = findViewById(R.id.instructions);
+        if (totalInSeen == 0) {
+            instructions.setVisibility(View.VISIBLE);
+        }
 
         Log.d(TAG, "Bundle: " + ratings.size());
 
