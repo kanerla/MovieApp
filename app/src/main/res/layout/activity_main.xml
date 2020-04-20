@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/welcome_moviet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/welcome_moviet"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/text">
+
+    </TextView>
 
     <TextView
         android:id="@+id/text"
@@ -12,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="150dp"
         android:text="@string/connection"
+        android:textColor="@color/colorPrimary"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/button">
 
@@ -19,22 +33,12 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Colored"
+        style="@android:style/Widget.Holo.Button.Toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:backgroundTint="@color/colorAccent"
         android:onClick="loadPage"
-        android:text="@string/go" />
-
-    <ImageView
-        android:id="@+id/nemo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/nemo"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button">
-
-    </ImageView>
+        android:text="@string/go"
+        android:textSize="24sp"/>
 
 </RelativeLayout>

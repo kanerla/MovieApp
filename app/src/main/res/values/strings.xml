@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MovieT</string>
     <string name="connection">Please make sure you are connected to the internet\nbefore continuing.</string>
-    <string name="go">Just keep swimming!</string>
+    <string name="go">Let\'s go!</string>
     <string name="now">Now in theatres</string>
     <string name="soon">Coming soon</string>
     <string name="seen">Seen</string>
@@ -24,4 +24,5 @@
     <string name="no_title">No title found</string>
     <string name="link">See showtimes and buy tickets</string>
     <string name="connect">Please connect to the internet and try again</string>
+    <string name="welcome_moviet">Welcome to MovieT!</string>
 </resources>

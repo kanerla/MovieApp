@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MovieT</string>
     <string name="connection">Tarkista laitteesi verkkoyhteys\nennen kuin jatkat pidemmälle.</string>
-    <string name="go">Jatka matkaa!</string>
+    <string name="go">Jatka</string>
     <string name="now">Ohjelmistossa nyt</string>
     <string name="soon">Tulossa</string>
     <string name="seen">Nähty</string>
@@ -24,4 +24,5 @@
     <string name="no_title">Ei tietoa</string>
     <string name="link">Näytösajat ja liput</string>
     <string name="connect">Yhdistä verkkoon ja yritä uudelleen</string>
+    <string name="welcome_moviet">Tervetuloa!</string>
 </resources>
