@@ -48,6 +48,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         Log.d("CustomAdapter", "Photo address: " + events.get(i).getPhoto());
         Picasso.with(context).load(events.get(i).getPhoto()).fit().error(R.drawable.placeholder).into(viewHolder.picture);
         // Picasso.with(context).load(R.drawable.ahiddenlife).fit().error(R.drawable.placeholder).into(viewHolder.picture);
+
+        viewHolder.itemView.setOnClickListener((View v) -> {
+            ((MovieActivity)context).showInfoDialog(events.get(i));
+        });
     }
 
     /**
@@ -80,10 +84,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             title = view.findViewById(R.id.listItem);
             picture = view.findViewById(R.id.picture);
 
+            /*
             title.setOnClickListener((View v) -> {
                 Log.d("CustomAdapter", title.getText() + " was clicked");
                 ((MovieActivity)context).showInfoDialog(events.get(getAdapterPosition()));
             });
+             */
         }
     }
 
