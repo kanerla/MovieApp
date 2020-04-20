@@ -145,7 +145,7 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
         if (isExpanded)
             previouslyExpanded = position;
 
-        holder.movieTitle.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 expandedPosition = isExpanded ? -1:position;
