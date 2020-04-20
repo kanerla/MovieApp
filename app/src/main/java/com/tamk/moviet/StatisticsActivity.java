@@ -1,8 +1,13 @@
 package com.tamk.moviet;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -10,8 +15,13 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class StatisticsActivity extends AppCompatActivity {
@@ -49,6 +59,9 @@ public class StatisticsActivity extends AppCompatActivity {
 
         sortRatings();
         createStarChart();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     private void createStarChart() {
@@ -145,5 +158,74 @@ public class StatisticsActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    /**
+     * Specifies the options menu for the activity.
+     * Inflates the menu resource into the menu provided in the callback.
+     * Basically, adds items to the action bar if it is present.
+     *
+     * @param menu  menu to be inflated
+     * @return      true when completed successfully
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.statistics_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.info) {
+            Log.d("StatisticsActivity", "info was clicked");
+
+            new AlertDialog.Builder(this)
+                    //set icon
+                    .setIcon(R.drawable.ic_info)
+                    //set title
+                    .setTitle("MPAndroidChart License")
+                    //set message
+                    .setMessage(readLicense())
+                    //set positive button
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //set what would happen when positive button is clicked
+                            dialogInterface.cancel();
+                        }
+                    })
+                    .show();
+
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public String readLicense() {
+        String license = "";
+
+        try{
+            AssetManager am = getApplicationContext().getAssets();
+            InputStream is = am.open("license.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(is, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String receiveString = "";
+            StringBuilder stringBuilder = new StringBuilder();
+
+            while ( (receiveString = bufferedReader.readLine()) != null ) {
+                if(receiveString.equals("")){
+                    stringBuilder.append(System.getProperty("line.separator"));
+                }else{
+                    stringBuilder.append(receiveString);
+                }
+            }
+            is.close();
+            license = stringBuilder.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return license;
     }
 }
