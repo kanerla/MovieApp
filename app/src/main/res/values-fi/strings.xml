@@ -7,14 +7,14 @@
     <string name="seen">Nähty</string>
     <string name="watch">Katsottava</string>
     <string name="description">Elokuvajuliste</string>
-    <string name="welcome_seen">Tämä on henkilökohtainen Nähty-listasi</string>
+    <string name="welcome_seen">Tämä on henkilökohtainen Nähty-listasi.\nMerkitse elokuvia nähdyiksi ja arvostele ne täällä!</string>
     <string name="when">Milloin </string>
     <string name="clear">Poista</string>
     <string name="where">Missä </string>
     <string name="save">Tallenna</string>
     <string name="move_to_watch">Siirrä katsottavien listalle</string>
     <string name="remove_seen">Poista nähdyistä</string>
-    <string name="welcome_watch">Tämä on henkilökohtainen katsottavien listasi</string>
+    <string name="welcome_watch">Tämä on henkilökohtainen katsottavien listasi.\nLisää elokuvia listalle odottamaan katsomista.</string>
     <string name="move_to_seen">Siirrä nähtyihin</string>
     <string name="remove_watch">Poista katsottavista</string>
     <string name="rating">Annetut arvosanat</string>
