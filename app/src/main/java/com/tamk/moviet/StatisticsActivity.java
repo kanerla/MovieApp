@@ -182,7 +182,7 @@ public class StatisticsActivity extends AppCompatActivity {
                     //set icon
                     .setIcon(R.drawable.ic_info)
                     //set title
-                    .setTitle("MPAndroidChart License")
+                    .setTitle(R.string.license)
                     //set message
                     .setMessage(readLicense())
                     //set positive button

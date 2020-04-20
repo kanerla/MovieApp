@@ -18,4 +18,10 @@
     <string name="move_to_seen">Move to Seen</string>
     <string name="remove_watch">Remove from Watchlist</string>
     <string name="rating">Your rating statistics</string>
+    <string name="license">MPAndroidChart License</string>
+    <string name="no_rating">No rating</string>
+    <string name="saved">Saved successfully</string>
+    <string name="no_title">No title found</string>
+    <string name="link">See showtimes and buy tickets</string>
+    <string name="connect">Please connect to the internet and try again</string>
 </resources>

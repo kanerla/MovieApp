@@ -152,7 +152,7 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
                         movieViewModel.update(events);
                         // TOAST
                         Toast toast = Toast.makeText(context,
-                                "Saved successfully",
+                                R.string.saved,
                                 Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
@@ -181,7 +181,7 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
             });
         } else {
             // Covers the case of data not being ready yet.
-            holder.movieTitle.setText("No title found");
+            holder.movieTitle.setText(R.string.no_title);
         }
     }
 

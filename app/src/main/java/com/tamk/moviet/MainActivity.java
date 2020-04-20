@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.d(TAG, "Not connected to the internet");
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Please connect to the internet and try again",
+                    R.string.connect,
                     Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();

@@ -18,4 +18,10 @@
     <string name="move_to_seen">Siirrä nähtyihin</string>
     <string name="remove_watch">Poista katsottavista</string>
     <string name="rating">Annetut arvosanat</string>
+    <string name="license">MPAndroidChart Lisenssi</string>
+    <string name="no_rating">Ei arvosanaa</string>
+    <string name="saved">Tallennus onnistui</string>
+    <string name="no_title">Ei tietoa</string>
+    <string name="link">Näytösajat ja liput</string>
+    <string name="connect">Yhdistä verkkoon ja yritä uudelleen</string>
 </resources>
