@@ -128,22 +128,27 @@ public class StatisticsActivity extends AppCompatActivity {
         }
         if (ratedOne != 0) {
             float percent = (ratedOne / totalInSeen) * 100;
+            // pieEntries.add(new PieEntry(percent, "1/5"));
             pieEntries.add(new PieEntry(percent, "⭐"));
         }
         if (ratedTwo != 0) {
             float percent = (ratedTwo / totalInSeen) * 100;
+            // pieEntries.add(new PieEntry(percent, "2/5"));
             pieEntries.add(new PieEntry(percent, "⭐⭐"));
         }
         if (ratedThree != 0) {
             float percent = (ratedThree / totalInSeen) * 100;
+            // pieEntries.add(new PieEntry(percent, "3/5"));
             pieEntries.add(new PieEntry(percent, "⭐⭐⭐"));
         }
         if (ratedFour != 0) {
             float percent = (ratedFour/totalInSeen) * 100;
+            // pieEntries.add(new PieEntry(percent, "4/5"));
             pieEntries.add(new PieEntry(percent, "⭐⭐⭐⭐"));
         }
         if (ratedFive != 0) {
             float percent = (ratedFive / totalInSeen) * 100;
+            // pieEntries.add(new PieEntry(percent, "5/5"));
             pieEntries.add(new PieEntry(percent, "⭐⭐⭐⭐⭐"));
         }
     }
