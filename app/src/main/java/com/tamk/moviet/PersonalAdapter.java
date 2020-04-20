@@ -20,7 +20,19 @@ import java.util.List;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * PersonalAdapter class extends the RecyclerView.Adapter and
+ * provides a binding from data set to a view displayed within a RecyclerView.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieViewHolder> {
+
+    /**
+     * MovieViewHolder class extends the RecyclerView.ViewHolder and
+     * describes an item view and metadata about its place within the RecyclerView.
+     */
     class MovieViewHolder extends RecyclerView.ViewHolder {
         private final TextView movieTitle;
         private final TextView originalTitle;
@@ -35,6 +47,12 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
         private RatingBar ratingBar;
         private Button clearRatingButton;
 
+        /**
+         * Class constructor.
+         * Initializes the itemView attributes.
+         *
+         * @param itemView  the specified item's view
+         */
         private MovieViewHolder(View itemView) {
             super(itemView);
             movieTitle = itemView.findViewById(R.id.watchlist_title);
@@ -63,6 +81,13 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
     private String seenFragment = "seenFragment";
     private static final String TAG = "PersonalAdapter";
 
+    /**
+     * Class constructor.
+     * Initializes the LayoutInflater, context and the ViewModel used.
+     *
+     * @param context   application context to use
+     * @param fragment  fragment where addapter is called from
+     */
     public PersonalAdapter(Context context, String fragment) {
         inflater = LayoutInflater.from(context);
         this.fragment = fragment;
@@ -70,6 +95,14 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
         movieViewModel = ViewModelProviders.of((PersonalActivity) context).get(MovieViewModel.class);
     }
 
+    /**
+     * Constructs and returns a new ViewHolder to represent the specified items.
+     * Inflates the new view from a XML layout file.
+     *
+     * @param parent    the ViewGroup into which the new view will be added
+     * @param viewType  the view type of the new view
+     * @return          a new ViewHolder to hold a view
+     */
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView;
@@ -82,6 +115,14 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
         return new MovieViewHolder(itemView);
     }
 
+    /**
+     * Displays the data at the specified position.
+     * Updates the contents of the itemview to reflect the item at given position.
+     * Creates a DatePicker and sets visibility and onClick actions to elements.
+     *
+     * @param holder    the viewholder updated to represent the contents of certain item
+     * @param position  the position of the item within the adapter's data set
+     */
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         DatePickerDialog.OnDateSetListener dateListener = (view, year, monthOfYear, dayOfMonth) -> {
@@ -208,8 +249,12 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
         notifyDataSetChanged();
     }
 
-    // getItemCount() is called many times, and when it is first called,
-    // events has not been updated (means initially, it's null, and we can't return null).
+    /**
+     * Called to return the total number of items in the data set held by the adapter.
+     * When first called, data set has not been updated and is null.
+     *
+     * @return  number of items in the data set
+     */
     @Override
     public int getItemCount() {
         if (events != null)

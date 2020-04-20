@@ -6,11 +6,24 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+/**
+ * MovieViewModel class extends the AndroidViewModel.
+ * MovieViewModel is responsible for preparing and managing data
+ * and handling the communication of Activities/Fragments and the database.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 public class MovieViewModel extends AndroidViewModel {
     private MovieRepository repository;
     private LiveData<List<Event>> allEvents;
     private LiveData<List<Event>> allSeen;
 
+    /**
+     * Class constructor.
+     *
+     * @param application   the application to which lifecycle viewmodel is attached to
+     */
     public MovieViewModel(@NonNull Application application) {
         super(application);
         repository = new MovieRepository(application);
@@ -27,6 +40,11 @@ public class MovieViewModel extends AndroidViewModel {
         return allEvents;
     }
 
+    /**
+     * Returns a list of all events in the repository marked as "seen"
+     *
+     * @return  list of seen events
+     */
     LiveData<List<Event>> getAllSeenEvents() {
         return allSeen;
     }

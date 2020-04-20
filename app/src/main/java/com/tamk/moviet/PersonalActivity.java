@@ -13,12 +13,26 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+/**
+ * PersonalActivity is the activity where user can switch between
+ * Watchlist- and SeenFragments and view their personal information.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 public class PersonalActivity extends AppCompatActivity {
-    FragmentManager manager;
-    FragmentTransaction transaction;
-    TabLayout tabLayout;
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
+    private TabLayout tabLayout;
     private MovieViewModel movieViewModel;
 
+    /**
+     * Called when activity starts.
+     * Initializes attributes, fragments and tablayout.
+     * Calls setContentView to inflate activity's UI.
+     *
+     * @param savedInstanceState    null or the data that activity most recently supplied in onSaveInstanceState()
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +63,12 @@ public class PersonalActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                // Do nothing because method not needed.
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                // Do nothing because method not needed.
             }
         });
 

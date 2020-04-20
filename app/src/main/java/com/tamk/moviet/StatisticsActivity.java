@@ -21,14 +21,22 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * StatisticsActivity is the activity where
+ * all pie chart data is handled and graphics charts are
+ * created and shown.
+ *
+ * @author      Laura Kanerva
+ * @version     %I%, %G%
+ */
 public class StatisticsActivity extends AppCompatActivity {
-    PieChart pieChart;
-    PieData pieData;
-    PieDataSet pieDataSet;
-    ArrayList pieEntries;
-    int[] bluecolors;
-    int[] greencolors;
-    ArrayList ratings;
+    private PieChart pieChart;
+    private PieData pieData;
+    private PieDataSet pieDataSet;
+    private ArrayList pieEntries;
+    private int[] blueColors;
+    private int[] greenColors;
+    private ArrayList ratings;
     private float totalInSeen;
     private float noRating;
     private float ratedOne;
@@ -38,6 +46,12 @@ public class StatisticsActivity extends AppCompatActivity {
     private float ratedFive;
     private static final String TAG = "StatisticsActivity";
 
+    /**
+     * Called when activity starts.
+     * Initializes attributes and calls setContentView to inflate activity's UI.
+     *
+     * @param savedInstanceState    null or the data that activity most recently supplied in onSaveInstanceState()
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +65,8 @@ public class StatisticsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        bluecolors = new int[] {R.color.BabyBlue, R.color.OceanBlue, R.color.CookieMonsterBlue, R.color.FindingDoryBlue, R.color.BlueberryBlue, R.color.SquirtleBlue};
-        greencolors = new int[] {R.color.AlienGreen, R.color.ShamrockGreen, R.color.LimeGreen, R.color.MikeWazowskiGreen, R.color.MediumSeaGreen, R.color.StarbucksGreen};
+        blueColors = new int[] {R.color.BabyBlue, R.color.OceanBlue, R.color.CookieMonsterBlue, R.color.FindingDoryBlue, R.color.BlueberryBlue, R.color.SquirtleBlue};
+        greenColors = new int[] {R.color.AlienGreen, R.color.ShamrockGreen, R.color.LimeGreen, R.color.MikeWazowskiGreen, R.color.MediumSeaGreen, R.color.StarbucksGreen};
 
         sortRatings();
         createStarChart();
@@ -61,6 +75,11 @@ public class StatisticsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+    /**
+     * Creates a pie chart out of data entries.
+     * Formats data into percentage and based on its value.
+     * Sets up pie chart values for text, slices and colors.
+     */
     private void createStarChart() {
         pieChart = findViewById(R.id.starChart);
         getEntries();
@@ -78,7 +97,7 @@ public class StatisticsActivity extends AppCompatActivity {
         pieChart.setData(pieData);
         pieChart.getDescription().setEnabled(false);
         pieChart.getLegend().setEnabled(false);
-        pieDataSet.setColors(bluecolors, getApplicationContext());
+        pieDataSet.setColors(blueColors, getApplicationContext());
         pieDataSet.setSliceSpace(2f);
         pieDataSet.setValueTextColor(Color.WHITE);
         pieDataSet.setValueTextSize(10f);
@@ -87,6 +106,10 @@ public class StatisticsActivity extends AppCompatActivity {
         pieChart.setUsePercentValues(true);
     }
 
+    /**
+     * Counts the coverage percentage for each pie chart entry
+     * and adds them to a list with assigned label.
+     */
     private void getEntries() {
         pieEntries = new ArrayList<>();
 
@@ -116,6 +139,9 @@ public class StatisticsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Iterates a list of ratings and counts them.
+     */
     private void sortRatings() {
         for (Object rating : ratings) {
             int intRating = (int) rating;
@@ -172,34 +198,49 @@ public class StatisticsActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Called whenever an item in options menu is selected.
+     * Executes action depending on the chosen item.
+     *
+     * @param item      menu item selected
+     * @return          true if item id is correct, false by default
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.info) {
             Log.d(TAG, "info was clicked");
-
-            new AlertDialog.Builder(this)
-                    //set icon
-                    .setIcon(R.drawable.ic_info)
-                    //set title
-                    .setTitle(R.string.license)
-                    //set message
-                    .setMessage(readLicense())
-                    //set positive button
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //set what would happen when positive button is clicked
-                            dialogInterface.cancel();
-                        }
-                    })
-                    .show();
-
+            showAlert();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Creates and shows an alert dialog.
+     * Sets an icon, title and message to the dialog,
+     * as well as the action for the positive button.
+     */
+    public void showAlert() {
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.ic_info)
+                .setTitle(R.string.license)
+                .setMessage(readLicense())
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                })
+                .show();
+    }
+
+    /**
+     * Opens a text file and reads its content.
+     * Returns the text from the file in string form.
+     *
+     * @return  text read from a file
+     */
     public String readLicense() {
         String license = "";
 
