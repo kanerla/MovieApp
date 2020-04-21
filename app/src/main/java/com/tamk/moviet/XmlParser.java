@@ -1,6 +1,5 @@
 package com.tamk.moviet;
 
-import android.util.Log;
 import android.util.Xml;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -36,7 +35,6 @@ public class XmlParser {
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
             parser.nextTag();
-            Log.d(TAG, "done parsing");
             return readFeed(parser);
         } finally {
             in.close();
@@ -65,12 +63,10 @@ public class XmlParser {
             // Starts by looking for the entry tag
             if (name.equals("Event")) {
                 entries.add(readEntry(parser));
-                Log.d(TAG, "Event found");
             } else {
                 skip(parser);
             }
         }
-        Log.d(TAG, "entries size in parser: " + entries.size());
         return entries;
     }
 

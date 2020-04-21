@@ -2,7 +2,6 @@ package com.tamk.moviet;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,7 +107,6 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView;
         if (fragment.equals(seenFragment)) {
-            Log.d(TAG, " Fragment was seen");
             itemView = inflater.inflate(R.layout.seen_item, parent, false);
         } else {
             itemView = inflater.inflate(R.layout.watchlist_item, parent, false);
@@ -190,7 +188,6 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
                         current.setWhere(holder.whereInput.getText().toString());
                         current.setDate(holder.whenInput.getText().toString());
                         current.setRating(holder.ratingBar.getRating());
-                        Log.d(TAG, "Date is " + holder.whenInput.getText().toString());
                         movieViewModel.update(events);
                         // TOAST
                         Toast toast = Toast.makeText(context,
@@ -216,7 +213,6 @@ public class PersonalAdapter extends RecyclerView.Adapter<PersonalAdapter.MovieV
                     } else {
                         current.setSeen(true);
                     }
-                    Log.d(TAG, "Seen? " + current.isSeen());
                     movieViewModel.update(events);
                     expandedPosition = isExpanded ? -1:position;
                 }

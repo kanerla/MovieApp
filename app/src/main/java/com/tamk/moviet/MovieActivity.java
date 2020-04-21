@@ -3,7 +3,6 @@ package com.tamk.moviet;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import com.google.android.material.tabs.TabLayout;
 import org.xmlpull.v1.XmlPullParserException;
@@ -158,11 +157,9 @@ public class MovieActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.search:
-                Log.d(TAG, "search was clicked");
                 return true;
 
             case R.id.mymovies:
-                Log.d(TAG, "mymovies was clicked");
                 goToPersonalPage();
                 return true;
 
@@ -197,7 +194,6 @@ public class MovieActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... urls) {
             try {
-                Log.d(TAG, "trying to load");
                 return loadXmlFromNetwork(urls[0]);
             } catch (IOException e) {
                 return "Connection error";
@@ -224,8 +220,6 @@ public class MovieActivity extends AppCompatActivity {
 
             transaction.add(R.id.fragment_container, nitFragment);
             transaction.commit();
-
-            Log.d(TAG, result);
         }
 
         /**
@@ -244,19 +238,15 @@ public class MovieActivity extends AppCompatActivity {
             entries = null;
 
             StringBuilder htmlString = new StringBuilder();
-            Log.d(TAG, "we got a stringbuilder here");
 
             try {
                 stream = downloadUrl(urlString);
                 entries = xmlParser.parse(stream);
-                Log.d(TAG, "Entries: " + entries.size());
-                Log.d(TAG, "Streamed and parsed");
             // Makes sure that the InputStream is closed after the app is
             // finished using it.
             } finally {
                 if (stream != null) {
                     stream.close();
-                    Log.d(TAG, "Closed the stream");
                 }
             }
 
@@ -280,7 +270,6 @@ public class MovieActivity extends AppCompatActivity {
             conn.setDoInput(true);
             // Starts the query
             conn.connect();
-            Log.d(TAG, "conn.connect says: No adapter attached; skipping layout");
             return conn.getInputStream();
         }
     }
@@ -316,8 +305,6 @@ public class MovieActivity extends AppCompatActivity {
          */
         @Override
         protected void onPostExecute(String result) {
-            Log.d(TAG, "Coming soon: " + coming.size());
-
             ArrayList<Event> array = new ArrayList<>(coming);
             comingBundle = new Bundle();
             comingBundle.putParcelableArrayList("comingArray", array);
@@ -343,13 +330,11 @@ public class MovieActivity extends AppCompatActivity {
             try {
                 stream = downloadUrl(urlString);
                 coming = xmlParser.parse(stream);
-                Log.d(TAG, "Streamed and parsed");
             // Makes sure that the InputStream is closed after the app is
             // finished using it.
             } finally {
                 if (stream != null) {
                     stream.close();
-                    Log.d(TAG, "Closed the stream");
                 }
             }
 
@@ -373,7 +358,6 @@ public class MovieActivity extends AppCompatActivity {
             conn.setDoInput(true);
             // Starts the query
             conn.connect();
-            Log.d(TAG, "conn.connect says: No adapter attached; skipping layout");
             return conn.getInputStream();
         }
     }

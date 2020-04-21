@@ -2,7 +2,6 @@ package com.tamk.moviet;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.google.android.material.tabs.TabLayout;
@@ -157,7 +156,6 @@ public class PersonalActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.stats) {
-            Log.d("PersonalActivity", "stats was clicked");
             Intent i = new Intent(this, StatisticsActivity.class);
             i.putExtras(ratingBundle);
             startActivity(i);

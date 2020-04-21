@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,8 +67,6 @@ public class StatisticsActivity extends AppCompatActivity {
         if (totalInSeen == 0) {
             instructions.setVisibility(View.VISIBLE);
         }
-
-        Log.d(TAG, "Bundle: " + ratings.size());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -154,7 +151,6 @@ public class StatisticsActivity extends AppCompatActivity {
     private void sortRatings() {
         for (Object rating : ratings) {
             int intRating = (int) rating;
-            Log.d(TAG, "Rating: " + rating); // 0 - 5
             switch (intRating) {
                 case 0:
                     noRating ++;
@@ -218,7 +214,6 @@ public class StatisticsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.info) {
-            Log.d(TAG, "info was clicked");
             showAlert();
             return true;
         }

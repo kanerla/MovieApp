@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         Locale primaryLocale = getApplicationContext().getResources().getConfiguration().getLocales().get(0);
         String locale = primaryLocale.getDisplayName();
-        Log.d(TAG, locale);
     }
 
     /**
@@ -61,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, MovieActivity.class);
             startActivity(i);
         } else {
-            Log.d(TAG, "Not connected to the internet");
             Toast toast = Toast.makeText(getApplicationContext(),
                     R.string.connect,
                     Toast.LENGTH_SHORT);

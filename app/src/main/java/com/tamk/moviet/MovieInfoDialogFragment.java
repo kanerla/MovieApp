@@ -3,7 +3,6 @@ package com.tamk.moviet;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,7 +106,6 @@ public class MovieInfoDialogFragment extends DialogFragment {
         watchList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Watch button was clicked");
                 movieViewModel.insert(thisEvent);
             }
         });
@@ -115,7 +113,6 @@ public class MovieInfoDialogFragment extends DialogFragment {
         seenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Seen button was clicked");
                 movieViewModel.insert(thisEvent);
                 thisEvent.setSeen(true);
             }
