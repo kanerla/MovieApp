@@ -1,6 +1,0 @@
-
-X	java:S125Y"<This block of commented-out lines of code should be removed.(Â¯–£8¡Ë›™.
-i
-java:S1301ˆ"KReplace this "switch" statement by "if" statements to increase readability.(öˆö8ÕÊò˜.
-{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ƒ×§øúÿÿÿÿ8ÕÊò˜.
-?	java:S131ˆ""Add a default case to this switch.(öˆö8ÕÊò˜.
